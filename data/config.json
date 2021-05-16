@@ -1,0 +1,36 @@
+{
+	"voiceChatVariants": [
+		{
+			"name": "Menu/Neutre",
+			"key" : "menu"
+		}, 
+		{
+			"name": "Halo CE / CEA",
+			"key" : "ce"
+		},
+		{
+			"name": "Halo 2",
+			"key" : "h2"
+		},
+		{
+			"name": "H2A Multiplayer",
+			"key" : "h2a"
+		},
+		{
+			"name": "Halo 3",
+			"key" : "h3"
+		},
+		{
+			"name": "Halo 3: ODST",
+			"key" : "odst"
+		},
+		{
+			"name": "Halo: Reach",
+			"key" : "reach"
+		},
+		{
+			"name": "Halo 5 Guardians",
+			"key" : "h5"
+		}
+	]
+}

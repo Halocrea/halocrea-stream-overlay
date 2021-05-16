@@ -1,0 +1,78 @@
+@import '~assets/styles/global/variables';
+
+.c-custom-select {
+    z-index     : 1;
+    overflow    : hidden;
+	box-shadow  : 0 0 0 .1rem rgba(255, 255, 255, .15) inset;
+	transition  : background-color .15s linear .5s;
+
+    &:hover  { box-shadow: 0 0 0 .1rem rgba(255, 255, 255, .5 ); }
+    &:focus  { box-shadow: 0 0 0 .1rem rgba(255, 255, 255, .75); }
+    &:active { box-shadow: 0 0 0 .1rem #fff; }
+
+    &:not(.c-custom-select--open) > .c-custom-select__item:not(.c-custom-select__item--selected) {
+        opacity     : 0;
+        height      : 0;
+		transition  : opacity .15S linear,
+		              height  .25s $transition-easing .15s;
+    }
+
+    &--open {
+        z-index         : 10;
+        overflow        : unset;      
+        background-color: var(--color-base-1);
+        box-shadow      : 0 0 0 .1rem #fff inset,
+                          $subtle-box-shadow; 
+                          
+        transition      : unset;
+    }
+
+    &__caret {
+        position        : absolute;
+        z-index         : 2;
+        top             : 0;
+        right           : .6rem;
+        line-height     : 4rem;
+		transition      : transform .15s linear;
+    }
+
+    &--open .c-custom-select__caret {
+        transform: scale(-1);
+    }
+
+    &__item {
+        position        : relative;
+        z-index         : 1;
+        height          : 4rem;
+		color           : var(--font-color-base);
+        line-height     : 4rem;
+        text-align      : left;
+        background-color: transparent;
+        border          : none;
+        cursor          : pointer;
+        transition      : opacity .15S linear .25s,
+                          height  .25s $transition-easing;
+		white-space     : nowrap;
+		word-break      : keep-all;
+		overflow        : hidden;
+		text-overflow   : ellipsis;
+        &:hover {
+            background-color: var(--color-base);
+        }
+    }
+    
+    &__wrapper {
+        position: relative;
+        height  : 4rem;
+        & > * {
+            position    : absolute;
+            top         : 0; 
+            left        : 0;
+            width       : 100%;
+        }
+    }
+
+	button {
+		outline: 0;
+	}
+}

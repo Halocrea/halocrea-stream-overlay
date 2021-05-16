@@ -1,0 +1,77 @@
+@import 'functions';
+
+// generates utility classes such as :
+// u-p-md => "padding: 1.2rem"
+// u-pl-lg@md-up => "@media (min-width: 64em) { padding-left: 2.4rem }"
+// for both margin and padding
+// generates for all breakpoints "@<breakpoint>", "@<breakpoint>-up" and "@<breakpoint>-down variants
+// bases are: u-m-n u-m-xs u-m-sm u-m-md u-m-lg
+//            u-p-n u-p-xs u-p-sp u-p-md u-p-lg
+// then you've got u-mt, u-mr, u-mb, u-ml
+// reminder, breakpoints are @xs, @xs-up, @sm-down, @sm, @sm-up, @md-down, @md, @md-up, @lg-down, @lg, @lg-up
+@mixin spacing($modifier: null) {
+    @if $modifier {
+        $modifier: "\\@#{$modifier}";
+    }
+
+    @each $key, $value in $spacers {
+        .u-m-#{$key}#{$modifier} {  margin : rem($value); }
+        .u-p-#{$key}#{$modifier} {  padding: rem($value); }
+
+        .u-mt-#{$key}#{$modifier} { margin-top      : rem($value); }
+        .u-pt-#{$key}#{$modifier} { padding-top     : rem($value); }
+        .u-mr-#{$key}#{$modifier} { margin-right    : rem($value); }
+        .u-pr-#{$key}#{$modifier} { padding-right   : rem($value); }
+        .u-mb-#{$key}#{$modifier} { margin-bottom   : rem($value); }
+        .u-pb-#{$key}#{$modifier} { padding-bottom  : rem($value); }
+        .u-ml-#{$key}#{$modifier} { margin-left     : rem($value); }
+        .u-pl-#{$key}#{$modifier} { padding-left    : rem($value); }
+        
+        .u-mx-#{$key}#{$modifier} {
+            margin-left     : rem($value);
+            margin-right    : rem($value);
+        }
+        .u-px-#{$key}#{$modifier} {
+            padding-left    : rem($value);
+            padding-right   : rem($value);
+        }
+        .u-my-#{$key}#{$modifier} {
+            margin-top      : rem($value);
+            margin-bottom   : rem($value);
+        }
+        .u-py-#{$key}#{$modifier} {
+            padding-top     : rem($value);
+            padding-bottom  : rem($value);
+        }
+    }
+}
+
+@include spacing();
+
+$bp-name-up    : null;
+$bp-value-up   : null;
+$bp-context    : $baseline;
+
+@each $bp-name, $bp-value in $breakpoints {
+    @media (min-width: $bp-value + em(1px, $bp-context)) {
+        @include spacing("#{$bp-name}-up");
+    }
+    @media (max-width: $bp-value - em(1px, $bp-context)) {
+        @include spacing("#{$bp-name}-down");
+    }
+
+    @if index($breakpoints, ($bp-name $bp-value)) != 1 {
+        @media (min-width: $bp-value + em(1px, $bp-context)) and (max-width: $bp-value-up) {
+            @include spacing($bp-name-up);
+        }
+    }
+
+    @if index($breakpoints, ($bp-name $bp-value)) == length($breakpoints) {
+        @media (max-width: $bp-value) {
+            @include spacing($bp-name);
+        }
+    }
+
+    $bp-name-up    : $bp-name;
+    $bp-value-up   : $bp-value;
+}

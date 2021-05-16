@@ -1,0 +1,46 @@
+@import '~assets/styles/global/variables';
+
+.o-overlay {
+    position: fixed;
+    top     : 0;
+    left    : 0; 
+    z-index : 11;
+    opacity : 0;
+
+    background-color: rgba(0, 0, 0, .2);
+    transition      : opacity .15s linear; 
+
+    &--active {
+        width   : 100%;
+        height  : 100%;
+        opacity : 1;
+    }
+}
+
+.o-bordered {
+	border: .1rem solid var(--font-color-base);
+}
+
+.o-frostglass {
+	// backdrop-filter: blur(20px);
+	background-color: rgba(0, 0, 0, .3);
+	backdrop-filter : blur(3rem);
+	box-shadow      : $subtle-box-shadow;
+}
+
+.o-link {
+	color : var(--color-accent);
+
+	&:hover {
+		cursor: pointer;
+		color: var(--color-accent-inverted);
+	}
+}
+
+.u-text-red {
+	color: var(--color-red)
+}
+
+.u-w-100 {
+	width: 100%;
+}

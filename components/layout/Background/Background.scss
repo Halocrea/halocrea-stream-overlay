@@ -1,0 +1,58 @@
+@import '~assets/styles/global/variables';
+
+.c-bg-image {
+	position        : fixed;
+	top             : 0; 
+	left            : 0;
+	display         : block;
+	width           : 100vw; 
+	height          : 100vh;
+	background-color: var(--color-base-3); 
+
+    &__inner {
+        content         : "";
+        position        : fixed;
+        top             : 0; 
+        left            : 0;
+        display         : block;
+        width           : 100vw; 
+        height          : 100vh;
+        background-color: var(--color-base-3); 
+        z-index         : 0;
+
+        & > * {
+            position: relative;
+            width   : 100%;
+            height  : 100%; 
+            background-attachment: fixed;
+            background-position  : center;
+            background-size      : cover;
+            -webkit-animation    : bg-movement 10s alternate ease-in-out infinite;
+            -moz-animation       : none;
+        }
+    }
+
+    &--discrete {
+        opacity : .75;
+    }
+
+    &--transition {
+        &-enter-active,
+        &-leave-active {
+            transition: opacity 1.5s linear;
+        }
+
+        &-enter, 
+        &-leave-to  { opacity : 0 !important;  }
+    }
+}
+
+@keyframes bg-movement {
+    0% {
+        transform: scale(1.3) translate3d(-1rem, 0, 0);
+    }
+
+    100% {
+        transform: scale(1.3) translate3d(1rem, 0, 0);
+    }
+}

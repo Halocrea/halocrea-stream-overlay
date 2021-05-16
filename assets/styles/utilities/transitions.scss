@@ -1,0 +1,58 @@
+@import './../global/variables';
+
+.u-transition {
+	&--lateral,
+	&--vertical {
+		&-enter-active,
+		&-leave-active {
+			transition: opacity .2s linear, 
+						transform .2s $transition-easing;
+		}
+		&-enter     { opacity : 0; }
+		&-leave-to  { opacity : 0;  }
+	}
+
+	&--lateral {
+		&-enter     { transform: translate3d(1rem, 0, 0);  }
+		&-leave-to  { transform: translate3d(-1rem, 0, 0); }
+	}
+
+	&--fade {
+		&-enter-active,
+		&-leave-active {
+			transition: opacity .15s linear;
+		}
+		&-enter, 
+		&-leave-to  { opacity : 0 !important;  }
+	}
+
+	&--vertical {
+		&-enter     { transform: translate3d(0, -1rem, 0); }
+		&-leave-to  { transform: translate3d(0, 1rem, 0); }
+	}
+
+	&--zoom {
+		&-enter-active,
+			&-leave-active {
+				transition: opacity   .15s linear, 
+							transform .15s $transition-easing; 
+			}
+
+			&-enter-active {
+				transition-delay: .05s, .05s; 
+			}
+			
+			&-enter, 
+			&-leave-to  { 
+				opacity : 0; 
+			}
+			
+			&-enter {
+				transform: scale(.95);
+			}
+			
+			&-leave-to {
+				transform: scale(1.05);
+			}
+	}
+}

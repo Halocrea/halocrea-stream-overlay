@@ -1,0 +1,47 @@
+@import 'functions';
+
+// generates utility classes such as :
+// u-hidden@md-down => "display: none !important" for any resolution smaller than the MD breakpoint
+// generates for all breakpoints "@<breakpoint>", "@<breakpoint>-up" and "@<breakpoint>-down variants
+@mixin hide($modifier: null) {
+    @if $modifier {
+        $modifier: "\\@#{$modifier}";
+    }
+
+    .u-hidden#{$modifier} { display: none !important; }
+    .u-visually-hidden#{$modifier} { visibility: hidden; position: fixed; top: -100%; left: -100%; }
+}
+
+@include hide();
+
+$bp-name-up    : null;
+$bp-value-up   : null;
+$bp-context    : $baseline;
+
+@each $bp-name, $bp-value in $breakpoints {
+    @media (min-width: $bp-value + em(1px, $bp-context)) {
+        @include hide("#{$bp-name}-up");
+    }
+    @media (max-width: $bp-value - em(1px, $bp-context)) {
+        @include hide("#{$bp-name}-down");
+    }
+
+    @if index($breakpoints, ($bp-name $bp-value)) != 1 {
+        @media (min-width: $bp-value + em(1px, $bp-context)) and (max-width: $bp-value-up) {
+            @include hide($bp-name-up);
+        }
+    }
+
+    @if index($breakpoints, ($bp-name $bp-value)) == length($breakpoints) {
+        @media (max-width: $bp-value) {
+            @include hide($bp-name);
+        }
+    }
+
+    $bp-name-up    : $bp-name;
+    $bp-value-up   : $bp-value;
+}
+
+.u-hide-scroll {
+    overflow: hidden !important;
+}
