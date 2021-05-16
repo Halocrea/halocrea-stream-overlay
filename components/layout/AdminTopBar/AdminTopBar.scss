@@ -1,0 +1,43 @@
+@import "~assets/styles/global/variables";
+
+.c-admin-topbar {
+	position        : relative;
+	width           : 100vw;
+	background-color: rgba(0, 0, 0, .33);
+	backdrop-filter : blur(3rem);
+	box-shadow      : $subtle-box-shadow;
+
+	&__toggle {
+		display: none;
+	}
+}
+
+@media (max-width: 960px) {
+	.c-admin-topbar {
+		.c-user-display-config {
+			flex-flow       : column;
+			position        : fixed;
+			top             : 6rem;
+			left            : 0;
+			height          : calc(100vh - 6rem);
+			padding         : 6rem 2.4rem 0 2.4rem;
+			background-color: rgba(0, 0, 0, .75);
+			transform       : translate3d(-100%, 0, 0);
+			transition      : transform .25s $transition-easing;
+			backdrop-filter : blur(3rem);
+			box-shadow      : $subtle-box-shadow;
+
+			&--open {
+				transform: unset;
+			}
+
+			& > * {
+				padding: 1.8rem 0;
+			}
+		}
+
+		&__toggle {
+			display: block;
+		}
+	}
+}

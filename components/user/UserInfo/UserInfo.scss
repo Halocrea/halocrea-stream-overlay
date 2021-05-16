@@ -1,0 +1,79 @@
+@import "~assets/styles/global/variables";
+
+.c-user-info {
+	position: relative;
+
+	&__avatar {
+		width        : 4rem;
+		height       : 4rem;
+		border-radius: 2rem;
+	}
+
+	&__chevron {
+		transition: transform .25s linear;
+	}
+
+	&__menu {
+		position        : absolute;
+		top             : calc(100% + 2rem);
+		right           : 0;
+		background-color: rgba(0, 0, 0, .33);
+		opacity         : 0;
+		transform       : translate3d(0, -4rem, 0);
+		pointer-events  : none;
+		backdrop-filter : blur(3rem);
+		box-shadow      : $subtle-box-shadow;
+		transition      : opacity   .33s linear,
+		                  transform .33s $transition-easing;
+
+		&::after {
+			content            : "";
+			position           : absolute;
+			bottom             : calc(100% - 1rem);
+			left               : 50%;
+			width              : 0;
+			height             : 0;
+			border             : solid transparent;
+			border-color       : transparent;
+			pointer-events     : none;
+			border-width       : 1rem;
+			margin-left        : -1rem;
+			transition         : bottom .25s $transition-easing;
+			border-bottom-color: rgba(0, 0, 0, .25);
+		}
+
+		& > * {
+			margin-top: -4rem;
+			opacity   : 0;
+			transition: margin-top .25s $transition-easing,
+						opacity    .25s linear;
+		}
+	}
+
+	&--open {
+		.c-user-info__chevron {
+			transform: scale(-1); 
+		}
+
+		.c-user-info__menu {
+			opacity       : 1;
+			pointer-events: all;
+			transform     : unset;
+
+			&::after {
+				bottom          : 100%;
+				transition-delay: .15s;
+			}
+
+			& > * {
+				margin-top : unset;
+				opacity    : 1;
+				@for $i from 1 to 3 {
+					&:nth-child(1n + #{$i}) {
+						transition-delay: (($i - 1) * .1) + .01s; 
+					}
+				}
+			}
+		}
+	}
+}

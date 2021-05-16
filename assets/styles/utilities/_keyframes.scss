@@ -1,0 +1,34 @@
+
+@keyframes flicker {
+	from { opacity: 1;     }
+	  4% { opacity:  .9;   }
+	  6% { opacity:  .85;  }
+	  8% { opacity:  .95;  }
+	 10% { opacity:  .90;  }
+	 11% { opacity:  .922; }
+	 12% { opacity:  .9;   }
+	 14% { opacity:  .95;  }
+	 16% { opacity:  .98;  }
+	 17% { opacity:  .9;   }
+	 19% { opacity:  .93;  }
+	 20% { opacity:  .99;  }
+	 24% { opacity: 1;     }
+	 26% { opacity:  .94;  }
+	 28% { opacity:  .98;  }
+	 37% { opacity:  .93;  }
+	 38% { opacity:  .5;   }
+	 39% { opacity:  .96;  }
+	 42% { opacity: 1;     }
+	 44% { opacity:  .97;  }
+	 46% { opacity:  .94;  }
+	 56% { opacity:   .9;  }
+	 58% { opacity:   .9;  }
+	 60% { opacity:  .99;  }
+	 68% { opacity: 1;     }
+	 70% { opacity:  .9;   }
+	 72% { opacity:  .95;  }
+	 93% { opacity:  .93;  }
+	 95% { opacity:  .95;  }
+	 97% { opacity:  .93;  }
+	  to { opacity: 1;     }
+}

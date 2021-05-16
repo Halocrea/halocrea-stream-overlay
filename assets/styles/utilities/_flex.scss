@@ -1,0 +1,72 @@
+@import 'functions';
+
+@mixin flex($modifier: null) {
+    @if $modifier {
+        $modifier: "\\@#{$modifier}";
+    }
+
+    .u-flex#{$modifier} { display: flex; }
+        
+    .u-flex-column#{$modifier} { flex-direction: column; }
+    .u-flex-column-reverse#{$modifier} { flex-direction: column-reverse; }
+    
+    .u-flex-main-around#{$modifier}  { justify-content: space-around; }
+    .u-flex-main-between#{$modifier} { justify-content: space-between; }
+    .u-flex-main-center#{$modifier}  { justify-content: center; }
+    .u-flex-main-end#{$modifier}     { justify-content: flex-end; }
+    .u-flex-main-start#{$modifier}   { justify-content: flex-start; }
+    .u-flex-main-stretch#{$modifier} { justify-content: stretch; }
+	.u-flex-main-normal#{$modifier}  { justify-content: normal; }
+    
+    .u-flex-cross-baseline#{$modifier}  { align-items: baseline; }
+    .u-flex-cross-center#{$modifier}    { align-items: center; }
+    .u-flex-cross-end#{$modifier}       { align-items: flex-end; }
+    .u-flex-cross-start#{$modifier}     { align-items: flex-start; }
+    .u-flex-cross-stretch#{$modifier}   { align-items: stretch; }
+
+    .u-flex-reverse#{$modifier} { flex-direction: row-reverse;  }
+    
+    .u-flex-wrap#{$modifier} { flex-wrap: wrap; }
+    
+    .u-flex-reverse#{$modifier} { flex-wrap: wrap-reverse; }
+    
+    .u-flex__item-fluid#{$modifier} { flex-grow: 1; }
+    .u-flex__item-none#{$modifier} {  flex: none; } 
+
+    @for $i from 1 through 12 {
+        .u-flex__item-#{$i}#{$modifier} {
+            flex    : none;
+            width   : ($i/12 * 100) + 0%; 
+        }
+    }
+}
+
+@include flex();
+
+$bp-name-up    : null;
+$bp-value-up   : null;
+$bp-context    : $baseline;
+
+@each $bp-name, $bp-value in $breakpoints {
+    @media (min-width: $bp-value + em(1px, $bp-context)) {
+        @include flex("#{$bp-name}-up");
+    }
+    @media (max-width: $bp-value - em(1px, $bp-context)) {
+        @include flex("#{$bp-name}-down");
+    }
+
+    @if index($breakpoints, ($bp-name $bp-value)) != 1 {
+        @media (min-width: $bp-value + em(1px, $bp-context)) and (max-width: $bp-value-up) {
+            @include flex($bp-name-up);
+        }
+    }
+
+    @if index($breakpoints, ($bp-name $bp-value)) == length($breakpoints) {
+        @media (max-width: $bp-value) {
+            @include flex($bp-name);
+        }
+    }
+
+    $bp-name-up    : $bp-name;
+    $bp-value-up   : $bp-value;
+}

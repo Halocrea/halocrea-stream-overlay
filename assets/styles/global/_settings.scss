@@ -1,0 +1,99 @@
+html { 
+    font-size: 62.5%; 
+}
+
+html, body {
+    margin: 0; padding: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    width       : auto;
+    height      : auto;
+    min-width   : 100vw;
+    min-height  : 100vh;
+    overflow-x  : hidden;
+    overflow-y  : auto;
+
+    background-color: transparent;
+
+    color           : var(--font-color-base);
+    line-height     : 1.5;
+    font-family     : var(--font-family);
+    font-size       : var(--font-size-base);
+
+	&.hide-overflow {
+		overflow: hidden;
+	}
+}
+
+h1 { font-size: 5.2rem; }
+h2 { font-size: 3.6rem; }
+h3 { font-size: 2.4rem; }
+h4 { font-size: 2rem; }
+h5 { font-size: 1.6rem; }
+
+h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin-top      : 0;
+    margin-bottom   : 0;
+}
+
+:root {
+    --font-color-base       : #fff; 
+    --font-color-inverted   : #212121; 
+    --font-family           : 'IBM Plex Sans', Quicksand,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+    --font-size-base        : 1.6rem;
+    --color-base            : #232323;
+	--color-twitch          : #6441a5;
+
+    --spacing-base          : .3rem;
+
+    //the following are the default values for all the theme-related color variables; they are here as fallbacks in case another theme is incomplete.
+    --color-accent             : #00b159;
+    --color-accent-inverted    : orange; 
+    --color-base-0             : #484848;
+    --color-base-1             : #36393f;
+    --color-base-2             : #2f3136;
+    --color-base-3             : #202225;
+    --color-border-base        : #808080; 
+    --color-green              : #00b159; 
+	--color-orange             : orange;
+    --color-red                : #ff5f57; 
+	--color-blue               : #3497fd;
+    --color-off-base           : #333;
+}
+
+body.theme-light {
+    --font-color-base           : #111; 
+    --font-color-inverted       : #fefefe;
+
+    --color-accent              : #3497fd;
+    --color-accent-inverted     : orange; 
+    --color-base-0              : #fff; 
+    --color-base-1              : #eee;
+    --color-base-2              : #fff;
+    --color-base-3              : #eee;
+    --color-border-base         : #bebebe; 
+    --color-green               : #00b159; 
+    --color-red                 : #ff4136; 
+    --color-off-base            : #efefef;
+}
+
+body.theme-dark {
+    --font-color-base          : #fff; 
+    --font-color-inverted      : #212121; 
+
+    --color-accent             : #3497fd;
+    --color-accent-inverted    : orange; 
+    --color-base-0             : #484848;
+    --color-base-1             : #36393f;
+    --color-base-2             : #2f3136;
+    --color-base-3             : #202225;
+    --color-border-base        : #808080; 
+    --color-green              : #00b159; 
+    --color-red                : #ff5f57; 
+    --color-off-base           : #333;
+}

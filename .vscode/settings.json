@@ -1,0 +1,7 @@
+{
+    "editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"vetur.format.options.tabSize": 4,
+	"vetur.format.options.useTabs": true,
+	"vetur.format.styleInitialIndent": true
+}

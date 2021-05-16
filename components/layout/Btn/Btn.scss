@@ -1,0 +1,128 @@
+@import "~assets/styles/global/variables";
+
+.reach-btn {
+	position  : relative;
+	display   : inline-block;
+	width     : 100%;
+	margin    : 0.3rem 0 0.3rem 0.9rem;
+	padding   : 0.3rem 0.3rem 0.3rem 0.6rem;
+	background: unset;
+	border    : unset;
+	overflow  : hidden;
+	cursor    : pointer;
+	outline   : none;
+	appearance: none;
+	text-align: left;
+	color     : white;
+
+	&--white {
+		color          : white;
+		text-decoration: none;
+	}
+
+	&-wrapper {
+		position   : relative;
+		text-align : left;
+		line-height: 1.8rem;
+	}
+
+	&-wrapper::before,
+	&::after {
+		content   : "";
+		position  : absolute;
+		transition: opacity   .25s linear, 
+		            top       .25s $transition-easing, 
+					width     .25s $transition-easing,
+			        height    .25s $transition-easing, 
+					transform .25s $transition-easing;
+	}
+
+	&-wrapper::before {
+		top             : 50%;
+		left            : 0;
+		width           : 0;
+		height          : 0;
+		opacity         : .8;
+		background-color: #3497fd;
+		box-shadow      : $subtle-box-shadow;
+	}
+	&::after {
+		top             : 0;
+		left            : 0;
+		width           : 80rem;
+		height          : 80rem;
+		background      : linear-gradient(90deg, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+		border-radius   : 20rem;
+		transform-origin: center left;
+		transform       : scale(0) translate3d(-50%, -50%, 0);
+		opacity         : 1;
+		transition      : opacity   .25s linear, 
+		                  transform .25s $transition-easing;
+	}
+	&-wrapper:hover::before,
+	&-wrapper.active::before {
+		top       : 0.3rem;
+		width     : 0.6rem;
+		height    : calc(100% - 1rem);
+		transition: top    .5s  $transition-easing,
+		            width  .25s $transition-easing, 
+					height .5s  $transition-easing;
+	}
+	&-wrapper.cantdo:hover::before {
+		background-color: #f00;
+	}
+
+	&:hover,
+	&-wrapper.active .reach-btn {
+		text-decoration: none;
+
+		&::after {
+			opacity  : .15;
+			transform: scale(1) translate3d(-50%, -50%, 0);
+		}
+	}
+
+	&.clicked {
+		animation: blipping 0.75s $transition-easing 1;
+	}
+
+	&:disabled {
+		cursor : not-allowed;
+		opacity: .5;
+
+		&::after {
+			display: none !important;
+		}
+	}
+
+	& > * {
+		position: relative;
+		z-index : 2;
+	}
+}
+button.reach-btn {
+	margin: 0.3rem 0 0.7rem 0.9rem;
+}
+
+@keyframes blipping {
+	0%,
+	20%,
+	90% {
+		background-color: transparent;
+		transform       : scale(1);
+	}
+	15% {
+		transform: scale(0.99);
+	}
+	5%,
+	25% {
+		background: rgba(255, 255, 255, 0.5);
+	}
+	27% {
+		transform: scale(1);
+	}
+	20%,
+	30% {
+		background: linear-gradient(to right, rgba(52, 151, 253, 1) 0%, rgba(52, 151, 253, 0.33) 100%);
+	}
+}

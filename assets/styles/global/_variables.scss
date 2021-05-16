@@ -1,0 +1,38 @@
+
+// baseline
+$baseline: 12 !default;
+
+// spacers
+$spacers: () !default;
+$spacers: map-merge((
+    n   : 0,
+    xs  : $baseline / 4, 
+    sm  : $baseline / 2,
+    md  : $baseline,
+    lg  : $baseline * 2
+), $spacers);
+
+// breakpoints => from the biggest to the smallest
+$breakpoints: (
+    lg  : 80em,     // 1280px when 1rem = 10px
+    md  : 64em,     // 1024px when 1rem = 10px
+    sm  : 48em,     //  768px when 1rem = 10px
+    xs  : 35.5em    //  568px when 1rem = 10px
+) !default;
+
+// transition easing
+$transition-bounce              : cubic-bezier(.64,.57,.67,1.53);
+$transition-easing              : cubic-bezier(.17,.67,.16,.99);
+
+// shadow
+$subtle-box-shadow: 0 0 2.5rem rgba(0, 0, 0, .05), 0 2rem 2.5rem rgba(0, 0, 0, .05), 0 .3rem .4rem rgba(0, 0, 0, .05); 
+$font-sizes: () !default;
+
+$font-sizes: map-merge((
+    xs                          : 1rem, 
+    sm                          : 1.2rem,
+    md                          : 1.4rem,
+    lg                          : 1.6rem,
+    xl                          : 2rem, 
+    xxl                         : 2.4rem
+), $font-sizes);
