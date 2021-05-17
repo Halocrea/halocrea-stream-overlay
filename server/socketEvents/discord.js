@@ -1,29 +1,8 @@
-import updateConfig         from '../utils/_configUpdater'
-import { getDiscordClient } from '../discord/discordClient'
+import updateConfig              from '../utils/_configUpdater'
+import { getDiscordClient }      from '../discord/discordClient'
+import { setGuildMemberDetails } from '../utils/_setGuildMemberDetails'
 
 export default function (subs) {
-	const getGuildMemberDetails = (member) => {
-		try {
-			const roleColor = !member.roles.color ? 'ffffff' : member.roles.color.color.toString(16)
-			return {
-				avatarURL  : member.user.avatarURL({ format: 'jpg', dynamic: true, size: 64 }),
-				color      : roleColor,
-				displayName: member.displayName,
-				speaking   : false,
-				userID     : member.id
-			}
-		} catch (err) {
-			console.warn(`in io/SocketController.js#getGuildMemberDetails: ${err.message}`)
-			return {
-				avatarURL  : '',
-				color      : '000000',
-				displayName: member.displayName,
-				speaking   : false,
-				userID     : member.id
-			}
-		}
-	}
-
 	return {
 		// for the bot to join a given voice channel
 		async discordJoinChannel (id) {
@@ -37,7 +16,7 @@ export default function (subs) {
 				voiceChan.members.forEach((m) => {
 					if (m.id === client.user.id) return
 
-					const member = getGuildMemberDetails(m)
+					const member = setGuildMemberDetails(m)
 					members.push(member)
 				})
 

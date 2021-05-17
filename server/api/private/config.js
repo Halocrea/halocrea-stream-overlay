@@ -2,7 +2,7 @@ import cookieParser from 'cookie-parser'
 import express      from 'express'
 import jwt          from 'express-jwt'
 
-import { getUserInfo } from '../utils/_twitchUtils'
+import { getUserInfo } from '../../utils/_twitchUtils'
 
 require('dotenv').config()
 const cors = require('cors')

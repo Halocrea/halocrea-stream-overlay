@@ -1,14 +1,13 @@
-import cookieParser from 'cookie-parser'
-import express      from 'express'
-import jwt          from 'express-jwt'
+import cookieParser       from 'cookie-parser'
+import express            from 'express'
+import jwt                from 'express-jwt'
 
-import { getDiscordClient } from '../discord/discordClient'
+import { getDiscordClient }  from '../../discord/discordClient'
 
 require('dotenv').config()
-const cors = require('cors')
 
-// Create app
-const app = express()
+const cors = require('cors')
+const app  = express()
 
 // Install middleware
 app.use(cookieParser())
@@ -39,8 +38,6 @@ app.get('/channels', cors(), async (req, res) => {
 })
 
 // to fetch the info of a specific Discord channel
-// this should be used only in very specific cases
-// such as the bot joined a channel that was just created and is not in Discord API's cache yet
 app.get('/channel/:id', cors(), async ({ params }, res) => {
 	const discordClient = getDiscordClient()
 	const guild         = await discordClient.guilds.fetch(process.env.DISCORD_GUILD)

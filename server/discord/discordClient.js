@@ -1,6 +1,7 @@
-import { Client }   from 'discord.js'
-import { subs }     from '../io'
-import updateConfig from '../utils/_configUpdater'
+import { Client }                from 'discord.js'
+import { subs }                  from '../io'
+import updateConfig              from '../utils/_configUpdater'
+import { setGuildMemberDetails } from '../utils/_setGuildMemberDetails'
 
 process.DISCORD_CLIENT = null
 
@@ -12,11 +13,6 @@ export function getDiscordClient () {
 }
 
 export default function (client) {
-	let guild
-	client.on('ready', async () => {
-		guild = await client.guilds.fetch(process.env.DISCORD_GUILD)
-	})
-
 	// Whenever a channel is created, if it's a voice chan, we need to update the channels list
 	client.on('channelCreate', ({ id, members, name, type }) => {
 		if (type !== 'voice') return
@@ -35,17 +31,18 @@ export default function (client) {
 		subs.forEach(s => s.emit('discordVoiceChanUpdated', { id, name }))
 	})
 
-	// Whenever someone joins or leave
+	// Whenever someone joins or leave a voice channel
 	client.on('voiceStateUpdate', async (oldState, newState) => {
 		if (newState.channelID) { // joins
 			if (newState.id === client.user.id) {
 				const config = await updateConfig('discordBotChannel', newState.id)
 				subs.forEach(s => s.emit('configUpdated', config))
 			}
+			const guild  = await client.guilds.fetch(process.env.DISCORD_GUILD)
 			const member = await guild.members.fetch(newState.id)
 			subs.forEach(s => s.emit('discordUserJoined', {
 				id: newState.channelID,
-				member
+				member: setGuildMemberDetails(member)
 			}))
 		} else { // leave
 			if (oldState.id === client.user.id) {

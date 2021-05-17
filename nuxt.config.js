@@ -93,6 +93,8 @@ export default {
 				mutations: [
 					'configStreamStatusChanged --> config/setStreamStatus',
 					'configUpdated --> config/setConfig',
+					'discordBotJoinedChannel --> discord/setInfos',
+					'discordBotLeftChannel --> discord/clearInfos,',
 					'twitchNewFollower --> twitch/setLatestFollower',
 					'twitchNewSubscriber --> twitch/setLatestSubscriber'
 				]
@@ -118,16 +120,18 @@ export default {
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
 	plugins: [
-		'~/plugins/flex'
+		'~/plugins/flex',
+		{ src: '~/plugins/discord-store-watcher', mode: 'client' }
 	],
 
 	serverMiddleware: [
-		'~/server/api/auth',
-		'~/server/api/private-config',
-		'~/server/api/private-discord',
-		'~/server/api/private-twitch',
-		'~/server/api/public-config',
-		'~/server/api/public-twitch',
-		'~/server/api/twitch-oauth2'
+		'~/server/api/public/auth',
+		'~/server/api/private/config',
+		'~/server/api/private/discord',
+		'~/server/api/private/twitch',
+		'~/server/api/public/config',
+		'~/server/api/public/discord',
+		'~/server/api/public/twitch',
+		'~/server/api/public/twitch-oauth2'
 	]
 }

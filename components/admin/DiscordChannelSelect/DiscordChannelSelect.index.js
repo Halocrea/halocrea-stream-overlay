@@ -42,7 +42,6 @@ export default {
 		discordBotChannel: {
 			immediate: true,
 			async handler (val) {
-				console.log(val)
 				if (val && !this.channels.find(c => c.id === val)) {
 					// we fetch the info of a specific Discord channel
 					// this should be used only in very specific cases

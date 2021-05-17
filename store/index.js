@@ -23,13 +23,22 @@ export const actions = {
 			console.warn(e)
 		}
 
-		// // we retrieve if possible the latest follower and subscriber
+		// we retrieve if possible the latest follower and subscriber
 		try {
 			const latestResult = await $axios.get('/api/private-twitch/latest-follow-sub')
 			if (latestResult.data.follower)
 				commit('twitch/setLatestFollower', latestResult.data.follower)
 			if (latestResult.data.subscriber)
 				commit('twitch/setLatestSubscriber', latestResult.data.subscriber)
+		} catch (e) {
+			console.warn(e)
+		}
+
+		// fetching the infos about the current voice channel (if any)
+		try {
+			const voiceChatInfos = await $axios.get('/api/public-discord/voice-info')
+			if (voiceChatInfos.data && voiceChatInfos.data.data)
+				commit('discord/setInfos', voiceChatInfos.data.data)
 		} catch (e) {
 			console.warn(e)
 		}
