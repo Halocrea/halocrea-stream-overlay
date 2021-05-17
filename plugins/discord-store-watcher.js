@@ -61,6 +61,21 @@ const watchDiscordEvents = ({ $root, store, $axios }) => {
 			store.commit('discord/clearInfos')
 		}
 	})
+
+	$root.mainSocket.on('discordSpeaking', ({ userID, state }) => {
+		const botChannelInfos = store.state.discord.infos
+		if (!botChannelInfos.members) return // if for whatever reason we're not synced yet
+
+		const tmpMembers = JSON.parse(JSON.stringify(botChannelInfos.members)) // deepcopy
+		const idx        = tmpMembers.findIndex(m => m.userID === userID)
+		if (idx >= 0) {
+			tmpMembers[idx].speaking = state > 0
+			store.commit('discord/setInfos', {
+				channel: botChannelInfos.channel,
+				members: tmpMembers
+			})
+		}
+	})
 }
 
 export default function ({ store, app: { $axios } }) {

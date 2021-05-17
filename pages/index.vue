@@ -8,6 +8,15 @@
 				</p>
 			</transition>
 			<discord-channel-select />
+			<transition name="u-transition--vertical" mode="out-in">
+				<div
+					v-if="discordBotChannel"
+					class="u-mt-lg"
+				>
+					<h4>Currently in channel: </h4>
+					<discord-channel-members class="u-mt-md" />
+				</div>
+			</transition>
 		</div>
 		<div class="o-frostglass u-flex__item-fluid u-p-lg u-m-md">
 			<latest-follow-sub />

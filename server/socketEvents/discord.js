@@ -10,7 +10,18 @@ export default function (subs) {
 				const client    = getDiscordClient()
 				const guild     = await client.guilds.cache.get(process.env.DISCORD_GUILD)
 				const voiceChan = await guild.channels.cache.get(id)
-				await voiceChan.join()
+				await voiceChan.join() // joining the voice chat
+
+				// Apparently, the bot must emit a sound for the "speaking" event to work
+				const conn = client.voice.connections.first()
+				conn.on('speaking', (user, speaking) => {
+					if (!user) return // failsafe
+
+					subs.forEach(s => s.emit('discordSpeaking', {
+						userID: user.id,
+						state : speaking.bitfield
+					}))
+				})
 
 				const members = []
 				voiceChan.members.forEach((m) => {

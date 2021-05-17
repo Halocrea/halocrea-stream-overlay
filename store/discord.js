@@ -3,7 +3,8 @@ export const state = () => ({
 })
 
 export const getters = {
-	infos: state => state.infos
+	infos  : state => state.infos,
+	members: state => state.infos && state.infos.members ? state.infos.members : []
 }
 
 export const mutations = {

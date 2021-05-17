@@ -19,7 +19,11 @@ app.get('/voice-info', cors(), async (req, res) => {
 	const discordClient = getDiscordClient()
 	const guild         = await discordClient.guilds.fetch(process.env.DISCORD_GUILD)
 	const channel       = guild.channels.cache.get(config.discordBotChannel)
+
 	const members       = []
+	if (!channel || !channel.members) // sometimes channel is undefined for a reason I don't know
+		return res.status(200).json({ status: 'success', data: {} })
+
 	channel.members.forEach((m) => {
 		if (m.id === discordClient.user.id) return
 
