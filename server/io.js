@@ -15,7 +15,9 @@ export default function (socket, io) {
 	if (socket.handshake.auth.token && socket.handshake.auth.token.includes(' ')) {
 		try {
 			authenticated = jsonwebtoken.verify(socket.handshake.auth.token.split(' ')[1], process.env.JWT_SECRET)
-		} catch (err) {}
+		} catch (err) {
+			console.warn(err)
+		}
 	}
 
 	subs.push(socket)

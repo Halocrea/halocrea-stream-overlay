@@ -1,5 +1,5 @@
 <template>
-	<flex class="u-pt-lg@md-up" wrap="wrap" main="around">
+	<flex class="p-index u-pt-lg@md-up" wrap="wrap" main="around">
 		<flex
 			class="u-flex__item-12@sm-down u-flex__item-6@md u-flex__item-4@md-up"
 			cross="stretch"

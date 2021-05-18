@@ -7,20 +7,25 @@ const app = express()
 app.use(express.json())
 
 app.post('/:code', async ({ params }, res) => {
-	const { data } = await axios.post(
-		`https://id.twitch.tv/oauth2/token?client_id=${
-			process.env.TWITCH_CLIENT_ID
-		}&client_secret=${
-			process.env.TWITCH_CLIENT_SECRET
-		}&code=${
-			params.code
-		}&grant_type=authorization_code&redirect_uri=${
-			process.env.BASE_URL
-		}/oauth2_return`
-	)
+	try {
+		const { data } = await axios.post(
+			`https://id.twitch.tv/oauth2/token?client_id=${
+				process.env.TWITCH_CLIENT_ID
+			}&client_secret=${
+				process.env.TWITCH_CLIENT_SECRET
+			}&code=${
+				params.code
+			}&grant_type=authorization_code&redirect_uri=${
+				process.env.BASE_URL
+			}/oauth2_return`
+		)
 
-	data.expires_in = new Date(new Date().setSeconds(data.expires_in)).toISOString()
-	res.json(data)
+		data.expires_in = new Date(new Date().setSeconds(data.expires_in)).toISOString()
+		res.json(data)
+	} catch (e) {
+		console.warn(e)
+		res.status(500).send(e + '')
+	}
 })
 
 // Error handler

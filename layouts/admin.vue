@@ -85,7 +85,10 @@ export default {
 	height          : 100vh;
 	background-color: var(--color-base-3);
 
-	&__content { flex-grow: 1; }
+	&__content {
+		width: 100%;
+		flex-grow: 1;
+	}
 
 	.c-bg-image { z-index: 0; }
 	& > *:not(.c-bg-image) {

@@ -4,7 +4,7 @@ import ConfirmEnableTwitch   from '~/components/admin/twitch/ConfirmEnableTwitch
 import DiscordChannelMembers from '~/components/admin/discord/DiscordChannelMembers/DiscordChannelMembers.vue'
 import DiscordChannelSelect  from '~/components/admin/discord/DiscordChannelSelect/DiscordChannelSelect.vue'
 import LatestFollowSub       from '~/components/admin/LatestFollowSub/LatestFollowSub.vue'
-import OverlayList           from '~/components/admin/OverlayList/OverlayList.vue'
+import OverlayList           from '~/components/admin/overlay/OverlayList/OverlayList.vue'
 
 export default {
 	components: {

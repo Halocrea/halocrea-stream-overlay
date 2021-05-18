@@ -51,13 +51,17 @@ app.post('/login', async (req, res) => {
 		const tokens = await fs.readFile(tokensFilePath, { encoding: 'utf8' })
 
 		// getting user info like userId (channelId)
-		const { data } = await axios.get('https://id.twitch.tv/oauth2/validate', {
-			headers: { Authorization: `OAuth ${JSON.parse(tokens).access_token}` }
-		})
-		if (openId) {
-			data.preferred_username = openId.preferred_username
-			data.picture            = openId.picture
-			await fs.writeFile(userInfoFilePath, JSON.stringify(data), { encoding: 'utf8' })
+		try {
+			const { data } = await axios.get('https://id.twitch.tv/oauth2/validate', {
+				headers: { Authorization: `OAuth ${JSON.parse(tokens).access_token}` }
+			})
+			if (openId) {
+				data.preferred_username = openId.preferred_username
+				data.picture            = openId.picture
+				await fs.writeFile(userInfoFilePath, JSON.stringify(data), { encoding: 'utf8' })
+			}
+		} catch (e) {
+			console.warn(e)
 		}
 	}
 

@@ -58,6 +58,7 @@ const watchDiscordEvents = ({ $root, store, $axios }) => {
 			if (data.status === 'success' && data.data)
 				store.commit('discord/setInfos', data.data)
 		} catch (e) {
+			console.warn(e)
 			store.commit('discord/clearInfos')
 		}
 	})

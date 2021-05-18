@@ -10,16 +10,21 @@ export default async function () {
 	} catch (e) {
 		// file doesn't exist yet, need to create it
 		await fs.writeFile(userConfigFilePath, JSON.stringify({
-			discordBotStatus        :'disconnected',
-			discordBotChannel       :'',
-			isStreamOn              :false,
-			limitMembersShown       :8,
-			selectedVoiceChatOverlay:'menu',
-			showLatestFollow        :false,
-			showLatestSub           :false,
-			showTwitchAlerts        :false,
-			showVoiceChat           :true,
-			useTwitchFeatures       :false
+			discordBotStatus        : 'disconnected',
+			discordBotChannel       : '',
+			isStreamOn              : false,
+			limitMembersShown       : 8,
+			selectedVoiceChatOverlay: 'menu',
+			showLatestFollow        : false,
+			showLatestSub           : false,
+			showTwitchAlerts        : false,
+			showVoiceChat           : true,
+			useTwitchFeatures       : false,
+			bitsAlerts              : true,
+			followAlerts            : true,
+			hostAlerts              : true,
+			raidAlerts              : true,
+			subAlerts               : true
 		}), { encoding: 'utf8' })
 	}
 

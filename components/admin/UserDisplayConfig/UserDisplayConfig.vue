@@ -15,7 +15,7 @@
 				:disabled="loading || !useTwitchFeatures"
 				@change="e => update('showTwitchAlerts', e.target.checked)"
 			>
-				Sub/Follow alerts
+				Twitch alerts
 			</check-switch>
 		</div>
 		<div class="u-mr-lg" @click="confirmEnable">

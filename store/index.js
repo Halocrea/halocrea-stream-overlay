@@ -25,7 +25,7 @@ export const actions = {
 
 					// just 'pinging' the webhooks endpoint to make sure we do have the proper subscriptions
 					// this doesn't need any confirmation
-					$axios.get('/api/public-twitch/webhooks')
+					await $axios.get('/api/private-twitch/webhooks')
 
 					// we retrieve if possible the latest follower and subscriber
 					const latestResult = await $axios.get('/api/public-twitch/latest-follow-sub')

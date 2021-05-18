@@ -38,18 +38,12 @@ export default {
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {
 		extend (config, ctx) {
-			config.node = {
-				fs : 'empty'
-			}
-
 			if (ctx.isDev)
 				config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
 
 			if (ctx.isClient) {
 				config.node = {
-					fs           : 'empty',
-					net          : 'empty',
-					child_process: 'empty'
+					fs: 'empty'
 				}
 			}
 		}
@@ -71,7 +65,7 @@ export default {
 
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
-		title: 'halocrea-twitch-discord-overlay',
+		title: 'HaloCréa Stream Overlay',
 		htmlAttrs: {
 			lang: 'en'
 		},
