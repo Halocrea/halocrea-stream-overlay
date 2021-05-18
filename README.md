@@ -59,3 +59,6 @@ If you want to run and deploy this app using Docker & Traefik, follow these step
 1. in the `.env` file, provide your domain name with the `DOMAIN_NAME` variable.
 2. `$ docker build . -t halo-stream-overlay`
 3. `$ docker-compose up -d` 
+
+## 6. Credits
+TBD Icyhotspartin for the sound alert and halo kazoo edition as well

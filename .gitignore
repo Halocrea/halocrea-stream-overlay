@@ -90,5 +90,4 @@ sw.*
 *.swp
 
 data/*
-!data/config.json
 !data/.gitkeep
