@@ -122,7 +122,8 @@ export default {
 	plugins: [
 		{ src: '~/plugins/user-config-helper', mode: 'server' },
 		'~/plugins/flex',
-		{ src: '~/plugins/discord-store-watcher', mode: 'client' }
+		{ src: '~/plugins/discord-store-watcher', mode: 'client' },
+		{ src: '~/plugins/no-this-is-not-an-easter-egg-go-away', mode: 'client' }
 	],
 
 	serverMiddleware: [
