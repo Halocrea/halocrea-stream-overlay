@@ -25,7 +25,11 @@
 				direction="column"
 				cross="stretch"
 			>
-				<btn :link="`https://twitch.tv/${username}`" class="u-mr-sm">
+				<btn
+					v-if="useTwitchFeatures"
+					class="u-mr-sm"
+					:link="`https://twitch.tv/${username}`"
+				>
 					<svg-icon
 						name="twitch"
 						class="o-icon o-icon-md u-m-sm"

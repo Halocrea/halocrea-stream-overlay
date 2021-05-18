@@ -1,3 +1,4 @@
+import { mapGetters } from 'vuex'
 import Btn from '~/components/layout/Btn/Btn.vue'
 
 export default {
@@ -15,18 +16,27 @@ export default {
 		}
 	},
 
+	computed: {
+		...mapGetters({
+			useTwitchFeatures: 'config/useTwitchFeatures'
+		})
+	},
+
 	created () {
-		this.loading = true
-		this.$axios.get('/api/private-config/user-info')
-			.then(({ data }) => {
-				this.username  = data.preferred_username
-				this.avatar    = data.picture
-			}).catch((e) => {
-				this.error = true
-				console.warn(e)
-			}).finally(() => {
-				this.loading = false
-			})
+		if (this.useTwitchFeatures) {
+			this.loading = true
+			this.$axios.get('/api/private-config/user-info')
+				.then(({ data }) => {
+					this.username  = data.preferred_username
+					this.avatar    = data.picture
+				}).catch((e) => {
+					this.error = true
+					console.warn(e)
+				}).finally(() => {
+					this.loading = false
+				})
+		} else
+			this.username = this.$nuxt.$auth.user.username
 	},
 
 	mounted () {

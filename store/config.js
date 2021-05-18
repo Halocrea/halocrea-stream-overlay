@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 export const state = () => ({
 	config      : {
 		discordBotChannel       : '',
@@ -7,7 +9,8 @@ export const state = () => ({
 		showLatestFollow        : true,
 		showLatestSub           : true,
 		showTwitchAlerts        : true,
-		showVoiceChat           : true
+		showVoiceChat           : true,
+		useTwitchFeatures       : true
 	}
 })
 
@@ -19,12 +22,16 @@ export const getters = {
 	showLatestFollow        : state => state.config.showLatestFollow,
 	showLatestSub           : state => state.config.showLatestSub,
 	showTwitchAlerts        : state => state.config.showTwitchAlerts,
-	showVoiceChat           : state => state.config.showVoiceChat
+	showVoiceChat           : state => state.config.showVoiceChat,
+	useTwitchFeatures       : state => state.config.useTwitchFeatures
 }
 
 export const mutations = {
 	setConfig (state, config) {
-		state.config = config
+		for (const prop in config) {
+			if (({}).hasOwnProperty.call(config, prop))
+				Vue.set(state.config, prop, config[prop])
+		}
 	},
 
 	setStreamStatus (state, status) {

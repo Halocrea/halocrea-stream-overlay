@@ -11,8 +11,14 @@
 	background-color: rgba(0, 0, 0, .25);
 
 	&__modal {
+		width           : auto;
 		background-color: var(--color-base);
 		border          : .1rem solid var(--font-color-base);
 		box-shadow      : $subtle-box-shadow;
+
+		&.xs { max-width: 32rem; }
+		&.sm { max-width: 57.6rem; }
+		&.md { max-width: 96rem; }
+		&.lg { max-width: 120rem; }
 	}
 }

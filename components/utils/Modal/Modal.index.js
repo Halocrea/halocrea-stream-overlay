@@ -4,6 +4,12 @@ export default {
 			type    : Boolean,
 			required: false,
 			default : true
+		},
+
+		maxWidth: {
+			type    : String,
+			required: false,
+			default : 'lg' // xs, sm, md, lg
 		}
 	},
 

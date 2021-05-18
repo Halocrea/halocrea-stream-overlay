@@ -4,7 +4,7 @@
 			Login required
 		</h3>
 		<hr>
-		<div v-if="errorMessage">
+		<div v-if="errorMessage" class="u-text-red">
 			{{ errorMessage }}
 		</div>
 		<busy-overlay />

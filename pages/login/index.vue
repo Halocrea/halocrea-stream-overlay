@@ -1,6 +1,6 @@
 <template>
 	<flex main="center" cross="center">
-		<div v-if="!isTwitchAuth">
+		<div v-if="!isTwitchAuth && useTwitchFeatures">
 			<twitch-login-btn />
 		</div>
 		<Login v-else />
@@ -28,7 +28,8 @@ export default {
 
 	computed: {
 		...mapGetters({
-			isTwitchAuth: 'twitch/isTwitchAuth'
+			isTwitchAuth     : 'twitch/isTwitchAuth',
+			useTwitchFeatures: 'config/useTwitchFeatures'
 		})
 	}
 }

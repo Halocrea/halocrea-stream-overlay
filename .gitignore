@@ -91,3 +91,4 @@ sw.*
 
 data/*
 !data/config.json
+!data/.gitkeep

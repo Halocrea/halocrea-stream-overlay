@@ -34,7 +34,7 @@ export default {
 			this.btnClicked = true
 			this.timeOut    = setTimeout(() => {
 				this.btnClicked = false
-			}, 1000)
+			}, 300)
 		}
 	}
 }

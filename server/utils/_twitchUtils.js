@@ -6,6 +6,11 @@ export const getTokens = async () => {
 }
 
 export const getUserInfo = async () => {
-	const userinfo = await fs.readFile('data/userinfo.json', { encoding: 'utf8' })
-	return JSON.parse(userinfo)
+	try {
+		const userinfo = await fs.readFile('data/userinfo.json', { encoding: 'utf8' })
+		return JSON.parse(userinfo)
+	} catch (e) {
+		// file probably doesn't exist
+		return {}
+	}
 }

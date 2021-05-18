@@ -7,7 +7,7 @@
 		@click="e => onClose(overlayClose, e)"
 	>
 		<flex
-			class="c-modal__modal u-m-md u-p-lg js-prevent-modal-close"
+			:class="`c-modal__modal ${maxWidth} u-m-md u-p-lg js-prevent-modal-close`"
 			direction="column"
 			cross="stretch"
 		>

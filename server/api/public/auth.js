@@ -26,8 +26,9 @@ app.use(
 
 // Refresh tokens
 const refreshTokens    = {}
-const tokensFilePath   = 'data/token.json'
-const userInfoFilePath = 'data/userinfo.json'
+const tokensFilePath     = 'data/token.json'
+const userInfoFilePath   = 'data/userinfo.json'
+const userConfigFilePath = 'data/userConfig.json'
 // -- Routes --
 
 // [POST] /login
@@ -42,17 +43,22 @@ app.post('/login', async (req, res) => {
 	if (twitchRes) // saving the tokens if necessary
 		await fs.writeFile(tokensFilePath, JSON.stringify(twitchRes), { encoding: 'utf8' })
 
-	// whether or not twitch authorization has been sent, we need it to continue
-	const tokens = await fs.readFile(tokensFilePath, { encoding: 'utf8' })
+	// if user has enabled the Twitch features,
+	// we must check the authorization tokens
+	const userConfig = await fs.readFile(userConfigFilePath, { encoding: 'utf8' })
+	if (JSON.parse(userConfig).useTwitchFeatures) {
+		// whether or not twitch authorization has been sent, we need it to continue
+		const tokens = await fs.readFile(tokensFilePath, { encoding: 'utf8' })
 
-	// getting user info like userId (channelId)
-	const { data } = await axios.get('https://id.twitch.tv/oauth2/validate', {
-		headers: { Authorization: `OAuth ${JSON.parse(tokens).access_token}` }
-	})
-	if (openId) {
-		data.preferred_username = openId.preferred_username
-		data.picture            = openId.picture
-		await fs.writeFile(userInfoFilePath, JSON.stringify(data), { encoding: 'utf8' })
+		// getting user info like userId (channelId)
+		const { data } = await axios.get('https://id.twitch.tv/oauth2/validate', {
+			headers: { Authorization: `OAuth ${JSON.parse(tokens).access_token}` }
+		})
+		if (openId) {
+			data.preferred_username = openId.preferred_username
+			data.picture            = openId.picture
+			await fs.writeFile(userInfoFilePath, JSON.stringify(data), { encoding: 'utf8' })
+		}
 	}
 
 	const expiresIn    = parseInt(process.env.TOKEN_DURATION)

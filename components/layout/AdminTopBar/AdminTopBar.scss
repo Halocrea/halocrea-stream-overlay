@@ -2,6 +2,7 @@
 
 .c-admin-topbar {
 	position        : relative;
+	z-index         : 998 !important;
 	width           : 100vw;
 	background-color: rgba(0, 0, 0, .33);
 	backdrop-filter : blur(3rem);

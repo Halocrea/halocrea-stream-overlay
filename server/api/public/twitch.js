@@ -2,6 +2,8 @@ import { promises as fs } from 'fs'
 import axios              from 'axios'
 import express            from 'express'
 
+import { getTokens, getUserInfo } from '../../utils/_twitchUtils'
+
 require('dotenv').config()
 
 const crypto = require('crypto')
@@ -63,6 +65,56 @@ app.get('/validate', cors(), async (req, res) => {
 		// file does not exists or tokens could not be validated nor refreshed
 		res.status(401).send('must authorize')
 	}
+})
+
+// fetching the latest follower and latest subscriber
+app.get('/latest-follow-sub', cors(), async (req, res) => {
+	let follower
+	const tokens      = await getTokens()
+	const userInfo    = await getUserInfo()
+
+	// https://dev.twitch.tv/docs/v5/reference/channels#get-channel-followers
+	// Using Kraken (v5) instead of Helix because Helix doesn't have query parameters to get only latest
+	const followerUri = `https://api.twitch.tv/kraken/channels/${userInfo.user_id}/follows?direction=desc&limit=1`
+	try {
+		const { data } = await axios({
+			method : 'GET',
+			url    : followerUri,
+			headers: {
+				Accept       : 'application/vnd.twitchtv.v5+json',
+				Authorization: `OAuth ${tokens.access_token}`
+			}
+		})
+		if (data.follows.length > 0) // if we have at least one follower in the returned list
+			follower = data.follows[0].user
+	} catch (err) {
+		console.warn('Error in `api/private-twitch.js#get("/latest-follow-sub")` while trying to get the follower: `' + err + '`')
+	}
+
+	let subscriber
+	// https://dev.twitch.tv/docs/v5/reference/channels#get-channel-subscribers
+	// Using Kraken (v5) instead of Helix because Helix doesn't have query parameters to get only latest
+	const subscriberUri = `https://api.twitch.tv/kraken/channels/${userInfo.user_id}/subscriptions?direction=desc&limit=1`
+
+	try {
+		const { data } = await axios({
+			url    : subscriberUri,
+			method : 'GET',
+			headers: {
+				Accept       : 'application/vnd.twitchtv.v5+json',
+				Authorization: `OAuth ${tokens.access_token}`
+			}
+		})
+		if (data.subscriptions.length > 0) // if we have at least one subscriber in the returned list
+			subscriber = data.subscriptions[0].user
+	} catch (err) {
+		console.warn('Error in `api/private-twitch.js#get("/latest-follow-sub")` while trying to get the subscriber: `' + err + '`')
+	}
+
+	res.json({
+		follower,
+		subscriber
+	})
 })
 
 // endpoint only for the webhook's challenge with topic 'follow'

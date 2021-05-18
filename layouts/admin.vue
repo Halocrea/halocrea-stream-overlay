@@ -1,6 +1,6 @@
 <template>
 	<flex
-		v-if="isTwitchAuth"
+		v-if="isTwitchAuth || !twitchFeaturesEnabled"
 		class="admin-layout"
 		direction="column"
 		main="stretch"
@@ -51,10 +51,28 @@ export default {
 		TwitchLoginBtn
 	},
 
+	data () {
+		return {
+			twitchFeaturesEnabled: false
+		}
+	},
+
 	computed: {
 		...mapGetters({
-			isTwitchAuth: 'twitch/isTwitchAuth'
+			isTwitchAuth     : 'twitch/isTwitchAuth',
+			useTwitchFeatures: 'config/useTwitchFeatures'
 		})
+	},
+
+	watch: {
+		// doing this instead of directly using the computed property
+		// because it seems there might be a reactivity issue with this getter on this page
+		useTwitchFeatures: {
+			immediate: true,
+			handler (val) {
+				this.twitchFeaturesEnabled = val
+			}
+		}
 	}
 }
 </script>

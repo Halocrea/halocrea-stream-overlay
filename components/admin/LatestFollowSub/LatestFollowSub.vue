@@ -30,21 +30,14 @@
 </template>
 
 <script>
-export default {
-	data () {
-		return {
-			loading         : false,
-			latestFollower  : null,
-			latestSubscriber: null
-		}
-	},
+import { mapGetters } from 'vuex'
 
-	async created () {
-		this.loading          = true
-		const { data }        = await this.$axios.get('/api/private-twitch/latest-follow-sub')
-		this.latestFollower   = data.follower
-		this.latestSubscriber = data.subscriber
-		this.loading          = false
+export default {
+	computed: {
+		...mapGetters({
+			latestFollower  : 'twitch/latestFollower',
+			latestSubscriber: 'twitch/latestSubscriber'
+		})
 	}
 }
 </script>

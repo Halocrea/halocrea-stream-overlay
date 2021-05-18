@@ -64,8 +64,8 @@ export default {
 					this.$router.push('/')
 				})
 				.catch((e) => {
-					console.warn(`Error in components/Login/Login.js#login: ${e.data}`)
-					this.error = e
+					console.warn(`Error in components/Login/Login.js#login: ${e.response.data}`)
+					this.error = e.response.data
 				})
 		}
 	}
