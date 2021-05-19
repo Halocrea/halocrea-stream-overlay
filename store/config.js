@@ -10,7 +10,12 @@ export const state = () => ({
 		showLatestSub           : true,
 		showTwitchAlerts        : true,
 		showVoiceChat           : true,
-		useTwitchFeatures       : true
+		useTwitchFeatures       : true,
+		bitsAlerts              : true,
+		followAlerts            : true,
+		hostAlerts              : true,
+		raidAlerts              : true,
+		subAlerts               : true
 	}
 })
 
@@ -23,7 +28,12 @@ export const getters = {
 	showLatestSub           : state => state.config.showLatestSub,
 	showTwitchAlerts        : state => state.config.showTwitchAlerts,
 	showVoiceChat           : state => state.config.showVoiceChat,
-	useTwitchFeatures       : state => state.config.useTwitchFeatures
+	useTwitchFeatures       : state => state.config.useTwitchFeatures,
+	bitsAlerts              : state => state.config.bitsAlerts,
+	followAlerts            : state => state.config.followAlerts,
+	hostAlerts              : state => state.config.hostAlerts,
+	raidAlerts              : state => state.config.raidAlerts,
+	subAlerts               : state => state.config.subAlerts
 }
 
 export const mutations = {

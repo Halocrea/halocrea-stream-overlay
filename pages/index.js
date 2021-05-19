@@ -1,4 +1,5 @@
 import { mapGetters }        from 'vuex'
+import AlertList             from '~/components/admin/twitch/AlertList/AlertList.vue'
 import ConfirmDisableTwitch  from '~/components/admin/twitch/ConfirmDisableTwitch/ConfirmDisableTwitch.vue'
 import ConfirmEnableTwitch   from '~/components/admin/twitch/ConfirmEnableTwitch/ConfirmEnableTwitch.vue'
 import DiscordChannelMembers from '~/components/admin/discord/DiscordChannelMembers/DiscordChannelMembers.vue'
@@ -8,6 +9,7 @@ import OverlayList           from '~/components/admin/overlay/OverlayList/Overla
 
 export default {
 	components: {
+		AlertList,
 		ConfirmDisableTwitch,
 		ConfirmEnableTwitch,
 		DiscordChannelMembers,

@@ -64,7 +64,25 @@
 					</transition>
 				</flex>
 				<transition name="u-transition--lateral" mode="out-in">
-					<latest-follow-sub v-if="useTwitchFeatures" key="use-twitch" />
+					<flex
+						v-if="useTwitchFeatures"
+						key="use-twitch"
+						direction="column"
+						cross="stretch"
+					>
+						<p class="u-my-md">
+							You can choose which alerts you want to get and configure them!
+						</p>
+						<alert-list />
+						<button class="o-btn o-btn--big o-btn--bordered u-mt-lg">
+							<svg-icon
+								name="settings"
+								class="o-icon o-icon-md u-mr-sm"
+							/>
+							Configure alerts
+						</button>
+						<!-- <latest-follow-sub /> -->
+					</flex>
 					<flex v-else key="dont-use-twitch" direction="column" cross="stretch">
 						<p class="u-my-md">
 							Display your latest follower and subscriber, and get Halo-themed alerts for your stream!
