@@ -3,7 +3,7 @@ import { subs }                  from '../io'
 import updateConfig              from '../utils/_configUpdater'
 import { setGuildMemberDetails } from '../utils/_setGuildMemberDetails'
 
-process.DISCORD_CLIENT = null
+process.DISCORD_CLIENT_CONSTANT = null
 
 export function getDiscordClient () {
 	if (!process.DISCORD_CLIENT_CONSTANT)

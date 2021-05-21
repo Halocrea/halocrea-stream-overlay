@@ -29,6 +29,7 @@
     "nuxt-socket-io": "^1.1.18",
     "proper-lockfile": "^4.1.2",
     "sass-loader": "10.1.1",
+    "tmi.js": "^1.8.3",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {

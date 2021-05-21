@@ -4,6 +4,7 @@ import cookieParser       from 'cookie-parser'
 import express            from 'express'
 import jsonwebtoken       from 'jsonwebtoken'
 import jwt                from 'express-jwt'
+import { getTmiClient }   from '../../tmi/tmiClient'
 
 require('dotenv').config()
 
@@ -63,6 +64,8 @@ app.post('/login', async (req, res) => {
 		} catch (e) {
 			console.warn(e)
 		}
+
+		await getTmiClient()
 	}
 
 	const expiresIn    = parseInt(process.env.TOKEN_DURATION)

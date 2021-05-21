@@ -1,8 +1,10 @@
 import { promises as fs } from 'fs'
 import axios              from 'axios'
 import express            from 'express'
+import { subs }           from '../../io'
 
 import { getUserAccessTokens, getUserInfo, refreshToken } from '../../utils/_twitchUtils'
+import updateConfig                                       from '../../utils/_configUpdater'
 
 require('dotenv').config()
 
@@ -57,8 +59,8 @@ app.get('/validate', cors(), async (req, res) => {
 // fetching the latest follower and latest subscriber
 app.get('/latest-follow-sub', cors(), async (req, res) => {
 	let follower
-	const tokens      = await getUserAccessTokens()
-	const userInfo    = await getUserInfo()
+	const tokens   = await getUserAccessTokens()
+	const userInfo = await getUserInfo()
 
 	// https://dev.twitch.tv/docs/v5/reference/channels#get-channel-followers
 	// Using Kraken (v5) instead of Helix because Helix doesn't have query parameters to get only latest
@@ -113,7 +115,7 @@ app.get('/new-follower', cors(), (req, res) => {
 // https://dev.twitch.tv/docs/api/webhooks-guide
 app.post('/new-follower', cors(), (req, res) => {
 	if (req.body && req.body.data && req.body.data.length > 0)
-		console.log('TBD new follower')
+		subs.forEach(s => s.emit('twitchNewFollower', { follower: req.body.data[0] }))
 
 	res.status(200).end(req.query['hub.challenge'])
 })
@@ -126,11 +128,14 @@ app.get('/stream-state-changed', cors(), (req, res) => {
 
 // endpoint for the webhook with topic 'stream'
 // https://dev.twitch.tv/docs/api/webhooks-guide
-app.post('/stream-state-changed', cors(), (req, res) => {
-	if (req.body && req.body.data && req.body.data.length > 0)
-		console.log('TBD stream started')
-	else
-		console.log('TBD stream ended')
+app.post('/stream-state-changed', cors(), async (req, res) => {
+	const isLive = !!(req.body && req.body.data && req.body.data.length > 0)
+	try {
+		await updateConfig('isStreamOn', isLive)
+		subs.forEach(s => s.emit('twitchStreamStateChanged', isLive))
+	} catch (e) {
+		console.warn('Could not save the status of the stream.')
+	}
 
 	res.status(200).end(req.query['hub.challenge'])
 })
