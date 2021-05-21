@@ -27,13 +27,6 @@ export default {
 
 	data () {
 		return {
-			keyLabels: [
-				{ key: 'bitsAlerts', label: 'Bits donation' },
-				{ key: 'followAlerts', label: 'New follower' },
-				{ key: 'hostAlerts', label: 'Host' },
-				{ key: 'raidAlerts', label: 'Raid' },
-				{ key: 'subAlerts', label: 'New subscriber' }
-			],
 			loading: false
 		}
 	},
@@ -43,6 +36,7 @@ export default {
 			bitsAlerts  : 'config/bitsAlerts',
 			followAlerts: 'config/followAlerts',
 			hostAlerts  : 'config/hostAlerts',
+			keyLabels   : 'twitch/keyLabels',
 			raidAlerts  : 'config/raidAlerts',
 			subAlerts   : 'config/subAlerts'
 		})

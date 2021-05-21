@@ -1,8 +1,8 @@
 // simple server plugin to create the default user configuration files if it doesn't exist yet
 import { promises as fs } from 'fs'
 
-const userConfigFilePath      = 'data/userConfig.json'
-const resourcesConfigFilePath = 'data/resourcesConfig.json'
+const userConfigFilePath      = 'data/user-config.json'
+const resourcesConfigFilePath = 'data/resources-config.json'
 
 export default async function () {
 	try {
@@ -10,6 +10,7 @@ export default async function () {
 	} catch (e) {
 		// file doesn't exist yet, need to create it
 		await fs.writeFile(userConfigFilePath, JSON.stringify({
+			canUseTwitch            : !!(process.env.TWITCH_CLIENT_ID && process.env.TWITCH_CLIENT_SECRET),
 			discordBotStatus        : 'disconnected',
 			discordBotChannel       : '',
 			isStreamOn              : false,
@@ -33,27 +34,27 @@ export default async function () {
 	} catch (e) {
 		// file doesn't exist yet, need to create it
 		await fs.writeFile(resourcesConfigFilePath, JSON.stringify({
-			bitsAlert: {
+			bitsAlerts: {
 				messages: ['Thanks for the {{bits}}bits, {{username}}!'],
 				gifs    : ['dmr.gif'],
 				sounds  : ['follow-sound.mp3']
 			},
-			followAlert: {
+			followAlerts: {
 				messages: ['Thanks for following, {{username}}!'],
 				gifs    : ['yapyap.gif'],
 				sounds  : ['follow-sound.mp3']
 			},
-			hostAlert: {
+			hostAlerts: {
 				messages: ['{{username}} is hosting us, WOW!'],
 				gifs    : ['tbag.gif'],
 				sounds  : ['follow-sound.mp3']
 			},
-			raidAlert: {
+			raidAlerts: {
 				messages: ['{{username}} is raiding us! Welcome, raiders!'],
 				gifs    : ['fabulous-hogs.gif'],
 				sounds  : ['alert-sound-01.mp3']
 			},
-			subAlert: {
+			subAlerts: {
 				messages: ['Thanks for subscribing, {{username}}!'],
 				gifs    : [
 					'fabulous-hogs.gif',

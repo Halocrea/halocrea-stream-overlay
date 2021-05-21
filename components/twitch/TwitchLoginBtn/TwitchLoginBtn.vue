@@ -1,13 +1,21 @@
 <template>
 	<a
+		v-if="canUseTwitch"
 		class="c-twitch-btn o-btn o-btn--big"
 		:href="getTwitchLink"
 	>
 		Authorize Twitch access
 	</a>
+	<flex v-else direction="column" cross="center">
+		<p class="u-my-md u-text-red">
+			The project is missing some configuration (Twitch Client ID and/or Client Secret) and so won't be able to connect to Twitch.
+		</p>
+	</flex>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
 	data () {
 		return {
@@ -46,7 +54,11 @@ export default {
 				}&claims=${
 					encodeURIComponent(JSON.stringify(this.claims))
 				}`
-		}
+		},
+
+		...mapGetters({
+			canUseTwitch: 'config/canUseTwitch'
+		})
 	}
 }
 </script>

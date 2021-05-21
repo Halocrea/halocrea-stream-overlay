@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs'
 import lockFile           from 'proper-lockfile'
 
-const userConfigFilePath = 'data/userConfig.json'
+const userConfigFilePath = 'data/user-config.json'
 
 export default async function (prop, value) {
 	try {

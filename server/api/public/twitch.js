@@ -2,7 +2,7 @@ import { promises as fs } from 'fs'
 import axios              from 'axios'
 import express            from 'express'
 
-import { getTokens, getUserInfo } from '../../utils/_twitchUtils'
+import { getUserAccessTokens, getUserInfo, refreshToken } from '../../utils/_twitchUtils'
 
 require('dotenv').config()
 
@@ -16,25 +16,7 @@ const verify = (req, res, buf, encoding) => {
 
 // Create app
 const app            = express()
-const tokensFilePath = 'data/token.json'
-const refreshToken   = async (token) => {
-	try {
-		const { data } = await axios.post(
-			`https://id.twitch.tv/oauth2/token?grant_type=refresh_token&refresh_token=${
-				token
-			}&client_id=${
-				process.env.TWITCH_CLIENT_ID
-			}&client_secret=${
-				process.env.TWITCH_CLIENT_SECRET
-			}`
-		)
-		data.expires_in = new Date(new Date().setSeconds(data.expires_in)).toISOString()
-		await fs.writeFile((tokensFilePath, JSON.stringify(data), { encoding: 'utf8' }))
-	} catch (e) {
-		console.warn(e)
-	}
-}
-
+const tokensFilePath = 'data/user-access-token.json'
 app.use(express.json({ verify }))
 
 // This is used to check if we have access tokens to Twitch and/or if we need to re-authorize/refresh
@@ -58,12 +40,12 @@ app.get('/validate', cors(), async (req, res) => {
 				})
 			} catch (e) { // if for some reason token was invalidated we can try to refresh it
 				console.warn(e)
-				await refreshToken(tokens.refresh_token)
+				await refreshToken('user', tokens.refresh_token)
 			}
 
 			res.status(200).send('OK')
 		} else { // if needs to be refreshed
-			await refreshToken(tokens.refresh_token)
+			await refreshToken('user', tokens.refresh_token)
 			res.status(200).send('OK')
 		}
 	} catch (e) {
@@ -75,7 +57,7 @@ app.get('/validate', cors(), async (req, res) => {
 // fetching the latest follower and latest subscriber
 app.get('/latest-follow-sub', cors(), async (req, res) => {
 	let follower
-	const tokens      = await getTokens()
+	const tokens      = await getUserAccessTokens()
 	const userInfo    = await getUserInfo()
 
 	// https://dev.twitch.tv/docs/v5/reference/channels#get-channel-followers

@@ -19,6 +19,12 @@
 		<client-only>
 			<socket-client />
 		</client-only>
+		<transition name="u-transition--fade" mode="out-in">
+			<confirm-enable-twitch
+				v-if="showEnableTwitch"
+				@close="() => showEnableTwitch = false"
+			/>
+		</transition>
 	</flex>
 	<flex
 		v-else
@@ -27,38 +33,57 @@
 		main="center"
 		cross="center"
 	>
-		<flex class="u-p-lg u-m-lg" direction="column" cross="center">
+		<flex
+			v-if="canUseTwitch"
+			class="u-p-lg u-m-lg"
+			direction="column"
+			cross="center"
+		>
 			<p class="u-mb-md">
 				Welp, we need to (re)authorize the app on Twitch
 			</p>
 			<twitch-login-btn />
 		</flex>
+		<flex
+			v-else
+			class="u-p-lg u-m-lg"
+			direction="column"
+			cross="center"
+		>
+			<p class="u-mb-md">
+				Something is wrong here: it looks like you need to authorize the app to access some features for Twitch, yet some configuration (Twitch Client ID and/or Client Secret) is missing.
+			</p>
+		</flex>
 	</flex>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import AdminTopBar    from '~/components/layout/AdminTopBar/AdminTopBar.vue'
-import Background     from '~/components/layout/Background/Background.vue'
-import SocketClient   from '~/components/utils/SocketClient.vue'
-import TwitchLoginBtn from '~/components/twitch/TwitchLoginBtn/TwitchLoginBtn.vue'
+import { mapGetters }        from 'vuex'
+import AdminTopBar           from '~/components/layout/AdminTopBar/AdminTopBar.vue'
+import Background            from '~/components/layout/Background/Background.vue'
+import ConfirmEnableTwitch   from '~/components/admin/twitch/ConfirmEnableTwitch/ConfirmEnableTwitch.vue'
+import SocketClient          from '~/components/utils/SocketClient.vue'
+import TwitchLoginBtn        from '~/components/twitch/TwitchLoginBtn/TwitchLoginBtn.vue'
 
 export default {
 	components: {
 		AdminTopBar,
 		Background,
+		ConfirmEnableTwitch,
 		SocketClient,
 		TwitchLoginBtn
 	},
 
 	data () {
 		return {
+			showEnableTwitch     : false,
 			twitchFeaturesEnabled: false
 		}
 	},
 
 	computed: {
 		...mapGetters({
+			canUseTwitch     : 'config/canUseTwitch',
 			isTwitchAuth     : 'twitch/isTwitchAuth',
 			useTwitchFeatures: 'config/useTwitchFeatures'
 		})
@@ -73,6 +98,20 @@ export default {
 				this.twitchFeaturesEnabled = val
 			}
 		}
+	},
+
+	created () {
+		this.$root.$on('confirmEnableTwitch', this.setShowEnableTwitch)
+	},
+
+	beforeUnmount () {
+		this.$root.$off('confirmEnableTwitch', this.setShowEnableTwitch)
+	},
+
+	methods: {
+		setShowEnableTwitch () {
+			this.showEnableTwitch = this.canUseTwitch
+		}
 	}
 }
 </script>
@@ -83,6 +122,8 @@ export default {
 .admin-layout {
 	width           : 100vw;
 	height          : 100vh;
+	overflow-x      : hidden;
+	overflow-y      : auto;
 	background-color: var(--color-base-3);
 
 	&__content {

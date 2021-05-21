@@ -26,9 +26,9 @@ app.use(
 
 // Refresh tokens
 const refreshTokens    = {}
-const tokensFilePath     = 'data/token.json'
-const userInfoFilePath   = 'data/userinfo.json'
-const userConfigFilePath = 'data/userConfig.json'
+const tokensFilePath     = 'data/user-access-token.json'
+const userInfoFilePath   = 'data/user-info.json'
+const userConfigFilePath = 'data/user-config.json'
 // -- Routes --
 
 // [POST] /login

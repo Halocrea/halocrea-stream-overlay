@@ -6,7 +6,7 @@ import { setGuildMemberDetails } from '../../utils/_setGuildMemberDetails'
 
 const cors               = require('cors')
 const app                = express()
-const userConfigFilePath = 'data/userConfig.json'
+const userConfigFilePath = 'data/user-config.json'
 
 // fetch users in a voice channel
 app.get('/voice-info', cors(), async (req, res) => {

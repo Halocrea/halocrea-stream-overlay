@@ -1,9 +1,11 @@
-import axios        from 'axios'
-import cookieParser from 'cookie-parser'
-import express      from 'express'
-import jwt          from 'express-jwt'
+import { promises as fs } from 'fs'
+import axios              from 'axios'
+import cookieParser       from 'cookie-parser'
+import express            from 'express'
+import jwt                from 'express-jwt'
 
-import { getTokens, getUserInfo } from '../../utils/_twitchUtils'
+import { getAppAccessTokens, getUserInfo, refreshToken } from '../../utils/_twitchUtils'
+import updateConfig                                      from '../../utils/_configUpdater'
 
 require('dotenv').config()
 const cors = require('cors')
@@ -22,6 +24,25 @@ app.use(
 	})
 )
 
+const setAppAccessTokens = async () => {
+	try {
+		const { data } = await axios.post(
+			`https://id.twitch.tv/oauth2/token?client_id=${
+				process.env.TWITCH_CLIENT_ID
+			}&client_secret=${
+				process.env.TWITCH_CLIENT_SECRET
+			}&grant_type=client_credentials`
+		)
+
+		data.expires_in = new Date(new Date().setSeconds(data.expires_in)).toISOString()
+		await fs.writeFile('data/app-access-token.json', JSON.stringify(data), { encoding: 'utf8' })
+		return data
+	} catch (e) {
+		console.warn('Could not get an app access token')
+		return null
+	}
+}
+
 // check and update if necessary the subscriptions to the Twitch's webhooks we need
 // topics we subscribe to are:
 //     - stream (to be alerted whenever the stream starts)
@@ -32,8 +53,27 @@ app.use(
 app.get('/webhooks', cors(), async (req, res) => {
 	const subscriptions   = []
 	const callbackBaseUri = process.env.NGROK_URL || process.env.BASE_URL
-	const tokens          = await getTokens()
+	let tokens            = await getAppAccessTokens()
 	const userInfo        = await getUserInfo()
+
+	// if we never got an app access token, we need to try and get one
+	// only if the .env file has been properly set
+	if (process.env.TWITCH_CLIENT_ID && process.env.TWITCH_CLIENT_SECRET && !tokens)
+		tokens = await setAppAccessTokens()
+	else if (tokens && tokens.expires_in && tokens.refresh_token) { // we can preemptively check if we need to refresh
+		const expiry    = new Date(tokens.expires_in)
+		const checkDate = new Date()
+		checkDate.setHours(checkDate.getHours() - 1)
+		if (expiry <= checkDate) {
+			const res = await refreshToken('app', tokens.refresh_token)
+			if (res)
+				tokens = await getAppAccessTokens()
+		}
+	} else if (!process.env.TWITCH_CLIENT_ID || !process.env.TWITCH_CLIENT_SECRET) {
+		await updateConfig(['showLatestFollow', 'showLatestSub'], [false, false])
+		return res.status(420).send('Cannot use Twitch features without the Client ID nor the Client Secret. Please check the Readme to make sure you set things properly.')
+	}
+
 	try {
 		// 1. Get active subscriptions
 		const { data } = await axios({

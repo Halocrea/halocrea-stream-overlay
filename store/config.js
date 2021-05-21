@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 export const state = () => ({
 	config      : {
+		canUseTwitch            : false,
 		discordBotChannel       : '',
 		isStreamOn              : false,
 		limitMembersShown       : 8,
@@ -20,6 +21,8 @@ export const state = () => ({
 })
 
 export const getters = {
+	alertByType             : state => type => state.config[type],
+	canUseTwitch            : state => state.config.canUseTwitch,
 	discordBotChannel       : state => state.config.discordBotChannel,
 	isStreamOn              : state => state.config.isStreamOn,
 	limitMembersShown       : state => state.config.limitMembersShown,

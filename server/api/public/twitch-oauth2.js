@@ -1,12 +1,18 @@
 import axios           from 'axios'
 import express         from 'express'
 
+import updateConfig from '../../utils/_configUpdater'
+
 require('dotenv').config()
 
 const app = express()
 app.use(express.json())
 
 app.post('/:code', async ({ params }, res) => {
+	if (!process.env.TWITCH_CLIENT_ID || !process.env.TWITCH_CLIENT_SECRET) {
+		await updateConfig('showTwitchAlerts', false)
+		return res.status(420).send('Cannot use Twitch features without the Client ID nor the Client Secret. Please check the Readme to make sure you set things properly.')
+	}
 	try {
 		const { data } = await axios.post(
 			`https://id.twitch.tv/oauth2/token?client_id=${

@@ -124,6 +124,8 @@ export default {
 		'~/server/api/public/auth',
 		'~/server/api/private/config',
 		'~/server/api/private/discord',
+		'~/server/api/private/resources',
+		'~/server/api/private/uploads',
 		'~/server/api/private/twitch',
 		'~/server/api/public/config',
 		'~/server/api/public/discord',

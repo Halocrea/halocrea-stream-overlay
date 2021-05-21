@@ -74,26 +74,38 @@
 							You can choose which alerts you want to get and configure them!
 						</p>
 						<alert-list />
-						<button class="o-btn o-btn--big o-btn--bordered u-mt-lg">
+						<nuxt-link
+							class="o-btn o-btn--big o-btn--bordered u-mt-lg u-text-align-center"
+							:to="{
+								name: 'admin-alerts'
+							}"
+						>
 							<svg-icon
 								name="settings"
 								class="o-icon o-icon-md u-mr-sm"
 							/>
 							Configure alerts
-						</button>
+						</nuxt-link>
 						<!-- <latest-follow-sub /> -->
 					</flex>
 					<flex v-else key="dont-use-twitch" direction="column" cross="stretch">
-						<p class="u-my-md">
+						<p class="u-my-md u-text-align-center">
 							Display your latest follower and subscriber, and get Halo-themed alerts for your stream!
 						</p>
 						<button
 							class="o-btn"
 							style="background-color: var(--color-twitch)"
-							@click="() => showEnableTwitch = true"
+							:disabled="!canUseTwitch"
+							@click="() => $root.$emit('confirmEnableTwitch')"
 						>
 							Enable Twitch features
 						</button>
+						<p
+							v-if="!canUseTwitch"
+							class="u-my-md u-text-red u-text-align-center"
+						>
+							The project is missing some configuration so allow this.
+						</p>
 					</flex>
 				</transition>
 			</div>
@@ -102,12 +114,6 @@
 			<confirm-disable-twitch
 				v-if="showDisableTwitch"
 				@close="() => showDisableTwitch = false"
-			/>
-		</transition>
-		<transition name="u-transition--fade" mode="out-in">
-			<confirm-enable-twitch
-				v-if="showEnableTwitch"
-				@close="() => showEnableTwitch = false"
 			/>
 		</transition>
 	</flex>
