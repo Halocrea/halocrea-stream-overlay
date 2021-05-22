@@ -1,0 +1,11 @@
+.c-latest-sub-follow {
+	--color-sub   : #c24b79;
+	--color-follow: #64cb56;
+
+	position: fixed; 
+
+	&,
+	&__inner {
+		display: flex;
+	}
+}

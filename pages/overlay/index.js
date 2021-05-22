@@ -1,9 +1,11 @@
-import { mapGetters } from 'vuex'
-import DiscordChat    from '~/components/display/DiscordChat/DiscordChat.vue'
+import { mapGetters }  from 'vuex'
+import DiscordChat     from '~/components/display/DiscordChat/DiscordChat.vue'
+import LatestSubFollow from '~/components/display/LatestSubFollow/LatestSubFollow.vue'
 
 export default {
 	components: {
-		DiscordChat
+		DiscordChat,
+		LatestSubFollow
 	},
 
 	layout: 'overlay',
@@ -23,6 +25,7 @@ export default {
 
 	computed: {
 		...mapGetters({
+			canUseTwitch : 'config/canUseTwitch',
 			configTheme  : 'config/selectedVoiceChatOverlay',
 			showVoiceChat: 'config/showVoiceChat'
 		})

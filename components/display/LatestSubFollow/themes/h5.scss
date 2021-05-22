@@ -1,0 +1,165 @@
+.c-latest-sub-follow--h5 {
+	bottom   : 2.5rem;
+	left     : 50%;
+	transform: translateX(-50%);
+
+	.c-latest-sub-follow {
+		position: relative;
+
+		&__label {
+			position: absolute;
+			bottom  : 100%;
+			left    : 4.5rem;
+			padding : .3rem .6rem;
+			color   : #a5d5ff;
+		}
+
+		&__value {
+			position     : relative;
+			overflow     : hidden;
+			text-overflow: ellipsis;
+			white-space  : nowrap;
+			word-break   : keep-all;
+			clip-path    : polygon(0 0, 100% 0, 100% calc(100% - .6rem), calc(100% - .6rem) 100%, 0 100%, 0 0);
+			box-shadow   : 0 0 .2rem .2rem rgba(255, 255, 255, .15) inset,
+			               0 0 0 .1rem rgba(0, 0, 0, .25) inset;
+
+			&::before {
+				content : "";
+				position: absolute;
+				bottom  : .1rem;
+				right   : -.2rem;
+				width   : .8rem;
+				height  : 0;
+				border-top: .2rem solid rgba(255, 255, 255, .75);
+				transform : rotate(-45deg);
+			}
+
+			& > span {
+				position     : relative;
+				display      : inline-block;
+				width        : 100%;
+				height       : calc(100% - .1rem);
+				margin-left  : .1rem;
+				padding      : .4rem 1.6rem 0 .6rem;
+				text-overflow: ellipsis;
+				overflow     : hidden;
+				white-space  : nowrap;
+				word-break   : keep-all;
+
+				&::before {
+					content         : "";
+					position        : absolute;
+					top             : 0;
+					left            : 0;
+					z-index         : -1;
+					width           : 100%;
+					height          : 100%;
+					opacity         : .75;
+				}
+			}
+		}
+	}
+	.c-latest-follow,
+	.c-latest-sub {
+		position        : relative;
+		margin-bottom   : .3rem;
+
+		.o-icon {
+			width : 2.4rem;
+			height: 2.4rem;
+			margin: 0 1rem;
+		}
+	}
+
+	.c-latest-follow {
+		margin-left: 2.4rem;
+
+		.c-latest-sub-follow__value {
+			border: .1rem solid var(--color-sub);
+
+			&::before {
+				border-color: var(--color-sub);
+			}
+
+			& > span {
+				box-shadow: -.6rem .6rem .6rem 0 rgba(255, 255, 255, .15) inset,
+							0 0 2.4rem .2rem rgba(194, 75, 121, 5) inset,
+							1.2rem 0 2.4rem 1.2rem rgba(0, 0, 0, .5) inset,
+							1.2rem 0 1.2rem 0 rgba(0, 0, 153, 0.25) inset,
+							-2.4rem 0 1.2rem 0 rgba(255, 255, 255, 0.25) inset;
+			}
+		}
+	}
+
+	.c-latest-sub {
+		.c-latest-sub-follow__value {
+			border: .1rem solid var(--color-follow);
+
+			&::before {
+				border-color: var(--color-follow);
+			}
+			
+			& > span {
+				box-shadow: -.6rem .6rem .6rem 0 rgba(255, 255, 255, .15) inset,
+							0 0 2.4rem .2rem rgba(100, 203, 86, 5) inset,
+							1.2rem 0 2.4rem 1.2rem rgba(0, 0, 0, .5) inset,
+							1.2rem 0 1.2rem 0 rgba(0, 0, 153, 0.25) inset,
+							-2.4rem 0 1.2rem 0 rgba(255, 255, 255, 0.25) inset;
+			}
+		}
+	}
+
+	.c-latest-sub,
+	.c-latest-follow {
+		.c-latest-sub-follow__value {
+			position        : relative;
+			width           : 22rem;
+			background-image: linear-gradient(to top, rgba(0, 0, 0, .75) 0%, rgba(0, 0, 0, .5) 100%);
+
+			& > * {
+				position: relative;
+				z-index : 2;
+			}
+
+			&::after {
+				content : "";
+				position: absolute;
+				bottom  : 0;
+				right   : 0;
+				z-index : -1;
+				width   : 100%;
+				height  : 100%;
+				opacity : .15;
+			}
+		}
+	}
+
+	.c-latest-follow__heart,
+	.c-latest-sub__star {
+		display        : flex;
+		justify-content: center;
+		align-items    : center;
+		color          : #a5d5ff;
+	}
+
+	&.c-latest-sub-follow--both {
+		.c-latest-follow {
+			transform: skew(0, 1deg)
+		}
+
+		.c-latest-sub {
+			transform: skew(0, -1deg)
+		}
+	}
+
+	&.c-latest-sub-follow--both {
+		.c-latest-follow {
+			transform: skew(0, 1deg)
+		}
+
+		.c-latest-sub {
+			transform: skew(0, -1deg)
+		}
+	}
+}

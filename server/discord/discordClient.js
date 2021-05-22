@@ -14,25 +14,33 @@ export function getDiscordClient () {
 
 export default function (client) {
 	// Whenever a channel is created, if it's a voice chan, we need to update the channels list
-	client.on('channelCreate', ({ id, members, name, type }) => {
+	client.on('channelCreate', ({ id, guild, members, name, type }) => {
+		if (!guild || guild.id !== process.env.DISCORD_GUILD) return
+
 		if (type !== 'voice') return
 		subs.forEach(s => s.emit('discordNewVoiceChan', { id, members, name }))
 	})
 
 	// Whenever a channel is deleted, if it's a voice chan, we need to update the channels list
-	client.on('channelDelete', ({ type, id }) => {
+	client.on('channelDelete', ({ guild, type, id }) => {
+		if (!guild || guild.id !== process.env.DISCORD_GUILD) return
+
 		if (type !== 'voice') return
 		subs.forEach(s => s.emit('discordVoiceChanRemoved', { id }))
 	})
 
 	// Whenever a channel has been updated, if it's a voice chan, we need to update it in the channels list
-	client.on('channelUpdate', (old, { id, name, type }) => {
+	client.on('channelUpdate', (old, { id, guild, name, type }) => {
+		if (!guild || guild.id !== process.env.DISCORD_GUILD) return
+
 		if (type !== 'voice') return
 		subs.forEach(s => s.emit('discordVoiceChanUpdated', { id, name }))
 	})
 
 	// Whenever someone joins or leave a voice channel
 	client.on('voiceStateUpdate', async (oldState, newState) => {
+		if (!newState.guild || newState.guild.id !== process.env.DISCORD_GUILD) return
+
 		if (newState.channelID) { // joins
 			if (newState.id === client.user.id) {
 				const config = await updateConfig('discordBotChannel', newState.id)

@@ -1,0 +1,62 @@
+.c-latest-sub-follow--ce {
+	bottom   : 25rem;
+	right    : 2.4rem;
+
+	.c-latest-sub-follow {
+		transform  : skew(0, 15deg);
+		&__inner {
+			flex-flow  : column;
+			font-family: 'Handel Gothic D Light', sans-serif; 
+			transform  : skew(-15deg);
+		}
+
+		&__label {
+			width       : 15rem;
+			margin-right: .3rem;
+
+			& > .o-icon {
+				margin-right: .6rem;
+			}
+		}
+
+		&__label,
+		&__value {
+			padding         : .3rem .6rem;
+			background-image: linear-gradient(to top, rgba(0, 0, 0, .25) 0%, rgba(0, 0, 0, 0) 100%);
+			clip-path       : polygon(0 0, calc(100% - .6rem) 0, 100% .6rem, 100% 100%, .6rem 100%, 0 calc(100% - .6rem));
+			box-shadow      : 0 0 .2rem .2rem rgba(255, 255, 255, .15) inset,
+							  0 0 0 .1rem rgba(0, 0, 0, .25) inset;
+		}
+
+		&__value {
+			width        : 18rem;
+			overflow     : hidden;
+			text-overflow: ellipsis;
+			white-space  : nowrap;
+			word-break   : keep-all;
+			
+		}
+	}
+	.c-latest-follow,
+	.c-latest-sub {
+		margin-bottom: .3rem;
+	}
+
+	.c-latest-follow {
+		.c-latest-sub-follow {
+			&__label,
+			&__value {
+				background-color: var(--color-sub);
+			}
+		}
+	}
+
+	.c-latest-sub {
+		.c-latest-sub-follow {
+			&__label,
+			&__value {
+				background-color: var(--color-follow);
+			}
+		}
+	}
+}
