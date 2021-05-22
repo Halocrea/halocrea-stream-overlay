@@ -6,12 +6,12 @@
 			cross="center"
 		>
 			<div class="c-discord-chat__title">
-				Halo Creation
+				{{ voiceChatTitle }}
 			</div>
 			<div v-if="!showHeadRow" class="c-discord-chat__count">
 				<svg-icon
 					v-if="showUsersIcon"
-					name="users"
+					name="fa-users"
 					class="o-icon o-icon-lg"
 				/>
 				{{ members.length }}

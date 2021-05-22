@@ -1,8 +1,10 @@
-import cookieParser       from 'cookie-parser'
-import express            from 'express'
-import jwt                from 'express-jwt'
+import cookieParser from 'cookie-parser'
+import express      from 'express'
+import jwt          from 'express-jwt'
 
-import { getDiscordClient }  from '../../discord/discordClient'
+import { subs }             from '../../io'
+import { getDiscordClient } from '../../discord/discordClient'
+import updateConfig         from '../../utils/_configUpdater'
 
 require('dotenv').config()
 
@@ -10,6 +12,7 @@ const cors = require('cors')
 const app  = express()
 
 // Install middleware
+app.use(express.json())
 app.use(cookieParser())
 
 // JWT middleware
@@ -48,9 +51,26 @@ app.get('/channel/:id', cors(), async ({ params }, res) => {
 		res.status(404).send('Cannot find the channel (maybe a Discord cache issue)')
 })
 
+// set the title for the voice chat
+app.post('/title', cors(), async ({ body }, res) => {
+	let title = body.title
+	if (!title) // we need a default name to display
+		title = 'Voice Chat'
+	try {
+		const updatedConfig = await updateConfig('voiceChatTitle', title)
+		if (!updatedConfig) // an error occured
+			return res.status(500).send('Could not update the voice chat\'s title')
+
+		subs.forEach(s => s.emit('configUpdated', updatedConfig))
+		res.status(200).json(updatedConfig)
+	} catch (e) {
+		res.status(500).send('Could not update the voice chat\'s title')
+	}
+})
+
 // Error handler
 app.use((err, _req, res, next) => {
-	console.log('error in /api/private-config')
+	console.log('error in /api/private-discord')
 	console.log(err)
 	res.status(401).send(err + '')
 })

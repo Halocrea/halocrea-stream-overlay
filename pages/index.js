@@ -3,7 +3,7 @@ import AlertList             from '~/components/admin/twitch/AlertList/AlertList
 import ConfirmDisableTwitch  from '~/components/admin/twitch/ConfirmDisableTwitch/ConfirmDisableTwitch.vue'
 import DiscordChannelMembers from '~/components/admin/discord/DiscordChannelMembers/DiscordChannelMembers.vue'
 import DiscordChannelSelect  from '~/components/admin/discord/DiscordChannelSelect/DiscordChannelSelect.vue'
-import LatestFollowSub       from '~/components/admin/LatestFollowSub/LatestFollowSub.vue'
+import DiscordChatTitle      from '~/components/admin/discord/DiscordChatTitle/DiscordChatTitle.vue'
 import OverlayList           from '~/components/admin/overlay/OverlayList/OverlayList.vue'
 
 export default {
@@ -12,7 +12,7 @@ export default {
 		ConfirmDisableTwitch,
 		DiscordChannelMembers,
 		DiscordChannelSelect,
-		LatestFollowSub,
+		DiscordChatTitle,
 		OverlayList
 	},
 

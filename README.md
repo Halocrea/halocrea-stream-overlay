@@ -61,4 +61,7 @@ If you want to run and deploy this app using Docker & Traefik, follow these step
 3. `$ docker-compose up -d` 
 
 ## 6. Credits
-TBD Icyhotspartin for the sound alert and halo kazoo edition as well
+- Icyhotspartin for the default sub alert sounds: https://soundcloud.com/icyhot_mus (used with permission)
+- Feather Icons for most icons: https://feathericons.com/
+- Font Awesome for a few others: https://fontawesome.com/
+- "Halo Theme Kazoo Orchestrea (ft. my desk) by joosebox: https://www.youtube.com/watch?v=l_DfCFHOD9E 

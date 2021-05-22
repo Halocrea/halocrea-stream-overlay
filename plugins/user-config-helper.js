@@ -20,6 +20,7 @@ export default async function () {
 			showLatestSub           : false,
 			showTwitchAlerts        : false,
 			showVoiceChat           : true,
+			voiceChatTitle          : 'Voice Chat',
 			useTwitchFeatures       : false,
 			bitsAlerts              : true,
 			followAlerts            : true,

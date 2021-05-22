@@ -35,6 +35,7 @@
 								<discord-channel-members class="u-mt-md" />
 							</div>
 						</transition>
+						<discord-chat-title class="u-pt-lg" />
 					</div>
 					<div v-else key="no-voice-chat">
 						<p v-if="!discordBotChannel" class="u-my-md u-text-red">
@@ -86,7 +87,6 @@
 							/>
 							Configure alerts
 						</nuxt-link>
-						<!-- <latest-follow-sub /> -->
 					</flex>
 					<flex v-else key="dont-use-twitch" direction="column" cross="stretch">
 						<p class="u-my-md u-text-align-center">

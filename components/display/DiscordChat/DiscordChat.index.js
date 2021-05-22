@@ -20,7 +20,8 @@ export default {
 		},
 
 		...mapGetters({
-			members: 'discord/members'
+			members       : 'discord/members',
+			voiceChatTitle: 'config/voiceChatTitle'
 		})
 	},
 
