@@ -1,0 +1,118 @@
+@import '~assets/styles/global/variables';
+
+.c-discord-chat--h5 {
+	top      : calc(50% - 35rem);
+	left     : 4.2rem;
+	transform: skew(0, 5deg) scale(1.15);
+
+	.c-discord-chat {
+		&__avatar-placeholder {
+			width        : 2rem;
+			height       : 2rem;
+			border-radius: 1rem;
+			transition   : border-radius .5s $transition-easing;
+		}
+
+		&__count {
+			font-family : 'Handel Gothic D Light', sans-serif; 
+		}
+
+		&__count,
+		&__title {
+			margin-bottom: .2rem;
+			padding      : 0 1.2rem;
+			color        : #d3f7eb;
+		}
+
+		&__count,
+		&__member-name,
+		&__title {
+			position    : relative;
+			margin-right: .2rem;
+		}
+
+		&__member {
+			margin-bottom: .6rem;
+		}
+
+		&__header,
+		&__member {
+			transform: skew(1deg, 0);
+		}
+
+		&__member {
+			position        : relative;
+			width           : calc(100% - 2.6rem);
+			margin-left     : 1.6rem;
+			background-color: transparent !important;
+			font-size       : 1.4rem;
+			opacity         : .8;
+
+            &::before {
+                content         : "";
+                position        : absolute;
+                bottom          : -.3rem;
+                left            : -.6rem;                
+                z-index         : 0;
+                width           : 100%;
+                height          : 100%;
+				background-color: transparent;
+                background      : linear-gradient(0deg, #d3f7eb 0%, rgba(0, 0, 0, 0) 80%);
+                clip-path       : polygon(.1rem 0%, .1rem calc(100% - .2rem), calc(100% - .1rem) calc(100% - .2rem), calc(100% - .1rem) 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%);
+                border-radius   : 0 0 .6rem .6rem;
+                opacity         : 0;
+                transition      : opacity .15s linear;
+            }
+
+            &::after {
+                content         : "";
+                position        : absolute;
+                bottom          : -.3rem;
+                left            : -.6rem;         
+				top             : unset;     
+                z-index         : 0;
+                width           : 100%;
+                height          : 100%;
+				background-color: transparent;
+                border-radius   : 0 0 .6rem .6rem;
+                box-shadow      : 0 0 .5rem .1rem rgba(211, 247, 235, .5), 0 0 .5rem .1rem rgba(211, 247, 235, .5) inset;
+                clip-path       : polygon(0 .7rem, 100% .7rem, calc(100% + .8rem) calc(100% + .8rem), -.8rem calc(100% + .8rem));
+                opacity         : 0;
+                transition      : opacity .15s linear;
+            }
+
+			&--active {
+				opacity: 1;
+
+                &::before,
+                &::after {
+                    opacity: .9;
+                }
+
+				.c-discord-chat {
+					&__speaker-placeholder {
+						opacity: 1;
+					}
+				}
+			}
+
+			&-name {
+				padding-top     : .3rem;
+				padding-bottom  : .3rem;
+				padding-left    : .6rem;
+				color           : #d3f7eb !important;
+				background-color: transparent !important;
+			}
+		}
+	
+		&__speaker-placeholder {
+			right       : calc(100% + .6rem);
+			color       : #d3f7eb;
+			transition  : opacity .15s linear;
+		}
+
+		&__title {
+			text-transform: uppercase;
+		}
+	}
+}

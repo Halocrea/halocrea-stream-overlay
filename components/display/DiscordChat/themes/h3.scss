@@ -1,0 +1,112 @@
+.c-discord-chat--h3 {
+	top        : calc(50% - 35rem);
+	left       : 5.2rem;
+	transform  : skew(0, 5deg) scale(1.15);
+
+	.c-discord-chat {
+		&__avatar-placeholder {
+			width        : 2.2rem;
+			height       : 2.2rem;
+			margin-left  : .5rem;
+			margin-right : .5rem;
+			border       : .1rem solid transparent;
+			border-radius: 1.5rem;
+			transition   : border-color .15s linear;
+		}
+
+		&__count {
+			padding-left : 1.2rem;
+			padding-right: 1.2rem;
+			font-family  : 'Handel Gothic D Light', sans-serif; 
+		}
+
+		&__count,
+		&__member,
+		&__title {
+			position        : relative;
+			margin-right    : .5rem;
+			padding-top     : .3rem;
+			padding-bottom  : .3rem;
+			opacity         : .8;
+			background-color: rgba(0, 0, 0, .25) !important;
+			clip-path       : polygon(.6rem 0, 100% 0, 100% calc(100% - .6rem), calc(100% - .6rem) 100%, 0 100%, 0 .6rem);
+			box-shadow      : 0 0 .2rem .2rem rgba(255, 255, 255, .15) inset,
+								0 0 0 .1rem rgba(165, 213, 255, 1) inset;
+			transition      : box-shadow .15s linear;
+
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				width   : .8rem;
+				height  : 0;
+				border-top: .2rem solid rgba(165, 213, 255, 1);
+				transform : rotate(-45deg);
+			}
+
+			&::before {
+				top: .1rem;
+				left: 0;
+			}
+
+			&::after {
+				bottom: .1rem;
+				right : 0;
+				top   : unset;
+				left  : unset;
+			}
+		}
+
+		&__count,
+		&__title {
+			color         : #a5d5ff;
+			text-transform: uppercase;
+			opacity       : 1;
+		}
+
+		&__count,
+		&__member,
+		&__title {
+			margin-bottom: .3rem;
+		}
+
+		&__member {
+			position: relative;
+			width   : calc(100% - 5.8rem);
+
+			&-name {
+				background-color: transparent !important;
+				color           : #a5d5ff !important;
+				font-size       : 1.4rem;
+			}
+
+			&--active {
+				opacity   : 1;
+				box-shadow: 0 0 0 .1rem rgba(255, 255, 255, 1) inset;
+
+				&::before,
+				&::after {
+					border-color: #fff;
+				}
+				&::after {
+					opacity: 1;
+				}
+
+				.c-discord-chat {
+					&__avatar-placeholder {
+						border-color: #fff;
+					}
+
+					&__member-name {
+						color: #fff !important;
+					}
+				}
+			}
+		}
+
+		&__title {
+			padding-left : 1.8rem;
+			padding-right: 1.8rem;
+		}
+	}
+}

@@ -1,0 +1,89 @@
+.c-discord-chat--h2 {
+	top        : calc(50% - 20rem);
+	left       : 3.6rem;
+	font-family: 'Handel Gothic D Light', sans-serif; 
+
+	.c-discord-chat {
+		&__avatar-placeholder {
+			border       : .2rem solid transparent;
+			border-radius: 1.5rem;
+			transition   : border-color .15s linear;
+		}
+
+		&__count,
+		&__member-name,
+		&__title {
+			position        : relative;
+			margin-right    : .2rem;
+			padding         : 0 1.2rem;
+			opacity         : .8;
+			background-image: linear-gradient(to bottom, rgba(255, 255, 255, .25) 0%, rgba(255, 255, 255, 0) 100%);
+			clip-path       : polygon(.6rem 0, 100% 0, 100% calc(100% - .6rem), calc(100% - .6rem) 100%, 0 100%, 0 .6rem);
+			box-shadow      : 0 0 .2rem .2rem rgba(255, 255, 255, .15) inset,
+								0 0 0 .1rem rgba(255, 255, 255, .75) inset;
+			transition      : box-shadow .15s linear;
+
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				width   : .8rem;
+				height  : 0;
+				border-top: .2rem solid rgba(255, 255, 255, .75);
+				transform : rotate(-45deg);
+			}
+
+			&::before {
+				top: .1rem;
+				left: 0;
+			}
+
+			&::after {
+				bottom: .1rem;
+				right : 0;
+				top   : unset;
+				left  : unset;
+			}
+		}
+
+		&__count,
+		&__title {
+			text-transform  : uppercase;
+			background-color: rgba(23, 125, 233, .8);
+		}
+
+		&__count,
+		&__member,
+		&__title {
+			margin-bottom: .2rem;
+		}
+
+		&__member {
+			position        : relative;
+			background-color: transparent !important;
+
+			&::after {
+				display: none;
+			}
+
+			&--active {
+				.c-discord-chat {
+					&__avatar-placeholder {
+						border-color: #fff;
+					}
+
+					&__member-name {
+						opacity   : 1;
+						box-shadow: 0 0 0 .2rem rgba(255, 255, 255, 1) inset,
+									0 0 0 .1rem rgba(0, 0, 0, .25) inset;
+
+						&::before,
+						&::after {
+							border-width: .3rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}

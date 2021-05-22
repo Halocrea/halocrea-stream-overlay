@@ -1,7 +1,10 @@
 <template>
 	<div>
 		<flex
-			class="overlay-layout"
+			:class="{
+				'overlay-layout': true,
+				'overlay-layout--opaque': opaqueBackground
+			}"
 			main="center"
 			cross="center"
 		>
@@ -23,13 +26,27 @@ import SocketClient from '~/components/utils/SocketClient.vue'
 export default {
 	components: {
 		SocketClient
+	},
+
+	data () {
+		return {
+			opaqueBackground: false
+		}
+	},
+
+	created () {
+		this.opaqueBackground = this.$route.query.opaque
 	}
 }
 </script>
 
 <style lang="scss">
-.base-layout {
+.overlay-layout {
 	width : 100vw;
 	height: 100vh;
+
+	&--opaque {
+		background-color: var(--color-base-1);
+	}
 }
 </style>

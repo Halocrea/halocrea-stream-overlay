@@ -1,0 +1,60 @@
+.c-discord-chat--menu {
+	top      : 2.4rem;
+	left     : 2.4rem;
+	width    : 24rem;
+	font-size: 1.5rem;
+
+	.c-discord-chat {
+		&__additionnal-row {
+			position    : relative;
+			width       : calc(100% + .8rem);
+			margin-left : 1.2rem;
+			padding     : .3rem 0;
+			color       : #fff;
+		}
+		
+		&__count {
+			width      : 3rem;
+			font-family: 'Pathway Gothic One', sans-serif;
+			font-size  : 1.8rem;
+			text-align : center;
+		}
+
+		&__header {
+			position        : relative;
+			width           : 22rem;
+			padding         : .6rem 1rem;
+			background-color: #000;
+			color           : #fff;
+			font-family     : 'Pathway Gothic One', sans-serif;
+			font-size       : 2.2rem;
+			text-transform  : uppercase;
+			opacity         : .9;
+
+			&::after {
+				content     : ""; 
+				position    : absolute;
+				top         : 100%;
+				left        : 0;
+				width       : calc(100% + 4rem);
+				height      : 8rem;
+				background: linear-gradient(to bottom, #000 3rem, transparent 8rem);
+			}
+		}
+
+		&__member {
+			width        : 24rem;
+			margin-left  : 1rem;
+			margin-bottom: .1rem;
+
+			&--active {
+				box-shadow: 0 0 0 .2rem #398be2;
+			}
+
+			&-name {
+				margin-left     : 1rem;
+				background-color: transparent !important;
+			}
+		}
+	}
+}

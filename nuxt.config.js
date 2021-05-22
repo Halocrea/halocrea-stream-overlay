@@ -88,7 +88,7 @@ export default {
 					'configStreamStatusChanged --> config/setStreamStatus',
 					'configUpdated --> config/setConfig',
 					'discordBotJoinedChannel --> discord/setInfos',
-					'discordBotLeftChannel --> discord/clearInfos,',
+					'discordBotLeftChannel --> discord/clearInfos',
 					'twitchNewFollower --> twitch/setLatestFollower',
 					'twitchNewSubscriber --> twitch/setLatestSubscriber',
 					'twitchStreamStateChanged --> config/setStreamStatus'

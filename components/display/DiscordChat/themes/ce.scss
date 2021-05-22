@@ -1,0 +1,64 @@
+.c-discord-chat--ce {
+	top        : calc(50% - 20rem);
+	left       : 3.6rem;
+	font-family: 'Handel Gothic D Light', sans-serif; 
+
+	.c-discord-chat {
+		&__avatar-placeholder {
+			border       : .2rem solid transparent;
+			border-radius: 1.5rem;
+			transition   : border-color .15s linear;
+		}
+
+		&__count,
+		&__member-name,
+		&__title {
+			position        : relative;
+			margin-right    : .2rem;
+			padding         : 0 1.2rem;
+			background-color: rgba(23, 125, 233, .8) !important;
+			background-image: linear-gradient(to bottom, rgba(255, 255, 255, .25) 0%, rgba(255, 255, 255, 0) 100%);
+			clip-path       : polygon(0 0, calc(100% - .6rem) 0, 100% .6rem, 100% 100%, .6rem 100%, 0 calc(100% - .6rem));
+			box-shadow      : 0 0 .2rem .2rem rgba(255, 255, 255, .15) inset,
+								0 0 0 .1rem rgba(0, 0, 0, .25) inset;
+			transition      : box-shadow .15s linear;
+		}
+
+		&__count,
+		&__member,
+		&__title {
+			margin-bottom: .2rem;
+		}
+
+		&__member {
+			position        : relative;
+			background-color: transparent !important;
+
+			&::after {
+				display: none;
+			}
+
+			&--active {
+				.c-discord-chat {
+					&__avatar-placeholder {
+						border-color: #fff;
+					}
+
+					&__member-name {
+						border-radius: 0 .9rem 0 .9rem;
+						box-shadow: 0 0 0 .2rem rgba(255, 255, 255, 1) inset,
+									0 0 0 .1rem rgba(0, 0, 0, .25) inset;
+					}
+				}
+			}
+
+			&-name {
+				color: #fff !important;
+			}
+		}
+
+		&__title {
+			text-transform: uppercase;
+		}
+	}
+}
