@@ -12,6 +12,7 @@
 				:theme="theme"
 			/>
 		</transition>
+		<Alerts :resources="resources" />
 	</div>
 </template>
 

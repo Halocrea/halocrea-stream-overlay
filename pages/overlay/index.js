@@ -1,17 +1,21 @@
 import { mapGetters }  from 'vuex'
+import Alerts          from '~/components/display/Alerts/Alerts.vue'
 import DiscordChat     from '~/components/display/DiscordChat/DiscordChat.vue'
 import LatestSubFollow from '~/components/display/LatestSubFollow/LatestSubFollow.vue'
 
 export default {
 	components: {
+		Alerts,
 		DiscordChat,
 		LatestSubFollow
 	},
 
 	layout: 'overlay',
 
-	asyncData ({ query }) {
+	async asyncData ({ $axios, query }) {
+		const { data } = await $axios.get(`${process.env.BASE_URL}/api/public-config/resources`)
 		return {
+			resources  : data,
 			forcedTheme: query.force || false
 		}
 	},

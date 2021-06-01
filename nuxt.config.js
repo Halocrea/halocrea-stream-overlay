@@ -90,7 +90,9 @@ export default {
 					'discordBotJoinedChannel --> discord/setInfos',
 					'discordBotLeftChannel --> discord/clearInfos',
 					'twitchNewFollower --> twitch/setLatestFollower',
-					'twitchNewSubscriber --> twitch/setLatestSubscriber',
+					'twitchSubAlert --> twitch/setLatestSubscriber',
+					'twitchSubgiftAlert --> twitch/setLatestSubscriber',
+					'twitchResubAlert --> twitch/setLatestSubscriber',
 					'twitchStreamStateChanged --> config/setStreamStatus'
 				]
 			}
