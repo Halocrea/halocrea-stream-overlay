@@ -1,0 +1,107 @@
+@import '~assets/styles/global/variables';
+
+.c-alert {
+    position        : relative;
+    z-index         : 10;
+    display         : flex;
+    flex-flow       : column;
+    justify-content : center;
+    align-items     : center;
+    width           : 100rem;
+    opacity         : 0;
+    transform       : scale(1.5);
+    transition      : opacity   .25s linear, 
+                      transform .25s $transition-easing;
+
+
+    &--playing {
+        opacity     : 1;
+        transform   : scale(.9);
+
+        .c-alert {
+            &__gif-wrapper {
+                height      : 33.8rem;
+                transform   : translate3d(0, -24px, 0);
+                transition  : height     .5s $transition-easing .25s, 
+                              transform 4.5s linear;
+                
+                & > img {
+                    opacity: 1;
+                }
+            }
+
+            &__text {
+                transform   : translate3d(0, -24px, 0);
+                transition  : transform 4.5s linear;
+            }
+        }
+    }
+    
+    &__gif-wrapper {
+        position        : relative;
+        width           : 60rem;
+        height          : 0;
+        overflow        : hidden;
+        background-color: #177de9;
+        clip-path       : polygon(5rem 33.8rem,60rem 33.8rem,60rem 5rem,55rem 0rem,0rem 0rem,0rem 28.8rem);
+        transition      : height    .5s $transition-easing .25s, 
+                          transform .5s linear;
+
+        &::after {
+            content     : "";
+            position    : absolute;
+            z-index     : 1;
+            width       : 100%;
+            height      : 100%; 
+            background  : linear-gradient(90deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0.9) 50%,rgba(255,255,255,0) 100%);
+            animation   : shine 4s infinite $transition-easing;
+        }
+
+        & > img {
+            position    : absolute;
+            top         : 50%; 
+            left        : 50%;
+            z-index     : 2;
+            width       : 60rem;
+            height      : 33.8rem;
+            clip-path   : polygon(5.2rem 33.6rem,59.8rem 33.6rem,59.8rem 5.2rem,54.8rem .2rem,.2rem .2rem,.2rem 28.6rem);
+            transform   : translate3d(-50%, -50%, 0);
+            opacity     : 0;
+            transition  : opacity .25s linear .35s;
+        }
+    }
+
+    &__text {
+        display                 : block;
+        margin-top              : 0;
+        font-size               : 4rem;
+        color                   : #3f9bfd;
+        text-transform          : uppercase;
+        -webkit-text-fill-color : transparent;
+        background-clip         : text;
+        -webkit-background-clip : text;
+        background-color        : #3f9bfd;
+        background-image        : linear-gradient(90deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0.9) 50%,rgba(255,255,255,0) 100%);
+        background-size         : 200% 200%;
+        text-align              : center;
+        transition              : transform .5s linear;
+        animation               : shinebg 4s infinite $transition-easing;
+    }
+}
+
+@keyframes shine {
+    from {
+        transform: translate3d(-100%, 0, 0)
+    }
+    to {
+        transform: translate3d(100%, 0, 0)
+    }
+}
+@keyframes shinebg {
+    from {
+        background-position: 100% 0;
+    }
+    to {
+        background-position: -100% 0;
+    }
+}

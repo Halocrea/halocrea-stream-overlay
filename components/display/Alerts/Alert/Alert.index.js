@@ -1,8 +1,4 @@
-<template>
-	<div />
-</template>
 
-<script>
 export default {
 	props: {
 		color: {
@@ -20,7 +16,7 @@ export default {
 			required: true
 		},
 
-		text: {
+		message: {
 			type    : String,
 			required: true
 		}
@@ -35,12 +31,11 @@ export default {
 	},
 
 	mounted () {
-		const audio     = new Audio(this.item.sound)
-		audio.onended   = () => this.$emit('ended')
+		const audio   = new Audio(`/sounds/${this.sound}`)
+		audio.onended = () => this.$emit('ended')
 		audio.addEventListener('canplaythrough', () => {
 			this.loaded = true
 			audio.play()
 		})
 	}
 }
-</script>

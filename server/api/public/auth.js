@@ -132,7 +132,12 @@ app.post('/refresh', (req, res) => {
 })
 
 // [GET] /user
-app.get('/user', (req, res) => {
+app.get('/user', async (req, res) => {
+	try {
+		await getTmiClient()
+	} catch (e) {
+		console.ward('could not get TMI client')
+	}
 	res.json({ user: req.user })
 })
 

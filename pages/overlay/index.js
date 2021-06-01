@@ -22,8 +22,9 @@ export default {
 
 	data () {
 		return {
-			switching: true,
-			theme    : ''
+			playingAlert: false,
+			switching   : true,
+			theme       : ''
 		}
 	},
 
