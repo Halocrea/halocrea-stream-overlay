@@ -2,12 +2,14 @@ import { mapGetters }  from 'vuex'
 import Alerts          from '~/components/display/Alerts/Alerts.vue'
 import DiscordChat     from '~/components/display/DiscordChat/DiscordChat.vue'
 import LatestSubFollow from '~/components/display/LatestSubFollow/LatestSubFollow.vue'
+import SocialNetworks  from '~/components/display/SocialNetworks/SocialNetworks.vue'
 
 export default {
 	components: {
 		Alerts,
 		DiscordChat,
-		LatestSubFollow
+		LatestSubFollow,
+		SocialNetworks
 	},
 
 	layout: 'overlay',

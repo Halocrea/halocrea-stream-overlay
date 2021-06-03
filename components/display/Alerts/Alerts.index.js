@@ -1,5 +1,5 @@
-
-import Alert from './Alert/Alert.vue'
+import { mapGetters } from 'vuex'
+import Alert          from './Alert/Alert.vue'
 
 export default {
 	components: {
@@ -41,6 +41,9 @@ export default {
 				{
 					event  : 'twitchNewFollower',
 					handler: ({ follower }) => {
+						if (!this.followAlerts)
+							return
+
 						const alert = {
 							cinemascope: false,
 							color      : '#177de9'
@@ -60,6 +63,9 @@ export default {
 				{
 					event  : 'twitchSubAlert',
 					handler: ({ color, username }) => {
+						if (!this.subAlerts)
+							return
+
 						const alert = {
 							cinemascope: false,
 							color
@@ -79,6 +85,9 @@ export default {
 				{
 					event  : 'twitchSubgiftAlert',
 					handler: ({ color, sender, username }) => {
+						if (!this.subAlerts)
+							return
+
 						const alert = {
 							cinemascope: true,
 							color,
@@ -98,6 +107,9 @@ export default {
 				{
 					event  : 'twitchResubAlert',
 					handler: ({ color, cumulativeMonths, username }) => {
+						if (!this.subAlerts)
+							return
+
 						const alert = {
 							cinemascope: false,
 							color
@@ -118,6 +130,9 @@ export default {
 				{
 					event  : 'twitchRaidAlert',
 					handler: ({ color, username }) => {
+						if (!this.raidAlerts)
+							return
+
 						const alert = {
 							cinemascope: false,
 							color
@@ -137,6 +152,9 @@ export default {
 				{
 					event  : 'twitchHostAlert',
 					handler: ({ host, viewers }) => {
+						if (!this.hostAlerts)
+							return
+
 						const alert = { cinemascope: false }
 						const { msgs, gifs, snds } = this.useDataByType('hostAlerts')
 						if (msgs && msgs.length > 0)
@@ -155,6 +173,16 @@ export default {
 			queue  : [],
 			current: null
 		}
+	},
+
+	computed: {
+		...mapGetters({
+			bitAlerts   : 'config/bitAlerts',
+			followAlerts: 'config/followAlerts',
+			hostAlerts  : 'config/hostAlerts',
+			raidAlerts  : 'config/raidAlerts',
+			subAlerts   : 'config/subAlerts'
+		})
 	},
 
 	watch: {

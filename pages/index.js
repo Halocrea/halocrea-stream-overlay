@@ -5,6 +5,7 @@ import DiscordChannelMembers from '~/components/admin/discord/DiscordChannelMemb
 import DiscordChannelSelect  from '~/components/admin/discord/DiscordChannelSelect/DiscordChannelSelect.vue'
 import DiscordChatTitle      from '~/components/admin/discord/DiscordChatTitle/DiscordChatTitle.vue'
 import OverlayList           from '~/components/admin/overlay/OverlayList/OverlayList.vue'
+import SocialNetworks        from '~/components/admin/SocialNetworks/SocialNetworks.vue'
 
 export default {
 	components: {
@@ -13,7 +14,8 @@ export default {
 		DiscordChannelMembers,
 		DiscordChannelSelect,
 		DiscordChatTitle,
-		OverlayList
+		OverlayList,
+		SocialNetworks
 	},
 
 	layout    : 'admin',

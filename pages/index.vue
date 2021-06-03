@@ -46,7 +46,7 @@
 			</div>
 		</flex>
 		<flex
-			class="u-flex__item-12@sm-down u-flex__item-12@md u-flex__item-4@md-up"
+			class="u-flex__item-12@sm-down u-flex__item-6@md u-flex__item-4@md-up"
 			cross="stretch"
 		>
 			<div class="o-frostglass u-w-100 u-m-md u-p-lg">
@@ -108,6 +108,17 @@
 						</p>
 					</flex>
 				</transition>
+			</div>
+		</flex>
+		<flex
+			class="u-flex__item-12@sm-down u-flex__item-6@md u-flex__item-6@md-up"
+			cross="stretch"
+		>
+			<div class="o-frostglass u-w-100 u-m-md u-p-lg">
+				<h2 class="u-mb-sm">
+					Social Networks
+				</h2>
+				<social-networks />
 			</div>
 		</flex>
 		<transition name="u-transition--fade" mode="out-in">

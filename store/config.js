@@ -17,7 +17,8 @@ export const state = () => ({
 		followAlerts            : true,
 		hostAlerts              : true,
 		raidAlerts              : true,
-		subAlerts               : true
+		subAlerts               : true,
+		socialNetworks          : []
 	}
 })
 
@@ -38,7 +39,8 @@ export const getters = {
 	followAlerts            : state => state.config.followAlerts,
 	hostAlerts              : state => state.config.hostAlerts,
 	raidAlerts              : state => state.config.raidAlerts,
-	subAlerts               : state => state.config.subAlerts
+	subAlerts               : state => state.config.subAlerts,
+	socialNetworks          : state => state.config.socialNetworks
 }
 
 export const mutations = {

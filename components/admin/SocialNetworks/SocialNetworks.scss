@@ -1,0 +1,49 @@
+.c-social-networks {
+	&__select {
+		// A reset of styles, including removing the default dropdown arrow
+		appearance      : none;
+		width           : 15rem;
+		padding         : 1.2rem 1.8rem;
+		font-family     : inherit;
+		line-height     : inherit;
+		cursor          : pointer;
+		outline         : none;
+		border          : none;
+		border-radius   : 2rem;
+		line-height     : 1.1;
+		background-color: rgba(0, 0, 0, .33);
+		color 			: var(--color-font-base);
+
+		&::-ms-expand {
+			display: none;
+		}
+
+		&:hover {
+			box-shadow  : 0 0 0 .1rem var(--color-border-base) inset;
+		}
+
+		&:focus {
+			box-shadow  : 0 0 0 .1rem var(--color-border-base) inset;
+		}
+
+		&:active {
+			box-shadow  : 0 0 0 .1rem var(--color-border-base) inset;
+		}
+
+		&--chevron {
+			position  : absolute;
+			top       : 50%;
+			right     : 1rem;
+			transform : translateY(-50%);
+			transition: transform .15s linear;
+		}
+
+		&--wrapper {
+			position: relative;
+		}
+	}
+
+	&__textfield {
+		margin-top: 0;
+	}
+}

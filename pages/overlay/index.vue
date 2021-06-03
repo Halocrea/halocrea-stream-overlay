@@ -12,6 +12,12 @@
 				:theme="theme"
 			/>
 		</transition>
+		<transition name="u-transition--zoom" mode="out-in">
+			<social-networks
+				v-if="!switching && !playingAlert"
+				:theme="theme"
+			/>
+		</transition>
 		<alerts
 			:resources="resources"
 			@end-alert="() => playingAlert = false"

@@ -26,7 +26,8 @@ export default async function () {
 			followAlerts            : true,
 			hostAlerts              : true,
 			raidAlerts              : true,
-			subAlerts               : true
+			subAlerts               : true,
+			socialNetworks          : []
 		}), { encoding: 'utf8' })
 	}
 
