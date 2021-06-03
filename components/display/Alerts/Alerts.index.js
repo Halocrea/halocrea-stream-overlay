@@ -39,6 +39,26 @@ export default {
 				// 	}
 				// },
 				{
+					event  : 'twitchBitsAlert',
+					handler: ({ bits, color, username }) => {
+						const alert = {
+							cinemascope: false,
+							color
+						}
+						const { msgs, gifs, snds } = this.useDataByType('bitsAlerts')
+						if (msgs && msgs.length > 0)
+							alert.message = msgs[Math.floor(Math.random() * msgs.length)]
+						if (gifs && gifs.length > 0)
+							alert.gif = gifs[Math.floor(Math.random() * gifs.length)]
+						if (snds && snds.length > 0)
+							alert.sound = snds[this.queue.length % snds.length]
+
+						alert.message = alert.message.replace(/{{username}}/g, username)
+						alert.message = alert.message.replace(/{{bits}}/g, bits)
+						this.genAlert(alert)
+					}
+				},
+				{
 					event  : 'twitchNewFollower',
 					handler: ({ follower }) => {
 						if (!this.followAlerts)

@@ -41,6 +41,16 @@ const _initEvents = (client) => {
 	const events = {
 		// connected   : (address, port) => {},
 		// connecting  : (address, port) => {},
+		cheer: (channel, userstate, message) => {
+			subs.forEach(s =>
+				s.emit('twitchBitsAlert', {
+					bits        : userstate.bits,
+					color       : userstate.color,
+					display_name: userstate.username,
+					username    : userstate.username
+				})
+			)
+		},
 		hosted: (channel, username, viewers, autohost) => {
 			subs.forEach(s =>
 				s.emit('twitchHostAlert', {
