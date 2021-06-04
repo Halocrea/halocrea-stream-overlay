@@ -64,13 +64,13 @@ Before installing the app (locally or on a server), you will need to setup a Dis
 	* Make sure you save this change by clicking on "**Save Changes**" at the bottom of the viewport,
 	* Click on the "**Copy**" button right under the "TOKEN" section.
 
-![Discord Developer Portal - Copy Application ID](./docs/readme-discord-04.jpg)
+![Discord Developer Portal - Copy Token](./docs/readme-discord-04.jpg)
 
 7. On your server or computer, go to the root folder of the project, copy-paste the `.env.dist` file, and rename the copy `.env`.
 
-![Discord Developer Portal - Copy Application ID](./docs/readme-discord-05.jpg)
+![Discord Developer Portal - Env files](./docs/readme-discord-05.jpg)
 
-8. Open `.env`, and at **line 9**, after `DISCORD_TOKEN=`, paste (without any space) the token you copied in the Developer Portal on step 6.
+8. Open `.env`, and at **line 9**, after `DISCORD_TOKEN=`, paste (without any space) the token you copied in the Developer Portal on step 6. You can then save and close the file.
 9. Open a new tab on your web browser, and start typing the following line in the address bar _without validating it just yet_: `https://discordapp.com/oauth2/authorize?client_id=%REPLACE-THIS%&scope=bot&permissions=8`
 10. Go back to the developer portal, and in the sidebar, click on "**General Information**".
 11. Locate the line called **Application ID** and click on the "**Copy**" button right under it.
@@ -80,7 +80,7 @@ Before installing the app (locally or on a server), you will need to setup a Dis
 12. In your other tab, in the address bar, replace `%REPLACE-THIS%` with the application ID you just copied, then press the 'Enter' key.
 13. In this page, select the server the bot must join, then click on "**Continue**":
 
-![Discord Developer Portal - Copy Application ID](./docs/readme-discord-07.jpg)
+![Discord Developer Portal - Add bot to server](./docs/readme-discord-07.jpg)
 
 14. You can close this tab and the Developer Portal now.
 
@@ -89,19 +89,48 @@ _I swear we're only a few more steps away from being done, don't give up now!_
 15. Go to your Discord app, and go to your settings (the ⚙️ icon right to your username in the bottom left of the window); scroll in the left sidebar until "Advanced", then click on it.
 16. In the Advanced part, make sure to check the switch for "Developer mode", save your change and close the settings.
 
-![Discord Developer Portal - Copy Application ID](./docs/readme-discord-08.jpg)
+![Discord App - Enable developer mode](./docs/readme-discord-08.jpg)
 
 17. Now right-click on the server into which you added your bot, and click on "**Copy ID**".
 
-![Discord Developer Portal - Copy Application ID](./docs/readme-discord-09.jpg)
+![Discord App - Copy server ID](./docs/readme-discord-09.jpg)
 
-18. In your `.env` file, on **line 12**, after `DISCORD_GUILD=`, paste this ID (without any space).
+18. In your `.env` file, on **line 10**, after `DISCORD_GUILD=`, paste this ID (without any space). You can then save and close the file.
 
 **That's it for Discord, yay!**
 
 ---
 ## 2. (Optionnal) Setting up the Twitch App <a name="twitch-app"></a>
-TBD
+If you don't care about the features related to Twitch (follower/subs/etc. alerts, Last Subscriber/Last Follower), you can skip this part.
+
+1. Go to the [Twitch Developer Console](https://dev.twitch.tv/console) and login with the account you intend to use with the stream overlay.
+2. On the Console homepage (https://dev.twitch.tv/console), in the Overview tab, you should see an "Applications" section, with a button "**Register Your Application**" on the top right corner of it. Click on this button.
+
+![Twitch Developer Console - Register a new Application](./docs/readme-twitch-01.jpg)
+
+3. A form will appear; provide the following information: 
+	* a name to your app (can be anything, "Overlay App" for example)
+	* a valid OAuth Redirect URL: if you intend on running the app locally, just copy-paste `http://localhost:3000/oauth2_return`. If you plan on hosting the app on a server, replace `http://localhost:3000` with `https://` followed by your domain name.
+	* You can technically put anything you'd like in "Category", but this app would go under "Broadcaster Suite".
+	* Validate the captcha.
+	* Click on "**Create**".
+
+![Twitch Developer Console - App Creation Form](./docs/readme-twitch-02.jpg)
+
+4. You should now see your Twitch application listed; click on the "**Manage**" bottom on its right:
+
+![Twitch Developer Console - Manage Twitch App](./docs/readme-twitch-03.jpg)
+
+5. You will be greeted with a form looking very much like the previous one, _BUT_ this one has two information we need: the **Client ID** and **Client Secret** of your app.
+	* Copy the Client ID
+	* On your server or computer, go to the root folder of the project, open the `.env` file, and on **line 13**, paste the ID right after `TWITCH_CLIENT_ID=` (without space).
+	* Back to the Twitch Developer Console, Click on "**New Secret**" and copy the newly-generated secret key.
+	* in the `.env` file, on **line 14**, paste the secret right after `TWITCH_CLIENT_SECRET=` (without space).
+	* You can save and close the `.env` file.
+
+![Twitch Developer Console - Client ID and Secret](./docs/readme-twitch-04.jpg)
+
+And you're done for Twitch!
 
 ---
 ## 3. Installing & Running the project <a name="installation"></a>
@@ -143,7 +172,11 @@ yarn start
 ```
 
 If you're running this locally, you must keep that terminal open to keep the webapp alive. 
-Also (if you're running it locally), you'll have access to it through your web browser at http://localhost:3000 by default.
+Also (if you're running it locally), you'll have access to it through your web browser at http://localhost:3000 by default, where you will be guided to do everything else!
+
+**Note:** If you're not sure about it, the overlay works as Web Browser Source in OBS. In the webapp, in the admin panel, you will see `📋 Copy source URL` to get the URL you need. Make sure you set those sources with:
+  - **width:** 1920
+  - **height:** 1080
 
 ---
 ## 4. (Optionnal) Updating the project <a name="update"></a>
