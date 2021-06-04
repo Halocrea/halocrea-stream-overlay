@@ -16,7 +16,15 @@
 		<user-display-config
 			:class="{ 'c-user-display-config--open': open }"
 		/>
-		<user-info />
+		<flex cross="center">
+			<copy-url-btn
+				last-params="/overlay"
+				class="o-btn--bordered o-btn--big u-mx-sm"
+			>
+				Copy overlay's URL for OBS
+			</copy-url-btn>
+			<user-info />
+		</flex>
 	</flex>
 </template>
 

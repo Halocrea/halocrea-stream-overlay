@@ -21,21 +21,32 @@
 			<template
 				v-for="category in all"
 			>
-				<waiting-screens-messages
+				<flex
 					v-if="category.key === current"
 					:key="category.key"
-					:screen="category.key"
-				/>
+					direction="column"
+					main="center"
+				>
+					<waiting-screens-messages :screen="category.key" />
+					<copy-url-btn
+						:last-params="`/waitscreen/${category.key}`"
+						class="o-btn--bordered o-btn--big u-mt-lg u-mx-sm"
+					>
+						Copy {{ category.label }}'s URL for OBS
+					</copy-url-btn>
+				</flex>
 			</template>
 		</transition>
 	</div>
 </template>
 
 <script>
+import CopyUrlBtn             from '~/components/utils/CopyUrlBtn/CopyUrlBtn.vue'
 import WaitingScreensMessages from '~/components/admin/WaitingScreensMessages/WaitingScreensMessages.vue'
 
 export default {
 	components: {
+		CopyUrlBtn,
 		WaitingScreensMessages
 	},
 

@@ -72,6 +72,12 @@ app.get('/webhooks', cors(), async (req, res) => {
 	} else if (!process.env.TWITCH_CLIENT_ID || !process.env.TWITCH_CLIENT_SECRET) {
 		await updateConfig(['showLatestFollow', 'showLatestSub'], [false, false])
 		return res.status(420).send('Cannot use Twitch features without the Client ID nor the Client Secret. Please check the Readme to make sure you set things properly.')
+	} else if (tokens && tokens.access_token && !tokens.refresh_token) { // for some reason, we have an access token but not a refresh token, so if it is expired or about to expire we need to change it
+		const expiry    = new Date(tokens.expires_in)
+		const checkDate = new Date()
+		checkDate.setHours(checkDate.getHours() - 6)
+		if (expiry <= checkDate)
+			tokens = await setAppAccessTokens()
 	}
 
 	try {

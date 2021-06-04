@@ -35,6 +35,11 @@ export default {
 		}
 	},
 
+	created () {
+		if (this.canUseTwitch && this.useTwitchFeatures)
+			this.$axios.get('/api/private-twitch/webhooks')
+	},
+
 	computed: {
 		...mapGetters({
 			canUseTwitch     : 'config/canUseTwitch',

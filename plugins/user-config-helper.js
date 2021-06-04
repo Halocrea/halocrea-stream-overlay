@@ -30,9 +30,9 @@ export default async function () {
 			subAlerts               : true,
 			subgiftAlerts           : true,
 			socialNetworks          : [],
-			introMsgs               : [],
-			interludeMsgs           : [],
-			outroMsgs               : []
+			introMsgs               : ['Stream starting soon!'],
+			interludeMsgs           : ['Be back in a minute!'],
+			outroMsgs               : ['Thanks for watching!']
 		}), { encoding: 'utf8' })
 	}
 

@@ -4,6 +4,11 @@ import { subs }                             from '../io'
 process.TMI_CLIENT_CONSTANT = null
 
 export const getTmiClient = async () => {
+	const userInfo  = await getUserInfo()
+
+	if (!userInfo)
+		return
+
 	try {
 		if (!process.TMI_CLIENT_CONSTANT)
 			process.TMI_CLIENT_CONSTANT = await bootTmiClient()
