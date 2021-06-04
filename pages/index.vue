@@ -46,7 +46,7 @@
 			</div>
 		</flex>
 		<flex
-			class="u-flex__item-12@sm-down u-flex__item-6@md u-flex__item-4@md-up"
+			class="u-flex__item-12@sm-down u-flex__item-4@md u-flex__item-4@md-up"
 			cross="stretch"
 		>
 			<div class="o-frostglass u-w-100 u-m-md u-p-lg">
@@ -111,14 +111,31 @@
 			</div>
 		</flex>
 		<flex
-			class="u-flex__item-12@sm-down u-flex__item-6@md u-flex__item-6@md-up"
+			class="u-flex__item-12@sm-down u-flex__item-8@md u-flex__item-6@md-up"
 			cross="stretch"
 		>
 			<div class="o-frostglass u-w-100 u-m-md u-p-lg">
 				<h2 class="u-mb-sm">
-					Social Networks
+					Social Links
 				</h2>
+				<p class="u-my-md u-pb-lg">
+					You can set up to 4 social links that will be shown nicely in the overlay.
+				</p>
 				<social-networks />
+			</div>
+		</flex>
+		<flex
+			class="u-flex__item-12@sm-down u-flex__item-12@md u-flex__item-6@md-up"
+			cross="stretch"
+		>
+			<div class="o-frostglass u-w-100 u-m-md u-p-lg">
+				<h2 class="u-mb-sm">
+					Waiting screens
+				</h2>
+				<p class="u-mt-md">
+					Please note that, contrary to the other features, each "waiting screen" has its own source URL.
+				</p>
+				<waiting-screens-tabs />
 			</div>
 		</flex>
 		<transition name="u-transition--fade" mode="out-in">

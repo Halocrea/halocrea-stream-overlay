@@ -18,7 +18,10 @@ export const state = () => ({
 		hostAlerts              : true,
 		raidAlerts              : true,
 		subAlerts               : true,
-		socialNetworks          : []
+		socialNetworks          : [],
+		introMsgs               : [],
+		interludeMsgs           : [],
+		outroMsgs               : []
 	}
 })
 
@@ -40,7 +43,10 @@ export const getters = {
 	hostAlerts              : state => state.config.hostAlerts,
 	raidAlerts              : state => state.config.raidAlerts,
 	subAlerts               : state => state.config.subAlerts,
-	socialNetworks          : state => state.config.socialNetworks
+	socialNetworks          : state => state.config.socialNetworks,
+	introMsgs               : state => state.config.introMsgs,
+	interludeMsgs           : state => state.config.interludeMsgs,
+	outroMsgs               : state => state.config.outroMsgs
 }
 
 export const mutations = {

@@ -27,7 +27,10 @@ export default async function () {
 			hostAlerts              : true,
 			raidAlerts              : true,
 			subAlerts               : true,
-			socialNetworks          : []
+			socialNetworks          : [],
+			introMsgs               : [],
+			interludeMsgs           : [],
+			outroMsgs               : []
 		}), { encoding: 'utf8' })
 	}
 

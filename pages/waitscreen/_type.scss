@@ -1,0 +1,262 @@
+.p-waiting-screen {
+	position        : fixed;
+	top             : 0;
+	left            : 0;
+	width           : 100vw;
+	height          : 100vh;
+	overflow        : hidden;
+	font-family     : "Pathway Gothic One", sans-serif;
+	background-color: rgba(0, 0, 0, 0.2);
+
+	& > * {
+		position : absolute;
+		top      : 50%;
+		left     : 50%;
+		transform: translate3d(-50%, -50%, 0);
+	}
+
+	&__emotes {
+		top      : 13.75rem;
+		left     : unset;
+		right    : 16.75rem;
+		transform: unset;
+	}
+
+	&__emote-1,
+	&__emote-2 {
+		display  : block;
+		top      : 0;
+		left     : 0;
+		animation: fade 15s linear infinite;
+		opacity  : 0;
+	}
+
+	&__emote-1 {
+		animation-delay: 3.25s;
+	}
+
+	&__emote-2 {
+		margin-top     : 7rem;
+		animation-delay: 3s;
+	}
+
+	&__eyes {
+		position     : absolute;
+		top          : calc(50% - .2rem);
+		left         : calc(50% + 12.6rem);
+		width        : 140px;
+		height       : 140px;
+		margin       : 0;
+		padding      : 0;
+		transform    : translate3d(-50%, -50%, 0);
+		border-radius: 50%;
+
+		& > * {
+			position        : absolute;
+			top             : 4.7rem;
+			width           : 4rem;
+			height          : 4rem;
+			background-color: #fff;
+			border-radius   : 50%;
+			list-style-type : none;
+			animation       : eye 10s cubic-bezier(0.17, 0.67, 0.16, 0.99) infinite;
+
+			&:first-child {
+				left: 2.2rem;
+			}
+			&:last-child {
+				right: 2.2rem;
+			}
+		}
+	}
+
+	&__links {
+		position       : fixed;
+		top            : unset;
+		left           : unset;
+		bottom         : 24rem;
+		right          : 11rem;
+		width          : 18rem;
+		height         : 6rem;
+		overflow       : hidden;
+		color          : #fff;
+		font-size      : 1.6em;
+		transform      : unset;
+		opacity        : 0;
+		clip-path      : polygon(0 0, 100% 0, 100% 80%, 0 80%);
+		animation      : fade 15s linear infinite;
+		animation-delay: 2.5s;
+
+		ul {
+			list-style-type: none;
+			padding        : 0;
+			transition     : margin-top 0.33s cubic-bezier(0.64, 0.57, 0.67, 1.53);
+
+			@for $i from 0 through 3 {
+				&.position-#{$i} {
+					margin-top: -($i) * 5.9rem;
+				}
+			}
+		}
+		li {
+			padding   : 1.2rem 0;
+			height    : 6rem;
+			opacity   : 0;
+			transition: opacity 0.15s linear;
+
+			&.active {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__neon {
+		animation: flicker 7s linear infinite;
+	}
+
+	&__odst-overlay {
+		position : fixed;
+		top      : 0;
+		left     : 0;
+		width    : 100vw;
+		height   : 100vh;
+		transform: unset;
+
+		& > * {
+			position : absolute;
+			top      : 0;
+			left     : 0;
+			width    : 100vw;
+			height   : 100vh;
+			animation: layer 15s linear infinite;
+			clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+		}
+
+		@for $i from 1 through 30 {
+			*:nth-child(#{$i}) {
+				animation-delay: $i * 0.15s;
+			}
+		}
+	}
+
+	&__path {
+		stroke-dasharray : 30000;
+		stroke-dashoffset: 0;
+		animation        : dash 10s ease-out infinite;
+
+		&--blue {
+			stroke: #4196ff;
+		}
+	}
+
+	&__text {
+		width         : 110rem;
+		margin-top    : -7.5rem;
+		color         : #fff;
+		font-size     : 8rem;
+		text-align    : center;
+		animation     : text 10s cubic-bezier(0.17, 0.67, 0.16, 0.99) infinite;
+		text-transform: uppercase;
+		text-shadow   : 0 0 1rem rgba(0, 0, 0, 0.5);
+	}
+}
+
+@keyframes fade {
+	0%, 65% { opacity: 0; }
+	10%, 55% { opacity: 1; }
+}
+
+@keyframes layer {
+	0% { clip-path: polygon(0 0, 0 0, 0 0, 0 0); }
+	10%, 70% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+	80% { clip-path: polygon(0 100%, 0 100%, 0 100%, 0 100%); }
+}
+
+@keyframes flicker {
+	38%                              { opacity: 0.5; }
+	6%                               { opacity: 0.85; }
+	4%, 10%, 12%, 17%, 56%, 58%, 70% { opacity: 0.9; }
+	11%                              { opacity: 0.922; }
+	19%, 37%, 93%, 97%               { opacity: 0.93; }
+	26%, 46%                         { opacity: 0.94; }
+	8%, 14%, 72%, 95%                { opacity: 0.95; }
+	39%                              { opacity: 0.96; }
+	44%                              { opacity: 0.97; }
+	16%, 28%                         { opacity: 0.98; }
+	20%, 60%                         { opacity: 0.99; }
+	0%, 24%, 42%, 68%, 100%          { opacity: 1; }
+}
+
+@keyframes dash {
+	0%,
+	20% {
+		stroke-dashoffset: -30000;
+		opacity: 0;
+	}
+	40%,
+	60% {
+		stroke-dashoffset: 0;
+		opacity: 1;
+	}
+	80%,
+	100% {
+		stroke-dashoffset: 30000;
+		opacity: 0;
+	}
+}
+
+@keyframes eye {
+	0%,
+	40.9%,
+	80.1%,
+	100% {
+		opacity: 0;
+	}
+	41%,
+	42%,
+	43%,
+	45%,
+	79.1%,
+	80% {
+		opacity: 1;
+		top: 67px;
+		height: 10px;
+		border-radius: 0;
+	}
+	42.1%,
+	42.9%,
+	45.1%,
+	79% {
+		top: 47px;
+		height: 40px;
+		border-radius: 50%;
+	}
+	65% {
+		clip-path: unset;
+	}
+	65.1%,
+	80% {
+		clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+		opacity: 1;
+	}
+}
+
+@keyframes text {
+	0%,
+	20%,
+	80%,
+	100% {
+		opacity: 1;
+		transform: translate3d(-50%, 0, 0);
+	}
+	30% {
+		transform: translate3d(-50%, 20px, 0);
+	}
+	30%,
+	70% {
+		opacity: 0;
+	}
+	70% {
+		transform: translate3d(-50%, -20px, 0);
+	}
+}
