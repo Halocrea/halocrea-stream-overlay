@@ -59,17 +59,18 @@ const _initEvents = (client) => {
 				})
 			)
 		},
-		message: (channel, userstate, message, self) => {
-			if (self || userstate['message-type'] !== 'chat')
-				return
-			const obj = {
-				color   : userstate.color,
-				username: userstate['display-name'],
-				message
-			}
-			console.log(`[debug] chat message from ${obj.username}: ${obj.message}`)
-			subs.forEach(s => s.emit('twitchChatMessage', obj))
-		},
+		// for debug purposes... mostly
+		// message: (channel, userstate, message, self) => {
+		// 	if (self || userstate['message-type'] !== 'chat')
+		// 		return
+		// 	const obj = {
+		// 		color   : userstate.color,
+		// 		username: userstate['display-name'],
+		// 		message
+		// 	}
+		// 	console.log(`[debug] chat message from ${obj.username}: ${obj.message}`)
+		// 	subs.forEach(s => s.emit('twitchChatMessage', obj))
+		// },
 		raided: (channel, username, viewers) => {
 			subs.forEach(s => s.emit('twitchRaidAlert', {
 				host: username,

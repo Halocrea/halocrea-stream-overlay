@@ -61,7 +61,11 @@ If you want to run and deploy this app using Docker & Traefik, follow these step
 3. `$ docker-compose up -d` 
 
 ## 6. Credits
-- Icyhotspartin for the default sub alert sounds: https://soundcloud.com/icyhot_mus (used with permission)
+- Icyhotspartin for the sub alert sounds: https://soundcloud.com/icyhot_mus
+- "Halo Theme Kazoo Orchestrea (ft. my desk) by joosebox: https://www.youtube.com/watch?v=l_DfCFHOD9E 
+- Gif of the ODST cosplay playing the saxophone by @j4ckpot234: https://twitter.com/HaloOutpost/status/1163342344135094272?s=20
+- "Halo Cello Cover" by Jaeyoung Chong on YouTube: https://youtu.be/lTBK7ZqFNXw
 - Feather Icons for most icons: https://feathericons.com/
 - Font Awesome for a few others: https://fontawesome.com/
-- "Halo Theme Kazoo Orchestrea (ft. my desk) by joosebox: https://www.youtube.com/watch?v=l_DfCFHOD9E 
+
+Most of the other Halo-related visual and sound resources are likely © Microsoft and 343 Industries 😅

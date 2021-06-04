@@ -26,7 +26,9 @@ export default async function () {
 			followAlerts            : true,
 			hostAlerts              : true,
 			raidAlerts              : true,
+			resubAlerts             : true,
 			subAlerts               : true,
+			subgiftAlerts           : true,
 			socialNetworks          : [],
 			introMsgs               : [],
 			interludeMsgs           : [],
@@ -41,8 +43,8 @@ export default async function () {
 		await fs.writeFile(resourcesConfigFilePath, JSON.stringify({
 			bitsAlerts: {
 				messages: ['Thanks for the {{bits}}bits, {{username}}!'],
-				gifs    : ['dmr.gif'],
-				sounds  : ['follow-sound.mp3']
+				gifs    : ['saxo-cosplay-j4ckpot234.gif'],
+				sounds  : ['jazzy-odst-01.mp3']
 			},
 			followAlerts: {
 				messages: ['Thanks for following, {{username}}!'],
@@ -51,31 +53,41 @@ export default async function () {
 			},
 			hostAlerts: {
 				messages: ['{{username}} is hosting us, WOW!'],
-				gifs    : ['tbag.gif'],
-				sounds  : ['follow-sound.mp3']
+				gifs    : ['halfjaw-speech.gif'],
+				sounds  : ['cello-theme-01.mp3']
 			},
 			raidAlerts: {
 				messages: ['{{username}} is raiding us! Welcome, raiders!'],
-				gifs    : ['fabulous-hogs.gif'],
-				sounds  : ['alert-sound-01.mp3']
+				gifs    : ['sword.gif'],
+				sounds  : ['h2-follow-01.mp3']
+			},
+			resubAlerts: {
+				messages: ['Thanks for resubscribing, {{username}}!'],
+				gifs    : ['bonus-hog-passenger.gif'],
+				sounds  : ['cello-theme-02.mp3']
 			},
 			subAlerts: {
 				messages: ['Thanks for subscribing, {{username}}!'],
+				gifs    : ['wtfrench-omg.gif'],
+				sounds  : ['icyhot-cover-01.mp3']
+			},
+			subgiftAlerts: {
+				messages: [
+					'{{sender}} gifted a sub to {{recipient}}!'
+				],
 				gifs    : [
 					'fabulous-hogs.gif',
 					'dmr.gif',
-					'bonus-hog-passenger.gif',
-					'tbag.gif',
-					'wtfrench-omg.gif'
+					'tbag.gif'
 				],
 				sounds  : [
-					'alert-sound-01.mp3',
-					'alert-sound-02.mp3',
-					'alert-sound-03.mp3',
-					'alert-sound-04.mp3',
-					'alert-sound-05.mp3',
-					'alert-sound-06.mp3',
-					'alert-sound-07.mp3'
+					'icyhot-cover-01.mp3',
+					'icyhot-cover-02.mp3',
+					'icyhot-cover-03.mp3',
+					'icyhot-cover-04.mp3',
+					'icyhot-cover-05.mp3',
+					'icyhot-cover-06.mp3',
+					'icyhot-cover-07.mp3'
 				]
 			},
 			emotes: [

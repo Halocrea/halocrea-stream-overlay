@@ -16,7 +16,7 @@
 							'c-alert-details__chevron--flipped': showDetails
 						}"
 					/>
-					{{ alertLabel }}
+					{{ label }}
 				</button>
 				<span
 					v-for="v in vars"

@@ -17,11 +17,6 @@ export default {
 			required: true
 		},
 
-		alertLabel: {
-			type    : String,
-			required: true
-		},
-
 		resources: {
 			type    : Object,
 			required: true
@@ -39,6 +34,10 @@ export default {
 	computed: {
 		enabled () {
 			return this.$store.getters['config/alertByType'](this.alertKey)
+		},
+
+		label () {
+			return this.$store.getters['twitch/keyLabels'].find(kl => kl.key === this.alertKey).label
 		},
 
 		vars () {

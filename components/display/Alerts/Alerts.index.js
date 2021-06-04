@@ -110,16 +110,17 @@ export default {
 
 						const alert = {
 							cinemascope: true,
-							color,
-							message    : '{{sender}} gifted a sub to {{username}}!'
+							color
 						}
-						const { gifs, snds } = this.useDataByType('subAlerts')
+						const { gifs, msgs, snds } = this.useDataByType('subgiftAlerts')
+						if (msgs && msgs.length > 0)
+							alert.message = msgs[Math.floor(Math.random() * msgs.length)]
 						if (gifs && gifs.length > 0)
 							alert.gif = gifs[Math.floor(Math.random() * gifs.length)]
 						if (snds && snds.length > 0)
 							alert.sound = snds[this.queue.length % snds.length]
 
-						alert.message = alert.message.replace(/{{username}}/g, username)
+						alert.message = alert.message.replace(/{{recipient}}/g, username)
 						alert.message = alert.message.replace(/{{sender}}/g, sender)
 						this.genAlert(alert)
 					}
@@ -134,7 +135,7 @@ export default {
 							cinemascope: false,
 							color
 						}
-						const { msgs, gifs, snds } = this.useDataByType('subAlerts')
+						const { msgs, gifs, snds } = this.useDataByType('resubAlerts')
 						if (msgs && msgs.length > 0)
 							alert.message = msgs[Math.floor(Math.random() * msgs.length)]
 						if (gifs && gifs.length > 0)

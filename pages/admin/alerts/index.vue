@@ -29,7 +29,6 @@
 		>
 			<alert-details
 				:alert-key="key"
-				:alert-label="key"
 				:resources="resources[key]"
 			/>
 		</flex>

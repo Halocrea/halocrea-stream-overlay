@@ -26,9 +26,19 @@ export const state = () => ({
 			vars : ['{{username}}']
 		},
 		{
+			key  : 'resubAlerts',
+			label: 'Subscription renewal',
+			vars : ['{{username}}', '{{cumulativeMonths}}']
+		},
+		{
 			key  : 'subAlerts',
 			label: 'New subscriber',
 			vars : ['{{username}}']
+		},
+		{
+			key  : 'subgiftAlerts',
+			label: 'Gift subscription',
+			vars : ['{{sender}}', '{{recipient}}']
 		}
 	]
 })
