@@ -16,7 +16,7 @@
     <img src="https://img.shields.io/twitter/follow/HaloCreation?color=%232da1f3&logo=Twitter&style=flat-square" />
   </a>
 </p>
-A webapp providing Halo-themed overlays you can add as browser sources in OBS. It can shows the people in a Discord voice chat and display alerts whenever the channel gets a new follower or subscriber.
+A webapp providing Halo-themed overlays you can add as browser sources in OBS. It can show members of a Discord voice chat and display alerts whenever the channel gets a new follower or subscriber.
 
 --- 
 
