@@ -7,7 +7,7 @@ services:
     container_name: "twitch-overlay"
     restart: always
     ports:
-      - ${DOCKER_PORT}:3000
+      - 3000:${DOCKER_PORT}
     volumes:
       - ${DATA_PATH}:/app/data
       - ${ASSETS_PATH}:/app/static
