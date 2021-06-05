@@ -201,9 +201,17 @@ docker run -d -v /absolute/path/to/the/project/data:/app/data -v /absolute/path/
 
 ---
 ## 6. (Optionnal) Serving the webapp with Traefik on Docker <a name="serve-with-traefik"></a>
-If you run Traefik on your server and want to serve your Docker container through it:
+To easily serve some of our websites and webapps, Halo Créa uses [Traefik](https://doc.traefik.io/traefik/), which is _"an open-source Edge Router that makes publishing your services a fun and easy experience."_. Well, I wouldn't say it's _fun_ but at least it is easy to use it as a proxy that automatically generates SSL certificates (for the websites to be `https` you know).
+
+If you don't have a server with Docker already, you can find super cheap VPSs that'll do the job (like $5/mo), on which you can then setup traefik and this webapp (and others eventually).
+
+If you're installing Docker yourself for the first time, make sure you follow [Docker's documentation](https://docs.docker.com/engine/install/).
+
+If you don't run Traefik but are interested about it and how we use it, we published a project with everything you need to know to set it up: [here](https://github.com/Halocrea/traefik-on-docker).
+
+If you run Traefik on your server and want to serve this webapp as Docker container through it:
 1. in the `.env` file, provide the information required for it (there's a comment to point out at them).
-3. Type `docker-compose up -d`. That's it! 
+2. Type `docker-compose up -d`. That's it! 
 
 ---
 ## 7. Credits <a name="credits"></a>
