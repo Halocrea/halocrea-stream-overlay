@@ -123,6 +123,11 @@ export default {
 		{ src: '~/plugins/no-this-is-not-an-easter-egg-go-away', mode: 'client' }
 	],
 
+	server: {
+		port: process.env.DOCKER_PORT,
+		host: '0.0.0.0'
+	},
+
 	serverMiddleware: [
 		'~/server/api/public/auth',
 		'~/server/api/private/config',
