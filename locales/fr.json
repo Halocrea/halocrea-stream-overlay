@@ -1,0 +1,178 @@
+{
+	"components": {
+		"admin": {
+			"discord": {
+				"channelSelect": {
+					"error": "Une erreur est survenue ; assurez-vous que le bot dispose des permissions suffisantes pour lister les salons et les joindre.",
+					"filter": "Montrer uniquement les salons non-vides",
+					"leave" : "Quitter le salon",
+					"selectAChan": "Sélectionner un salon"
+				},
+				"chatTitle": {
+					"name": "Nom du salon vocal"
+				}
+			},
+			"overlay": {
+				"overlayList": {
+					"endAnnotation": "Note : vous pouvez forcer un thème à la source OBS en ajoutant <code>?force=%key%</code> à la fin de l'URL, comme <code>{url}/overlay?force={selected}</code>",
+					"infiniteSoon": "Halo Infinite (bientôt !)",
+					"menuNeutral": "Menu/Neutre"
+				}
+			},
+			"socialNetworks": {
+				"add": "Ajouter",
+				"choose": "Choisir",
+				"remove": "Retirer",
+				"update": "Mettre à jour",
+				"value": "Valeur"
+			},
+			"twitch": {
+				"alertDetails": {
+					"alertGifs": {
+						"error": "Ce fichier est trop gros",
+						"upload": "Téléverser un gif (max. 20Mo)"
+					},
+					"alertMessages": {
+						"add": "Ajouter un message"
+					},
+					"alertSounds": {
+						"error": "Ce fichier est trop gros",
+						"upload": "Téléverser un mp3 (max. 20Mo)"
+					},
+					"gifs": "Gifs",
+					"messages": "Messages",
+					"sounds": "Sons (mp3)"
+				},
+				"confirmDisableTwitch": {
+					"description": "Êtes-vous certain de vouloir désactiver les fonctionnalités liées à Twitch, c'est-à-dire les alertes mais aussi les champs \"dernier follower\" et \"dernier abonné\" ?",
+					"disable": "Désactiver",
+					"error": "Une erreur est survenue :( Veuillez réessayer plus tard ou nous contacter si le problème persiste.",
+					"title": "Désactiver les fonctionnalités Twitch"
+				},
+				"confirmEnableTwitch": {
+					"confirm": "Confirmer",
+					"description": "Pour profiter des fonctionnalités liées à Twitch, vous devez autoriser l'application à accéder à des informations de votre compte Twitch (abonnés, followers).",
+					"error": "Une erreur est survenue :( Veuillez réessayer plus tard ou nous contacter si le problème persiste.",
+					"notice": "<strong>Important : </strong> Assurez-vous d'avoir configuré l'application de sorte à utiliser la même adresse email que votre compte Twitch.",
+					"title": "Activer les fonctionnalités Twitch"
+				}
+			},
+			"userDisplayConfig": {
+				"latestFollow": "Dernier follower",
+				"latestSub": "Dernier abonné",
+				"twitchAlerts": "Alertes Twitch",
+				"voiceChat": "Salon vocal"
+			},
+			"waitingScreensMessage": {
+				"add": "Ajouter",
+				"message": "Message",
+				"remove": "Retirer",
+				"update": "Mettre à jour"
+			},
+			"waitingScreensTabs": {
+				"copyUrl": "Copier l'URL d'{category} pour OBS"
+			}
+		},
+		"display": {
+			"latestSubFollow": {
+				"latestFollower": "Dernier Follow",
+				"latestSub": "Dernier Abonné"
+			}
+		},
+		"layout": {
+			"adminTopBar": {
+				"copyOverlayUrl": "Copier l'URL de l'overlay pour OBS"
+			}
+		},
+		"twitch": {
+			"twitchLoginBtn": {
+				"authorize": "Autoriser l'accès à Twitch",
+				"missingConfig": "La configuration du projet est incomplète (Twitch Client ID et/ou Client Secret) ; il est donc impossible de se connecter à Twitch."
+			},
+			"twitchTokenVerifier": {
+				"back": "Retour à la page d'accueil",
+				"error": "Une erreur est survenue",
+				"loading": "Chargement"
+			}
+		},
+		"user": {
+			"login": {
+				"emailAjouterress": "Adresse email",
+				"login": "Se connecter",
+				"loginRequired": "Authentification requise",
+				"password": "Mot de passe"
+			},
+			"userInfo": {
+				"goToChannel": "Aller sur la chaîne",
+				"logout": "Se déconnecter",
+				"plzHelp": "Aide"
+			}
+		}
+	},
+	"defaults": {
+		"alerts": {
+			"bits": "Merci pour les {{bits}}bits, {{username}} !",
+			"follow": "Merci pour le follow, {{username}} !",
+			"host": "{{username}} héberge maintenant la chaîne, WOW !",
+			"raid": "{{username}} lance un raid ! Bienvenue, raiders !",
+			"resub": "Merci d'avoir renouvelé ton abonnement, {{username}} !",
+			"sub": "{{username}} s'est abonné à la chaîne ; merci !",
+			"subgift": "{{sender}} a offert un abonnement à {{recipient}} !"
+		},
+		"intro": "Le stream démarre bientôt !",
+		"interlude": "Je reviens dans une minute !",
+		"outro": "Merci d'avoir regardé !"
+	},
+	"layouts": {
+		"admin": {
+			"error": "Il y a un problème: il semblerait que vous ayez besoin d'autoriser l'application à accéder à des fonctionnalités de Twitch, mais la configuration est imcomplète (Client ID et/ou Client Secret Twitch manquants).",
+			"reauthenticateTwitch": "Arf, on a besoin de (ré)autoriser l'accès à Twitch."
+		}
+	},
+	"pages": {
+		"admin": {
+			"alerts": {
+				"back": "Retour",
+				"description": "Pour chaque type d'alerte, vous pouvez ajouter plusieurs messages, gif et sons personnalisés qui seront joués aléatoirement :",
+				"title": "Configuration des alertes"
+			}
+		},
+		"index": {
+			"discordCurrent": "Actuellement dans le salon: ",
+			"discordDescription": "Veuillez sélectionner un salon vocal pour que le bot Discord le joigne :",
+			"discordDisabled": "Vous devez activer \"Salon vocal\" pour utiliser cette fonctionnalité.",
+			"discordTitle": "Discord",
+			"overlayThemeDescription": "Choisissez le style des widgets pour l'overlay :",
+			"overlayThemeTitle": "Thème d'Overlay",
+			"socialLinksDescription": "Vous pouvez ajouter jusqu'à 4 éléments pour les afficher dans l'overlay.",
+			"socialLinksTitle": "Réseaux sociaux",
+			"twitchConfigure": "Configurer les alertes",
+			"twitchDescription": "Vous pouvez choisir quelles alertes afficher et les configurer !",
+			"twitchDisable": "Désactiver",
+			"twitchEnableButton": "Activer les fonctionnalités Twitch",
+			"twitchEnableText": "Affichez vos derniers followers et abonnés, et profitez d'alertes façon Halo pour votre stream !",
+			"twitchMissingConfig": "La configuration du projet est incomplète, les fonctionnalités Twitch ne peuvent pas être activées",
+			"twitchTitle": "Twitch",
+			"waitingScreensDescription": "Veuillez remarquer que, contrairement aux autres fonctionnalités, chaque \"écran d'attente\" dispose de sa propre URL source.",
+			"waitingScreensTitle": "Écrans d'attente"
+		},
+		"oauth2Return": {
+			"error": "Impossible de s'authentifier sur Twitch",
+			"login": "Se connecter",
+			"password": "Mot de passe"
+		}
+	},
+	"store": {
+		"twitch": {
+			"keyLabels": {
+				"bitsAlerts": "Don de bits",
+				"followAlerts": "Nouveau follower",
+				"hostAlerts": "Hébergement",
+				"raidAlerts": "Raid",
+				"resubAlerts": "Abo renouvelé",
+				"subAlerts": "Nouvel·le abonné·e",
+				"subgiftAlerts": "Abonnement offert"
+			}
+		}
+	}
+}

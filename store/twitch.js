@@ -55,6 +55,10 @@ export const mutations = {
 		state.latest.follower = follower
 	},
 
+	setKeyLabels (state, keyLabels) {
+		state.keyLabels = keyLabels
+	},
+
 	setLatestSubscriber (state, subscriber) {
 		state.latest.subscriber = subscriber
 	},

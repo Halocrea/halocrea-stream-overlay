@@ -5,9 +5,9 @@
 			cross="stretch"
 		>
 			<div class="o-frostglass u-w-100 u-m-md u-p-lg">
-				<h2>Overlay theme</h2>
+				<h2>{{ $t('pages.index.overlayThemeTitle') }}</h2>
 				<p class="u-my-md">
-					Choose the style for the widgets in your overlay:
+					{{ $t('pages.index.overlayThemeDescription') }}
 				</p>
 				<overlay-list />
 			</div>
@@ -17,12 +17,12 @@
 			cross="stretch"
 		>
 			<div class="o-frostglass u-w-100 u-m-md u-p-lg">
-				<h2>Discord</h2>
+				<h2>{{ $t('pages.index.discordTitle') }}</h2>
 				<transition name="u-transition--lateral" mode="out-in">
 					<div v-if="showVoiceChat" key="voice-chat">
 						<transition name="u-transition--vertical" mode="out-in">
 							<p v-if="!discordBotChannel" class="u-my-md">
-								Please select the voice chat for the Discord bot:
+								{{ $t('pages.index.discordDescription') }}
 							</p>
 						</transition>
 						<discord-channel-select />
@@ -31,7 +31,7 @@
 								v-if="discordBotChannel"
 								class="u-mt-lg"
 							>
-								<h4>Currently in channel: </h4>
+								<h4>{{ $t('pages.index.discordCurrent') }}</h4>
 								<discord-channel-members class="u-mt-md" />
 							</div>
 						</transition>
@@ -39,7 +39,7 @@
 					</div>
 					<div v-else key="no-voice-chat">
 						<p v-if="!discordBotChannel" class="u-my-md u-text-red">
-							You need to turn the "voice chat" switch on to enable this feature.
+							{{ $t('pages.index.discordDisabled') }}
 						</p>
 					</div>
 				</transition>
@@ -52,7 +52,7 @@
 			<div class="o-frostglass u-w-100 u-m-md u-p-lg">
 				<flex main="between" cross="center">
 					<h2 class="u-mb-sm">
-						Twitch
+						{{ $t('pages.index.twitchTitle') }}
 					</h2>
 					<transition name="u-transition--lateral" mode="out-in">
 						<button
@@ -60,7 +60,7 @@
 							class="o-btn o-btn--danger"
 							@click="() => showDisableTwitch = true"
 						>
-							Disable
+							{{ $t('pages.index.twitchDisable') }}
 						</button>
 					</transition>
 				</flex>
@@ -72,7 +72,7 @@
 						cross="stretch"
 					>
 						<p class="u-my-md">
-							You can choose which alerts you want to get and configure them!
+							{{ $t('pages.index.twitchDescription') }}
 						</p>
 						<alert-list />
 						<nuxt-link
@@ -85,12 +85,12 @@
 								name="settings"
 								class="o-icon o-icon-md u-mr-sm"
 							/>
-							Configure alerts
+							{{ $t('pages.index.twitchConfigure') }}
 						</nuxt-link>
 					</flex>
 					<flex v-else key="dont-use-twitch" direction="column" cross="stretch">
 						<p class="u-my-md u-text-align-center">
-							Display your latest follower and subscriber, and get Halo-themed alerts for your stream!
+							{{ $t('pages.index.twitchEnableText') }}
 						</p>
 						<button
 							class="o-btn"
@@ -98,13 +98,13 @@
 							:disabled="!canUseTwitch"
 							@click="() => $root.$emit('confirmEnableTwitch')"
 						>
-							Enable Twitch features
+							{{ $t('pages.index.twitchEnableButton') }}
 						</button>
 						<p
 							v-if="!canUseTwitch"
 							class="u-my-md u-text-red u-text-align-center"
 						>
-							The project is missing some configuration so allow this.
+							{{ $t('pages.index.twitchMissingConfig') }}
 						</p>
 					</flex>
 				</transition>
@@ -116,10 +116,10 @@
 		>
 			<div class="o-frostglass u-w-100 u-m-md u-p-lg">
 				<h2 class="u-mb-sm">
-					Social Links
+					{{ $t('pages.index.socialLinksTitle') }}
 				</h2>
 				<p class="u-my-md u-pb-lg">
-					You can set up to 4 social links that will be shown nicely in the overlay.
+					{{ $t('pages.index.socialLinksDescription') }}
 				</p>
 				<social-networks />
 			</div>
@@ -130,10 +130,10 @@
 		>
 			<div class="o-frostglass u-w-100 u-m-md u-p-lg">
 				<h2 class="u-mb-sm">
-					Waiting screens
+					{{ $t('pages.index.waitingScreensTitle') }}
 				</h2>
 				<p class="u-mt-md">
-					Please note that, contrary to the other features, each "waiting screen" has its own source URL.
+					{{ $t('pages.index.waitingScreensDescription') }}
 				</p>
 				<waiting-screens-tabs />
 			</div>

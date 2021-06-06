@@ -109,7 +109,7 @@ export default {
 	modules: [
 		// https://go.nuxtjs.dev/axios
 		'@nuxtjs/axios',
-		['@nuxtjs/dotenv', { only: ['BASE_URL', 'TWITCH_CLIENT_ID'] }],
+		['@nuxtjs/dotenv', { only: ['BASE_URL', 'TWITCH_CLIENT_ID', 'LANG'] }],
 		'nuxt-socket-io',
 		'@nuxtjs/svg-sprite',
 		authModule
@@ -120,7 +120,8 @@ export default {
 		{ src: '~/plugins/user-config-helper', mode: 'server' },
 		'~/plugins/flex',
 		{ src: '~/plugins/discord-store-watcher', mode: 'client' },
-		{ src: '~/plugins/no-this-is-not-an-easter-egg-go-away', mode: 'client' }
+		{ src: '~/plugins/no-this-is-not-an-easter-egg-go-away', mode: 'client' },
+		'~/plugins/i18n'
 	],
 
 	server: {

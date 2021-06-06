@@ -6,7 +6,7 @@
 				:disabled="loading"
 				@change="e => update('showVoiceChat', e.target.checked)"
 			>
-				Voice chat
+				{{ $t('components.admin.userDisplayConfig.voiceChat') }}
 			</check-switch>
 		</div>
 		<div class="u-mr-lg" @click="confirmEnable">
@@ -15,7 +15,7 @@
 				:disabled="loading || !useTwitchFeatures"
 				@change="e => update('showTwitchAlerts', e.target.checked)"
 			>
-				Twitch alerts
+				{{ $t('components.admin.userDisplayConfig.twitchAlerts') }}
 			</check-switch>
 		</div>
 		<div class="u-mr-lg" @click="confirmEnable">
@@ -24,7 +24,7 @@
 				:disabled="loading || !useTwitchFeatures"
 				@change="e => update('showLatestSub', e.target.checked)"
 			>
-				Latest sub
+				{{ $t('components.admin.userDisplayConfig.latestSub') }}
 			</check-switch>
 		</div>
 		<div class="u-mr-lg" @click="confirmEnable">
@@ -33,7 +33,7 @@
 				:disabled="loading || !useTwitchFeatures"
 				@change="e => update('showLatestFollow', e.target.checked)"
 			>
-				Latest follow
+				{{ $t('components.admin.userDisplayConfig.latestFollow') }}
 			</check-switch>
 		</div>
 	</flex>

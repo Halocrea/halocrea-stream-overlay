@@ -30,7 +30,7 @@ export default {
 					label: `${current.name} (${current.members ? current.members.length : '(?)'})`
 				})
 				return acc
-			}, [{ key: 'default', label: 'Select a channel' }])
+			}, [{ key: 'default', label: this.$t('components.admin.discord.channelSelect.selectAChan') }])
 		},
 
 		...mapGetters({

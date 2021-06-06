@@ -10,14 +10,14 @@
 						name="arrow-left"
 						class="o-icon o-icon-md"
 					/>
-					Back
+					{{ $t('pages.admin.alerts.back') }}
 				</nuxt-link>
 			</div>
 			<h2 class="u-mt-lg u-mb-sm">
-				Alerts configuration
+				{{ $t('pages.admin.alerts.title') }}
 			</h2>
 			<p class="u-my-md">
-				For each type of alert, you can set several custom messages, gifs and sounds that will be displayed randomly:
+				{{ $t('pages.admin.alerts.description') }}
 			</p>
 		</div>
 		<flex

@@ -1,7 +1,7 @@
 <template>
 	<div class="c-login u-m-lg u-p-lg u-bordered">
 		<h3 class="text-center">
-			Login required
+			{{ $t('components.user.login.loginRequired') }}
 		</h3>
 		<hr>
 		<div v-if="errorMessage" class="u-text-red">
@@ -11,17 +11,17 @@
 		<form @keydown.enter="login" @submit.prevent="login">
 			<flex direction="column" main="stretch" cross="center">
 				<text-field v-model="email">
-					Email address
+					{{ $t('components.user.login.emailAddress') }}
 				</text-field>
 				<text-field
 					v-model="password"
 					type="password"
 				>
-					Password
+					{{ $t('components.user.login.password') }}
 				</text-field>
 				<div class="u-mt-lg u-text-align--center">
 					<button class="o-btn o-btn--big o-btn--primary" type="submit">
-						Login
+						{{ $t('components.user.login.login') }}
 					</button>
 				</div>
 			</flex>

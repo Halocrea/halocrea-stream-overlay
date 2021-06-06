@@ -18,7 +18,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import CheckSwitch from '~/components/utils/form/CheckSwitch.vue'
+import CheckSwitch    from '~/components/utils/form/CheckSwitch.vue'
 
 export default {
 	components: {

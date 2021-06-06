@@ -21,7 +21,7 @@
 				name="plus-square"
 				class="o-icon o-icon-md u-mr-sm"
 			/>
-			Add a message
+			{{ $t('components.admin.twitch.alertDetails.alertMessages.add') }}
 		</button>
 	</flex>
 </template>

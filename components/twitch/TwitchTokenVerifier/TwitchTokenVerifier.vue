@@ -1,12 +1,12 @@
 <template>
 	<div>
 		<p v-if="loading">
-			Loading
+			{{ $t('components.twitch.twitchTokenVerifier.loading') }}
 		</p>
 		<div v-else-if="error">
-			<p>An error occured</p>
+			<p>{{ $t('components.twitch.twitchTokenVerifier.error') }}</p>
 			<nuxt-link to="/">
-				Back to homepage
+				{{ $t('components.twitch.twitchTokenVerifier.back') }}
 			</nuxt-link>
 		</div>
 	</div>

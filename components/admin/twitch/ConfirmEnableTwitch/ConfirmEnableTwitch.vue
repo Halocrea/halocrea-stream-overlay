@@ -6,15 +6,18 @@
 			@close="() => $emit('close')"
 		>
 			<template #title>
-				Enable Twitch features
+				{{ $t('components.admin.twitch.confirmEnableTwitch.title') }}
 			</template>
 			<template #content>
 				<p>
-					To benefit from the Twitch features, you must authorize the app to access a some information on your Twitch account (subscribers, followers).
+					{{ $t('components.admin.twitch.confirmEnableTwitch.description') }}
 				</p>
-				<p class="u-pb-md">
-					<strong>Important: </strong> Make sure you setup this app to use the same email address as your Twitch account.
-				</p>
+				<!-- eslint-disable -->
+				<p
+					class="u-pb-md"
+					v-html="$t('components.admin.twitch.confirmEnableTwitch.notice')"
+				/>
+				<!-- eslint-enable -->
 				<p
 					v-if="error"
 					class="u-pb-md u-text-red"
@@ -29,7 +32,7 @@
 					tabindex="0"
 					:disabled="loading"
 				>
-					Confirm
+					{{ $t('components.admin.twitch.confirmEnableTwitch.confirm') }}
 				</button>
 			</template>
 		</modal>
@@ -67,7 +70,7 @@ export default {
 				this.$emit('close')
 				window.location.reload()
 			} else
-				this.error = res.message || 'An error occured :( Please try again later or contact us.'
+				this.error = res.message || this.$t('components.admin.twitch.confirmEnableTwitch.error')
 		}
 	}
 }

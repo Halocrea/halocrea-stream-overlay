@@ -5,7 +5,7 @@
 			:checked="filter"
 			@change="() => filter = !filter"
 		>
-			Show non-empty channels only
+			{{ $t('components.admin.discord.channelSelect.filter') }}
 		</checkbox>
 		<custom-select
 			:value="discordBotChannel || 'default'"

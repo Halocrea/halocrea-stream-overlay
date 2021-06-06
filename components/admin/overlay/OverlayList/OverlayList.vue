@@ -16,12 +16,15 @@
 		</btn>
 		<btn disabled="disabled">
 			<div class="u-px-md u-py-sm">
-				<i>Halo Infinite (soon!)</i>
+				<i>{{ $t('components.admin.overlay.overlayList.infiniteSoon') }}</i>
 			</div>
 		</btn>
-		<p class="c-overlay-list__end-annotation u-my-md">
-			Note: you can force one theme to the OBS source by adding <code>?force=%key%</code> at the end of the URL, like <code>{{ getBaseUrl }}/overlay?force={{ selected }}</code>
-		</p>
+		<!-- eslint-disable -->
+		<p
+			class="c-overlay-list__end-annotation u-my-md"
+			v-html="$t('components.admin.overlay.overlayList.endAnnotation', { url: getBaseUrl, selected: selected })"
+		/>
+		<!-- eslint-enable -->
 	</flex>
 </template>
 
@@ -37,7 +40,7 @@ export default {
 	data () {
 		return {
 			variants: [
-				{ key : 'menu', name: 'Menu/Neutral' },
+				{ key : 'menu', name: this.$t('components.admin.overlay.overlayList.menuNeutral') },
 				{ key : 'ce', name: 'Halo CE / CEA' },
 				{ key : 'h2', name: 'Halo 2' },
 				{ key : 'h2a', name: 'H2A Multi / H4' },

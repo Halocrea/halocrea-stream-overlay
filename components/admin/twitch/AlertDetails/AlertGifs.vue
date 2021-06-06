@@ -47,7 +47,7 @@
 				name="upload"
 				class="o-icon o-icon-md u-mr-sm"
 			/>
-			Upload a gif (max. 20Mb)
+			{{ $t('components.admin.twitch.alertDetails.alertGifs.upload') }}
 		</label>
 	</flex>
 </template>
@@ -86,7 +86,7 @@ export default {
 				return
 
 			if (files[0].size > this.sizeLimit) { // Limit is 20MB (same serverside oc)
-				this.$emit('error', 'File is too big')
+				this.$emit('error', this.$t('components.admin.twitch.alertDetails.alertGifs.error'))
 				return
 			}
 

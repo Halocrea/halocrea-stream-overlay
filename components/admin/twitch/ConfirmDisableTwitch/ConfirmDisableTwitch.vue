@@ -6,11 +6,11 @@
 			@close="() => $emit('close')"
 		>
 			<template #title>
-				Disable Twitch features
+				{{ $t('components.admin.twitch.confirmDisableTwitch.title') }}
 			</template>
 			<template #content>
 				<p class="u-pb-md">
-					Are you sure you want to disable all the features related to Twitch, i.e. alerts but also the "latest follower" and "latest subscriber"?
+					{{ $t('components.admin.twitch.confirmDisableTwitch.description') }}
 				</p>
 				<p
 					v-if="error"
@@ -26,7 +26,7 @@
 					tabindex="0"
 					:disabled="loading"
 				>
-					Disable
+					{{ $t('components.admin.twitch.confirmDisableTwitch.disable') }}
 				</button>
 			</template>
 		</modal>
@@ -64,7 +64,7 @@ export default {
 				this.loading = false
 				this.$emit('close')
 			} else
-				this.error = res.message || 'An error occured :( Please try again later or contact us.'
+				this.error = res.message || this.$t('components.admin.twitch.confirmDisableTwitch.error')
 		}
 	}
 }

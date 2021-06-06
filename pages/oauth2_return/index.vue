@@ -38,14 +38,14 @@
 						v-model="password"
 						type="password"
 					>
-						Password
+						{{ $t('pages.oauth2Return.password') }}
 					</text-field>
 				</div>
 				<button
 					class="o-btn o-btn--primary u-m-sm"
 					type="submit"
 				>
-					Login
+					{{ $t('pages.oauth2Return.login') }}
 				</button>
 			</flex>
 			<flex
@@ -54,7 +54,7 @@
 				main="center"
 				cross="center"
 			>
-				<p>Could not authenticate with Twitch.</p>
+				<p>{{ $t('pages.oauth2Return.error') }}</p>
 			</flex>
 		</transition>
 	</div>

@@ -38,7 +38,7 @@
 			<flex v-if="showDetails" wrap="wrap">
 				<div class="u-flex__item-12@sm-down u-flex__item-6@md u-flex__item-4@md-up u-p-md">
 					<h5 class="u-mb-sm">
-						Messages
+						{{ $t('components.admin.twitch.alertDetails.messages') }}
 					</h5>
 					<alert-messages
 						:alert-key="alertKey"
@@ -51,7 +51,7 @@
 					class="u-flex__item-12@sm-down u-flex__item-6@md u-flex__item-4@md-up u-p-md"
 				>
 					<h5 class="u-mb-sm">
-						Gifs
+						{{ $t('components.admin.twitch.alertDetails.gifs') }}
 					</h5>
 					<alert-gifs
 						:alert-key="alertKey"
@@ -64,7 +64,7 @@
 					class="u-flex__item-12@sm-down u-flex__item-6@md u-flex__item-4@md-up u-p-md"
 				>
 					<h5 class="u-mb-sm">
-						Sounds (mp3)
+						{{ $t('components.admin.twitch.alertDetails.sounds') }}
 					</h5>
 					<alert-sounds
 						:alert-key="alertKey"

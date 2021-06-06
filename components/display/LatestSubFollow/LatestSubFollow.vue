@@ -23,7 +23,7 @@
 							class="o-icon o-icon-lg"
 						/>
 						<div>
-							Latest Sub
+							{{ $t('components.display.latestSubFollow.latestSub') }}
 						</div>
 					</flex>
 					<div class="c-latest-sub-follow__value">
@@ -48,7 +48,7 @@
 							class="o-icon o-icon-lg"
 						/>
 						<div>
-							Latest Follow
+							{{ $t('components.display.latestSubFollow.latestFollower') }}
 						</div>
 					</flex>
 					<div class="c-latest-sub-follow__value">

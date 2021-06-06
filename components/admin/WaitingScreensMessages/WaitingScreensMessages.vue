@@ -11,7 +11,7 @@
 				v-model="editLines[index]"
 				class="c-waiting-screens-msgs__textfield u-flex__item-fluid u-mr-md"
 			>
-				Message
+				{{ $t('components.admin.waitingScreensMessage.message') }}
 			</text-field>
 			<button
 				type="button"
@@ -19,14 +19,14 @@
 				:disabled="editLines[index] === item"
 				@click="() => updateMessage(index)"
 			>
-				Update
+				{{ $t('components.admin.waitingScreensMessage.update') }}
 			</button>
 			<button
 				type="button"
 				class="o-btn o-btn--danger"
 				@click="() => removeMessage(index)"
 			>
-				Remove
+				{{ $t('components.admin.waitingScreensMessage.remove') }}
 			</button>
 		</flex>
 		<flex
@@ -41,14 +41,14 @@
 				v-model="newLine"
 				class="c-waiting-screens-msgs__textfield u-flex__item-fluid u-mr-md"
 			>
-				Message
+				{{ $t('components.admin.waitingScreensMessage.message') }}
 			</text-field>
 			<button
 				type="submit"
 				class="o-btn o-btn--primary"
 				:disabled="!newLine"
 			>
-				Add
+				{{ $t('components.admin.waitingScreensMessage.add') }}
 			</button>
 		</flex>
 	</div>

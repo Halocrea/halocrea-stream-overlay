@@ -57,7 +57,7 @@
 				name="upload"
 				class="o-icon o-icon-md u-mr-sm"
 			/>
-			Upload an mp3 (max. 20Mb)
+			{{ $t('components.admin.twitch.alertDetails.alertSounds.upload') }}
 		</label>
 	</flex>
 </template>
@@ -98,7 +98,7 @@ export default {
 				return
 
 			if (files[0].size > this.sizeLimit) { // Limit is 20MB (same serverside oc)
-				this.$emit('error', 'File is too big')
+				this.$emit('error', this.$t('components.admin.twitch.alertDetails.alertSounds.error'))
 				return
 			}
 

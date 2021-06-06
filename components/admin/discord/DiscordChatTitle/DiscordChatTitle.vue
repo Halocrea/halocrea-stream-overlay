@@ -6,7 +6,7 @@
 			@keydown.enter="submit"
 			@blur="submit"
 		>
-			Voice chat name
+			{{ $t('components.admin.discord.chatTitle.name') }}
 		</text-field>
 		<p v-if="error" class="u-my-md u-text-red">
 			{{ error }}

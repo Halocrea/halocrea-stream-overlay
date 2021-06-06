@@ -32,7 +32,7 @@
 						:last-params="`/waitscreen/${category.key}`"
 						class="o-btn--bordered o-btn--big u-mt-lg u-mx-sm"
 					>
-						Copy {{ category.label }}'s URL for OBS
+						{{ $t('components.admin.waitingScreensTabs.copyUrl', { category: category.label}) }}
 					</copy-url-btn>
 				</flex>
 			</template>

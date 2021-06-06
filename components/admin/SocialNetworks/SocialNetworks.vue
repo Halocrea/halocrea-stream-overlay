@@ -34,7 +34,7 @@
 				v-model="item.value"
 				class="c-social-networks__textfield u-flex__item-fluid u-mr-md"
 			>
-				Value
+				{{ $t('components.admin.socialNetworks.value') }}
 			</text-field>
 			<button
 				type="button"
@@ -42,14 +42,14 @@
 				:disabled="socialNetworks[index].key === item.key && socialNetworks[index].value === item.value"
 				@click="() => updateSocialNetwork(index)"
 			>
-				Update
+				{{ $t('components.admin.socialNetworks.update') }}
 			</button>
 			<button
 				type="button"
 				class="o-btn o-btn--danger"
 				@click="() => removeSocialNetwork(index)"
 			>
-				Remove
+				{{ $t('components.admin.socialNetworks.remove') }}
 			</button>
 		</flex>
 		<flex
@@ -73,7 +73,7 @@
 						hidden
 						value=""
 					>
-						Choose
+						{{ $t('components.admin.socialNetworks.choose') }}
 					</option>
 					<option
 						v-for="type in types"
@@ -93,7 +93,7 @@
 				v-model="newLine.value"
 				class="c-social-networks__textfield u-flex__item-fluid u-mr-md"
 			>
-				Value
+				{{ $t('components.admin.socialNetworks.value') }}
 			</text-field>
 			<button
 				type="button"
@@ -101,7 +101,7 @@
 				:disabled="!newLine.key || !newLine.value"
 				@click="addSocialNetwork"
 			>
-				Add
+				{{ $t('components.admin.socialNetworks.add') }}
 			</button>
 		</flex>
 	</div>

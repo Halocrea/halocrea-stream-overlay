@@ -4,11 +4,11 @@
 		class="c-twitch-btn o-btn o-btn--big"
 		:href="getTwitchLink"
 	>
-		Authorize Twitch access
+		{{ $t('components.twitch.twitchLoginBtn.authorize') }}
 	</a>
 	<flex v-else direction="column" cross="center">
 		<p class="u-my-md u-text-red">
-			The project is missing some configuration (Twitch Client ID and/or Client Secret) and so won't be able to connect to Twitch.
+			{{ $t('components.twitch.twitchLoginBtn.missingConfig') }}
 		</p>
 	</flex>
 </template>

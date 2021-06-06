@@ -40,7 +40,7 @@
 			cross="center"
 		>
 			<p class="u-mb-md">
-				Welp, we need to (re)authorize the app on Twitch
+				{{ $t('layouts.admin.reauthenticateTwitch') }}
 			</p>
 			<twitch-login-btn />
 		</flex>
@@ -51,19 +51,19 @@
 			cross="center"
 		>
 			<p class="u-mb-md">
-				Something is wrong here: it looks like you need to authorize the app to access some features for Twitch, yet some configuration (Twitch Client ID and/or Client Secret) is missing.
+				{{ $t('layouts.admin.error') }}
 			</p>
 		</flex>
 	</flex>
 </template>
 
 <script>
-import { mapGetters }        from 'vuex'
-import AdminTopBar           from '~/components/layout/AdminTopBar/AdminTopBar.vue'
-import Background            from '~/components/layout/Background/Background.vue'
-import ConfirmEnableTwitch   from '~/components/admin/twitch/ConfirmEnableTwitch/ConfirmEnableTwitch.vue'
-import SocketClient          from '~/components/utils/SocketClient.vue'
-import TwitchLoginBtn        from '~/components/twitch/TwitchLoginBtn/TwitchLoginBtn.vue'
+import { mapGetters }      from 'vuex'
+import AdminTopBar         from '~/components/layout/AdminTopBar/AdminTopBar.vue'
+import Background          from '~/components/layout/Background/Background.vue'
+import ConfirmEnableTwitch from '~/components/admin/twitch/ConfirmEnableTwitch/ConfirmEnableTwitch.vue'
+import SocketClient        from '~/components/utils/SocketClient.vue'
+import TwitchLoginBtn      from '~/components/twitch/TwitchLoginBtn/TwitchLoginBtn.vue'
 
 export default {
 	components: {
@@ -85,6 +85,7 @@ export default {
 		...mapGetters({
 			canUseTwitch     : 'config/canUseTwitch',
 			isTwitchAuth     : 'twitch/isTwitchAuth',
+			twitchKeyLabels  : 'twitch/keyLabels',
 			useTwitchFeatures: 'config/useTwitchFeatures'
 		})
 	},
@@ -102,6 +103,13 @@ export default {
 
 	created () {
 		this.$root.$on('confirmEnableTwitch', this.setShowEnableTwitch)
+
+		// this is only to translate the labels of the alert types in the store
+		const tmp = JSON.parse(JSON.stringify(this.twitchKeyLabels))
+		tmp.forEach((kl) => {
+			kl.label = this.$t(`store.twitch.keyLabels.${kl.key}`)
+		})
+		this.$store.commit('twitch/setKeyLabels', tmp)
 	},
 
 	beforeUnmount () {

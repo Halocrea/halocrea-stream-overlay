@@ -21,7 +21,7 @@
 				last-params="/overlay"
 				class="o-btn--bordered o-btn--big u-mx-sm"
 			>
-				Copy overlay's URL for OBS
+				{{ $t('components.layout.adminTopBar.copyOverlayUrl') }}
 			</copy-url-btn>
 			<user-info />
 		</flex>

@@ -1,0 +1,178 @@
+{
+	"components": {
+		"admin": {
+			"discord": {
+				"channelSelect": {
+					"error": "An error occurred. Make sure the bot has enough permissions to list the channels and join them.",
+					"filter": "Show non-empty channels only",
+					"leave" : "Leave channel",
+					"selectAChan": "Select a channel"
+				},
+				"chatTitle": {
+					"name": "Voice chat name"
+				}
+			},
+			"overlay": {
+				"overlayList": {
+					"endAnnotation": "Note: you can force one theme to the OBS source by adding <code>?force=%key%</code> at the end of the URL, like <code>{url}/overlay?force={selected}</code>",
+					"infiniteSoon": "Halo Infinite (soon!)",
+					"menuNeutral": "Menu/Neutral"
+				}
+			},
+			"socialNetworks": {
+				"add": "Add",
+				"choose": "Choose",
+				"remove": "Remove",
+				"update": "Update",
+				"value": "Value"
+			},
+			"twitch": {
+				"alertDetails": {
+					"alertGifs": {
+						"error": "File is too big",
+						"upload": "Upload a gif (max. 20Mb)"
+					},
+					"alertMessages": {
+						"add": "Add a message"
+					},
+					"alertSounds": {
+						"error": "File is too big",
+						"upload": "Upload an mp3 (max. 20Mb)"
+					},
+					"gifs": "Gifs",
+					"messages": "Messages",
+					"sounds": "Sounds (mp3)"
+				},
+				"confirmDisableTwitch": {
+					"description": "Are you sure you want to disable all the features related to Twitch, i.e. alerts but also the \"latest follower\" and \"latest subscriber\"?",
+					"disable": "Disable",
+					"error": "An error occured :( Please try again later or contact us.",
+					"title": "Disable Twitch features"
+				},
+				"confirmEnableTwitch": {
+					"confirm": "Confirm",
+					"description": "To benefit from the Twitch features, you must authorize the app to access a some information on your Twitch account (subscribers, followers).",
+					"error": "An error occured :( Please try again later or contact us.",
+					"notice": "<strong>Important: </strong> Make sure you setup this app to use the same email address as your Twitch account.",
+					"title": "Enable Twitch features"
+				}
+			},
+			"userDisplayConfig": {
+				"latestFollow": "Latest follow",
+				"latestSub": "Latest sub",
+				"twitchAlerts": "Twitch alerts",
+				"voiceChat": "Voice chat"
+			},
+			"waitingScreensMessage": {
+				"add": "Add",
+				"message": "Message",
+				"remove": "Remove",
+				"update": "Update"
+			},
+			"waitingScreensTabs": {
+				"copyUrl": "Copy {category}'s URL for OBS"
+			}
+		},
+		"display": {
+			"latestSubFollow": {
+				"latestFollower": "Latest Follow",
+				"latestSub": "Latest Sub"
+			}
+		},
+		"layout": {
+			"adminTopBar": {
+				"copyOverlayUrl": "Copy overlay's URL for OBS"
+			}
+		},
+		"twitch": {
+			"twitchLoginBtn": {
+				"authorize": "Authorize Twitch access",
+				"missingConfig": "The project is missing some configuration (Twitch Client ID and/or Client Secret) and so won't be able to connect to Twitch."
+			},
+			"twitchTokenVerifier": {
+				"back": "Back to homepage",
+				"error": "An error occured",
+				"loading": "Loading"
+			}
+		},
+		"user": {
+			"login": {
+				"emailAddress": "Email address",
+				"login": "Log in",
+				"loginRequired": "Login required",
+				"password": "Password"
+			},
+			"userInfo": {
+				"goToChannel": "Go to channel",
+				"logout": "Log out",
+				"plzHelp": "Plz help"
+			}
+		}
+	},
+	"defaults": {
+		"alerts": {
+			"bits": "Thanks for the {{bits}}bits, {{username}}!",
+			"follow": "Thanks for following, {{username}}!",
+			"host": "{{username}} is hosting us, WOW!",
+			"raid": "{{username}} is raiding us! Welcome, raiders!",
+			"resub": "Thanks for resubscribing, {{username}}!",
+			"sub": "Thanks for subscribing, {{username}}!",
+			"subgift": "{{sender}} gifted a sub to {{recipient}}!"
+		},
+		"intro": "Stream starting soon!",
+		"interlude": "Be back in a minute!",
+		"outro": "Thanks for watching!"
+	},
+	"layouts": {
+		"admin": {
+			"error": "Something is wrong here: it looks like you need to authorize the app to access some features for Twitch, yet some configuration (Twitch Client ID and/or Client Secret) is missing.",
+			"reauthenticateTwitch": "Welp, we need to (re)authorize the app on Twitch"
+		}
+	},
+	"pages": {
+		"admin": {
+			"alerts": {
+				"back": "Back",
+				"description": "For each type of alert, you can set several custom messages, gifs and sounds that will be displayed randomly:",
+				"title": "Alerts configuration"
+			}
+		},
+		"index": {
+			"discordCurrent": "Currently in channel: ",
+			"discordDescription": "Please select the voice chat for the Discord bot:",
+			"discordDisabled": "You need to turn the \"voice chat\" switch on to enable this feature.",
+			"discordTitle": "Discord",
+			"overlayThemeDescription": "Choose the style for the widgets in your overlay:",
+			"overlayThemeTitle": "Overlay theme",
+			"socialLinksDescription": "You can set up to 4 social links that will be shown nicely in the overlay.",
+			"socialLinksTitle": "Social Links",
+			"twitchConfigure": "Configure alerts",
+			"twitchDescription": "You can choose which alerts you want to get and configure them!",
+			"twitchDisable": "Disable",
+			"twitchEnableButton": "Enable Twitch features",
+			"twitchEnableText": "Display your latest follower and subscriber, and get Halo-themed alerts for your stream!",
+			"twitchMissingConfig": "The project is missing some configuration so allow this.",
+			"twitchTitle": "Twitch",
+			"waitingScreensDescription": "Please note that, contrary to the other features, each \"waiting screen\" has its own source URL.",
+			"waitingScreensTitle": "Waiting screens"
+		},
+		"oauth2Return": {
+			"error": "Could not authenticate to Twitch",
+			"login": "Log in",
+			"password": "Password"
+		}
+	},
+	"store": {
+		"twitch": {
+			"keyLabels": {
+				"bitsAlerts": "Bits donation",
+				"followAlerts": "New follower",
+				"hostAlerts": "Host",
+				"raidAlerts": "Raid",
+				"resubAlerts": "Subscription renewal",
+				"subAlerts": "New subscriber",
+				"subgiftAlerts": "Gift subscription"
+			}
+		}
+	}
+}

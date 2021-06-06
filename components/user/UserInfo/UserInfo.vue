@@ -34,14 +34,14 @@
 						name="twitch"
 						class="o-icon o-icon-md u-m-sm"
 					/>
-					Go to channel
+					{{ $t('components.user.userInfo.goToChannel') }}
 				</btn>
 				<btn :link="'https://discordapp.com/invite/74UAq84'" class="u-mr-sm">
 					<svg-icon
 						name="life-buoy"
 						class="o-icon o-icon-md u-m-sm"
 					/>
-					Plz help
+					{{ $t('components.user.userInfo.plzHelp') }}
 				</btn>
 				<btn
 					class="u-mr-sm"
@@ -51,7 +51,7 @@
 						name="power"
 						class="o-icon o-icon-md u-m-sm"
 					/>
-					Log out
+					{{ $t('components.user.userInfo.logout') }}
 				</btn>
 			</flex>
 		</button>
