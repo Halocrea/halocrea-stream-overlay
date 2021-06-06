@@ -33,6 +33,7 @@ A webapp providing Halo-themed overlays you can add as browser sources in OBS. I
 | *Optionnal*  | [5. Building a Docker Image](#docker)                               |
 | *Optionnal*  | [6. Serving the webapp with Traefik on Docker](#serve-with-traefik) |
 |              | [7. Credits](#credits)                                              |
+|              | [8. Contribute](#contribute)                                        |
 |              |                                                                     |
 
 ---
@@ -225,3 +226,10 @@ If you run Traefik on your server and want to serve this webapp as Docker contai
 - Font Awesome for a few others: https://fontawesome.com/
 
 Most of the other Halo-related visual and sound resources are likely © Microsoft and 343 Industries 😅
+
+## 8. Contribute <a name="contribute"></a>
+If you'd like to contribute to the project, you can submit a pull request with the modifications/enhancements you'd like to suggest! 
+
+We are also looking for persons who would like to translate the UI to other languages; if you're interested, feel free to contact us on Discord: https://discord.gg/74UAq84.
+
+💖

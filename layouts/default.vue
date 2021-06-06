@@ -1,25 +1,30 @@
 <template>
 	<flex
 		class="base-layout"
-		main="center"
+		direction="column"
+		main="between"
 		cross="center"
 	>
 		<background />
+		<div />
 		<transition
 			name="u-transition--lateral"
 			mode="out-in"
 		>
 			<Nuxt />
 		</transition>
+		<site-footer />
 	</flex>
 </template>
 
 <script>
 import Background from '~/components/layout/Background/Background.vue'
+import SiteFooter from '~/components/layout/SiteFooter/SiteFooter.vue'
 
 export default {
 	components: {
-		Background
+		Background,
+		SiteFooter
 	}
 }
 </script>
@@ -29,5 +34,10 @@ export default {
 	width           : 100vw;
 	height          : 100vh;
 	background-color: var(--color-base);
+
+	.c-site-footer {
+		position: relative;
+		z-index: 1;
+	}
 }
 </style>

@@ -36,7 +36,7 @@
 					/>
 					{{ $t('components.user.userInfo.goToChannel') }}
 				</btn>
-				<btn :link="'https://discordapp.com/invite/74UAq84'" class="u-mr-sm">
+				<btn :link="'https://discord.gg/74UAq84'" class="u-mr-sm">
 					<svg-icon
 						name="life-buoy"
 						class="o-icon o-icon-md u-m-sm"

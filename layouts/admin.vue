@@ -19,6 +19,7 @@
 		<client-only>
 			<socket-client />
 		</client-only>
+		<site-footer />
 		<transition name="u-transition--fade" mode="out-in">
 			<confirm-enable-twitch
 				v-if="showEnableTwitch"
@@ -54,6 +55,7 @@
 				{{ $t('layouts.admin.error') }}
 			</p>
 		</flex>
+		<site-footer />
 	</flex>
 </template>
 
@@ -62,6 +64,7 @@ import { mapGetters }      from 'vuex'
 import AdminTopBar         from '~/components/layout/AdminTopBar/AdminTopBar.vue'
 import Background          from '~/components/layout/Background/Background.vue'
 import ConfirmEnableTwitch from '~/components/admin/twitch/ConfirmEnableTwitch/ConfirmEnableTwitch.vue'
+import SiteFooter          from '~/components/layout/SiteFooter/SiteFooter.vue'
 import SocketClient        from '~/components/utils/SocketClient.vue'
 import TwitchLoginBtn      from '~/components/twitch/TwitchLoginBtn/TwitchLoginBtn.vue'
 
@@ -70,6 +73,7 @@ export default {
 		AdminTopBar,
 		Background,
 		ConfirmEnableTwitch,
+		SiteFooter,
 		SocketClient,
 		TwitchLoginBtn
 	},

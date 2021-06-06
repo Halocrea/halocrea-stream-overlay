@@ -82,6 +82,9 @@
 		"layout": {
 			"adminTopBar": {
 				"copyOverlayUrl": "Copier l'URL de l'overlay pour OBS"
+			},
+			"footer": {
+				"madeBy": "Fait avec ❤️ par Halo Création"
 			}
 		},
 		"twitch": {
@@ -103,7 +106,7 @@
 				"password": "Mot de passe"
 			},
 			"userInfo": {
-				"goToChannel": "Aller sur la chaîne",
+				"goToChannel": "chaîne Twitch",
 				"logout": "Se déconnecter",
 				"plzHelp": "Aide"
 			}

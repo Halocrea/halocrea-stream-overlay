@@ -82,6 +82,9 @@
 		"layout": {
 			"adminTopBar": {
 				"copyOverlayUrl": "Copy overlay's URL for OBS"
+			},
+			"footer": {
+				"madeBy": "Made with ❤️ by Halo Création"
 			}
 		},
 		"twitch": {
