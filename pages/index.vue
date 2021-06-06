@@ -148,3 +148,12 @@
 </template>
 
 <script src="./index.js"></script>
+
+<style lang="scss">
+.p-index {
+	width       : 100%;
+	max-width   : 192rem;
+	margin-left : auto;
+	margin-right: auto;
+}
+</style>

@@ -19,6 +19,9 @@
 				<i>Halo Infinite (soon!)</i>
 			</div>
 		</btn>
+		<p class="c-overlay-list__end-annotation u-my-md">
+			Note: you can force one theme to the OBS source by adding <code>?force=%key%</code> at the end of the URL, like <code>{{ getBaseUrl }}/overlay?force={{ selected }}</code>
+		</p>
 	</flex>
 </template>
 
@@ -47,6 +50,10 @@ export default {
 	},
 
 	computed: {
+		getBaseUrl () {
+			return process.env.BASE_URL
+		},
+
 		...mapGetters({
 			selected: 'config/selectedVoiceChatOverlay'
 		})
@@ -66,6 +73,21 @@ export default {
 
 <style lang="scss">
 	.c-overlay-list {
+		&__end-annotation {
+			font-size : 1.4rem;
+			font-style: italic;
+
+			code {
+				display       : inline-block;
+				width         : auto;
+				max-width     : 100%;
+				overflow-x    : auto;
+				font-style    : normal;
+				vertical-align: middle;
+				white-space   : nowrap;
+			}
+		}
+
 		.reach-btn-wrapper.active {
 			&::before {
 				background-color: var(--color-green);
@@ -73,7 +95,7 @@ export default {
 
 			& > .reach-btn {
 				font-weight: bold;
-		}
+			}
 		}
 	}
 </style>
