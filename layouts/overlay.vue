@@ -41,6 +41,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/assets/styles/global/settings';
+
 .overlay-layout {
 	width : 100vw;
 	height: 100vh;

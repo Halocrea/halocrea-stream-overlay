@@ -30,7 +30,16 @@
     font-family: 'Handel Gothic D Light';
     font-style: normal;
     font-weight: 400;
-    src: url('~assets/fonts/handel-gothic-d-light.otf'); 
+    src: url('./../fonts/handel-gothic-d-light.otf'); 
     src: local('Handel Gothic D Light'), local('HandelGothicDLight'),
-         url('~assets/fonts/handel-gothic-d-light.otf') format('truetype'); 
+         url('./../fonts/handel-gothic-d-light.otf') format('truetype'); 
+}
+
+@font-face {
+    font-family: 'Pathway Gothic One';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./../fonts/pathway-gothic-one-regular.ttf'); 
+    src: local('Pathway Gothic One'), local('PathwayGothicOne-Regular'),
+         url('./../fonts/pathway-gothic-one-regular.ttf') format('truetype'); 
 }
