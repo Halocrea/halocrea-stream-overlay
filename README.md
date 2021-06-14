@@ -36,11 +36,11 @@ A webapp providing Halo-themed overlays you can add as browser sources in OBS. I
 | Please read  | [Disclaimer](#disclaimer)                                           |
 | Please read  | [⚠️ Important ⚠️](#important)                                       |
 | **Required** | [1. Setting up the Discord Bot](#discord-bot)                       |
-| *Optionnal*  | [2. Setting up the Twitch App](twitch-app)                          |
+| *Optional*  | [2. Setting up the Twitch App](twitch-app)                          |
 | **Required** | [3. Installing & Running the project](#installation)                |
-| *Optionnal*  | [4. Updating the project](#update)                                  |
-| *Optionnal*  | [5. Building a Docker Image](#docker)                               |
-| *Optionnal*  | [6. Serving the webapp with Traefik on Docker](#serve-with-traefik) |
+| *Optional*  | [4. Updating the project](#update)                                  |
+| *Optional*  | [5. Building a Docker Image](#docker)                               |
+| *Optional*  | [6. Serving the webapp with Traefik on Docker](#serve-with-traefik) |
 |              | [7. Credits](#credits)                                              |
 |              | [8. Contribute](#contribute)                                        |
 |              |                                                                     |
@@ -111,7 +111,7 @@ _I swear we're only a few more steps away from being done, don't give up now!_
 **That's it for Discord, yay!**
 
 ---
-## 2. (Optionnal) Setting up the Twitch App <a name="twitch-app"></a>
+## 2. (Optional) Setting up the Twitch App <a name="twitch-app"></a>
 If you don't care about the features related to Twitch (follower/subs/etc. alerts, Last Subscriber/Last Follower), you can skip this part.
 
 1. Go to the [Twitch Developer Console](https://dev.twitch.tv/console) and login with the account you intend to use with the stream overlay.
@@ -190,7 +190,7 @@ Also (if you're running it locally), you'll have access to it through your web b
   - **height:** 1080
 
 ---
-## 4. (Optionnal) Updating the project <a name="update"></a>
+## 4. (Optional) Updating the project <a name="update"></a>
 
 If you're using Git, it's dead simple: 
 1. If the webapp is running, kill it (`Ctrl+C` in the terminal or close it).
@@ -202,7 +202,7 @@ And that's it!
 
 
 ---
-## 5. (Optionnal) Building a Docker Image <a name="docker"></a>
+## 5. (Optional) Building a Docker Image <a name="docker"></a>
 You can build an image of this project by using the following commands:
 
 ```bash
@@ -211,7 +211,7 @@ docker run -d -v /absolute/path/to/the/project/data:/app/data -v /absolute/path/
 ```
 
 ---
-## 6. (Optionnal) Serving the webapp with Traefik on Docker <a name="serve-with-traefik"></a>
+## 6. (Optional) Serving the webapp with Traefik on Docker <a name="serve-with-traefik"></a>
 To easily serve some of our websites and webapps, Halo Créa uses [Traefik](https://doc.traefik.io/traefik/), which is _"an open-source Edge Router that makes publishing your services a fun and easy experience."_. Well, I wouldn't say it's _fun_ but at least it is easy to use it as a proxy that automatically generates SSL certificates (for the websites to be `https` you know).
 
 If you don't have a server with Docker already, you can find super cheap VPSs that'll do the job (like $5/mo), on which you can then setup traefik and this webapp (and others eventually).
