@@ -26,7 +26,17 @@ export default {
 	},
 
 	methods: {
+		backgroundColor (userRoleColor) {
+			if (['h2', 'h2a'].includes(this.theme) && userRoleColor === 'ffffff')
+				return '177de9cc'
+
+			return userRoleColor
+		},
+
 		textColor (bgColor) {
+			if (['h2', 'h2a'].includes(this.theme) && bgColor === 'ffffff')
+				return '#ffffff'
+
 			const rgb   = parseInt(bgColor, 16) // convert rrggbb to decimal
 			const r     = (rgb >> 16) & 0xFF // extract red
 			const g     = (rgb >> 8) & 0xFF // extract green

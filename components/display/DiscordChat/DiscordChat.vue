@@ -38,7 +38,7 @@
 				'c-discord-chat__member--active': m.speaking
 			}"
 			cross="center"
-			:style="`background-color: #${m.color}`"
+			:style="`background-color: #${backgroundColor(m.color)}`"
 		>
 			<div class="c-discord-chat__speaker-placeholder">
 				<svg-icon
@@ -61,7 +61,7 @@
 			</div>
 			<div
 				class="c-discord-chat__member-name u-flex__item-fluid"
-				:style="`background-color: #${m.color}; color: ${textColor(m.color)}`"
+				:style="`background-color: #${backgroundColor(m.color)}; color: ${textColor(m.color)}`"
 			>
 				{{ m.displayName }}
 			</div>

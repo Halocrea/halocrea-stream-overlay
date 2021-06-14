@@ -1,5 +1,5 @@
 .c-discord-chat--h3 {
-	top        : calc(50% - 35rem);
+	top        : calc(50% - 32.5rem);
 	left       : 8.2rem;
 	transform  : skew(0, 5deg) scale(1.15);
 
@@ -31,7 +31,7 @@
 			background-color: rgba(0, 0, 0, .25) !important;
 			clip-path       : polygon(.6rem 0, 100% 0, 100% calc(100% - .6rem), calc(100% - .6rem) 100%, 0 100%, 0 .6rem);
 			box-shadow      : 0 0 .2rem .2rem rgba(255, 255, 255, .15) inset,
-								0 0 0 .1rem rgba(165, 213, 255, 1) inset;
+								0 0 0 .1rem rgba(165, 213, 255, .75) inset;
 			transition      : box-shadow .15s linear;
 
 			&::before,

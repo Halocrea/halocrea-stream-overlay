@@ -67,45 +67,45 @@ Before installing the app (locally or on a server), you will need to setup a Dis
 ![Discord Developer Portal - New Application button](./docs/readme-discord-01.jpg)
 
 2. In the modal window that opens, provide a name for your application (it can be anything you want, like "Overlay bot" for example), then click on the "**Create**" button.
-4. Now, in the sidebar on the left of the page, click on "**Bot**".
-5. In this page, click on "**Add bot**", and confirm the bot creation by clicking on "**Yes, do it!**".
-6. Now, in order:
+3. Now, in the sidebar on the left of the page, click on "**Bot**".
+4. In this page, click on "**Add bot**", and confirm the bot creation by clicking on "**Yes, do it!**".
+5. Now, in order:
     * **Uncheck** the "Public bot" switch,
 	* Make sure you save this change by clicking on "**Save Changes**" at the bottom of the viewport,
 	* Click on the "**Copy**" button right under the "TOKEN" section.
 
 ![Discord Developer Portal - Copy Token](./docs/readme-discord-04.jpg)
 
-7. On your server or computer, go to the root folder of the project, copy-paste the `.env.dist` file, and rename the copy `.env`.
+6. On your server or computer, go to the root folder of the project (if you didn't download it already, check the first step in [Installing & Running the project](#installation)), copy-paste the `.env.dist` file, and rename the copy `.env`.
 
 ![Discord Developer Portal - Env files](./docs/readme-discord-05.jpg)
 
-8. Open `.env`, and at **line 9**, after `DISCORD_TOKEN=`, paste (without any space) the token you copied in the Developer Portal on step 6. You can then save and close the file.
-9. Open a new tab on your web browser, and start typing the following line in the address bar _without validating it just yet_: `https://discordapp.com/oauth2/authorize?client_id=%REPLACE-THIS%&scope=bot&permissions=8`
-10. Go back to the developer portal, and in the sidebar, click on "**General Information**".
-11. Locate the line called **Application ID** and click on the "**Copy**" button right under it.
+7. Open `.env`, and at **line 9**, after `DISCORD_TOKEN=`, paste (without any space) the token you copied in the Developer Portal on step 6. You can then save and close the file.
+8. Open a new tab on your web browser, and start typing the following line in the address bar _without validating it just yet_: `https://discordapp.com/oauth2/authorize?client_id=%REPLACE-THIS%&scope=bot&permissions=8`
+9. Go back to the developer portal, and in the sidebar, click on "**General Information**".
+10. Locate the line called **Application ID** and click on the "**Copy**" button right under it.
 
 ![Discord Developer Portal - Copy Application ID](./docs/readme-discord-02.jpg)
 
-12. In your other tab, in the address bar, replace `%REPLACE-THIS%` with the application ID you just copied, then press the 'Enter' key.
-13. In this page, select the server the bot must join, then click on "**Continue**":
+11. In your other tab, in the address bar, replace `%REPLACE-THIS%` with the application ID you just copied, then press the 'Enter' key.
+12. In this page, select the server the bot must join, then click on "**Continue**":
 
 ![Discord Developer Portal - Add bot to server](./docs/readme-discord-07.jpg)
 
-14. You can close this tab and the Developer Portal now.
+13. You can close this tab and the Developer Portal now.
 
 _I swear we're only a few more steps away from being done, don't give up now!_
 
-15. Go to your Discord app, and go to your settings (the ⚙️ icon right to your username in the bottom left of the window); scroll in the left sidebar until "Advanced", then click on it.
-16. In the Advanced part, make sure to check the switch for "Developer mode", save your change and close the settings.
+14. Go to your Discord app, and go to your settings (the ⚙️ icon right to your username in the bottom left of the window); scroll in the left sidebar until "Advanced", then click on it.
+15. In the Advanced part, make sure to check the switch for "Developer mode", save your change and close the settings.
 
 ![Discord App - Enable developer mode](./docs/readme-discord-08.jpg)
 
-17. Now right-click on the server into which you added your bot, and click on "**Copy ID**".
+16. Now right-click on the server into which you added your bot, and click on "**Copy ID**".
 
 ![Discord App - Copy server ID](./docs/readme-discord-09.jpg)
 
-18. In your `.env` file, on **line 10**, after `DISCORD_GUILD=`, paste this ID (without any space). You can then save and close the file.
+17. In your `.env` file, on **line 10**, after `DISCORD_GUILD=`, paste this ID (without any space). You can then save and close the file.
 
 **That's it for Discord, yay!**
 
