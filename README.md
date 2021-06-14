@@ -1,7 +1,7 @@
 
 <h1 align="center">Halo Stream Overlay with Discord & Twitch integration</h1>
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.2-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/node-%3E%3D12.19.0-blue.svg" />
   <img src="https://img.shields.io/badge/yarn-%3E%3D1.22.5-blue.svg" />
   <a href="https://choosealicense.com/licenses/gpl-3.0/" target="_blank">
@@ -49,6 +49,7 @@ A webapp providing Halo-themed overlays you can add as browser sources in OBS. I
 ## Disclaimer <a name="disclaimer"></a>
 - Because of how Twitch works, if you want to get the Last Follower in real-time, you must host this app on a server. If you don't care about this, you can run it locally (see below).  
 - This webapp runs on NodeJS, so if you plan on running it locally, you will need to install it: [download](https://nodejs.org/en/).
+- With NodeJS, you will need Yarn which is a package manager: [download](https://classic.yarnpkg.com/en/docs/install/)
 - While you can get the sources directly from the [Releases](https://github.com/Halocrea/halocrea-stream-overlay/releases) page, we would recommend you to use [Git](https://git-scm.com/downloads) instead. This way, it will be easier to update the project whenever we release a new version (let's say when Infinite comes out for example 😜 ).
 
 This may all sound scary if you're not familiar with development, but don't worry, we'll guide you step by step, with screenshots and everything!
