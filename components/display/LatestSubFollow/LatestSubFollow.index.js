@@ -10,9 +10,10 @@ export default {
 
 	data () {
 		return {
-			loaded    : false,
-			prevSub   : '',
-			prevFollow: ''
+			followerItvl: '',
+			loaded      : false,
+			prevSub     : '',
+			prevFollow  : ''
 		}
 	},
 
@@ -49,10 +50,13 @@ export default {
 		if (this.latestFollower && this.latestSubscriber)
 			this.loaded = true
 
+		this.initLatestFollowSubItvl()
 		this.$root.$on('end-alert', this.updateSubFollow)
 	},
 
 	beforeDestroy () {
+		if (this.followerItvl)
+			clearInterval(this.followerItvl)
 		this.$root.$off('end-alert', this.updateSubFollow)
 	},
 
@@ -67,6 +71,24 @@ export default {
 			}
 
 			setTimeout(() => el.querySelectorAll('i').forEach(c => c.parentNode.removeChild(c)), 5000)
+		},
+
+		initLatestFollowSubItvl () {
+			// this interval is to still get the latest follower in almost real-time even if webhooks are not set
+			// and also a fallback for latest subscriber
+			this.followerItvl = setInterval(async () => {
+				try {
+					const { data } = await this.$axios.get('/api/public-twitch/latest-follow-sub')
+					if (data.follower && data.follower.display_name !== this.latestFollower.display_name) {
+						this.$store.commit('twitch/setLatestFollower', data.follower)
+						this.$root.$emit('twitchNewFollower', { follower: data.follower })
+					}
+					if (data.subscriber && data.subscriber.display_name !== this.latestSubscriber.display_name) {
+						this.$store.commit('twitch/setLatestSubscriber', data.subscriber)
+						this.$root.$emit('twitchSubAlert', { subscriber: data.subscriber })
+					}
+				} catch (e) {}
+			}, 12500)
 		},
 
 		updateSubFollow () {

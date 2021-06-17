@@ -37,7 +37,7 @@ export default {
 
 	created () {
 		if (this.canUseTwitch && this.useTwitchFeatures)
-			this.$axios.get('/api/private-twitch/webhooks')
+			this.$axios.get('/api/private-twitch/webhooks').catch(() => {})
 	},
 
 	computed: {

@@ -88,7 +88,7 @@ export default {
 
 						const alert = {
 							cinemascope: false,
-							color
+							color      : color || '#177de9'
 						}
 						const { msgs, gifs, snds } = this.useDataByType('subAlerts')
 						if (msgs && msgs.length > 0)
@@ -229,9 +229,10 @@ export default {
 	},
 
 	beforeUnmount () {
-		this.eventHandlers.forEach(({ event, handler }) =>
+		this.eventHandlers.forEach(({ event, handler }) => {
 			this.$root.mainSocket.off(event, handler)
-		)
+			this.$root.$off(event, handler)
+		})
 	},
 
 	methods: {
@@ -245,9 +246,10 @@ export default {
 		},
 
 		onTwitchAlert () {
-			this.eventHandlers.forEach(({ event, handler }) =>
+			this.eventHandlers.forEach(({ event, handler }) => {
 				this.$root.mainSocket.on(event, handler)
-			)
+				this.$root.$on(event, handler)
+			})
 		},
 
 		useDataByType (type) {
