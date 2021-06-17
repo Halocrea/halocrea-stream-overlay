@@ -189,6 +189,10 @@ Also (if you're running it locally), you'll have access to it through your web b
   - **width:** 1920
   - **height:** 1080
 
+Also, make sure to check the two following options in the source's properties:
+
+![OBS properties to enable](./docs/readme-obs-01.png)
+
 ---
 ## 4. (Optional) Updating the project <a name="update"></a>
 
