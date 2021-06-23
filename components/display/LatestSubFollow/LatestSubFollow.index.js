@@ -11,7 +11,6 @@ export default {
 	data () {
 		return {
 			followerItvl: '',
-			loaded      : false,
 			prevSub     : '',
 			prevFollow  : ''
 		}
@@ -32,24 +31,15 @@ export default {
 
 	watch: {
 		latestFollower (val, oldVal) {
-			if (val && this.latestSubscriber)
-				this.loaded = true
-
 			this.prevFollow = oldVal
 		},
 
 		latestSubscriber (val, oldVal) {
-			if (val && this.latestFollower)
-				this.loaded = true
-
 			this.prevSub = oldVal
 		}
 	},
 
 	mounted () {
-		if (this.latestFollower && this.latestSubscriber)
-			this.loaded = true
-
 		this.initLatestFollowSubItvl()
 		this.$root.$on('end-alert', this.updateSubFollow)
 	},

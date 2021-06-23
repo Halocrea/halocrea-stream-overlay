@@ -4,7 +4,7 @@
 			:name="`u-transition--${transitionDirection}`"
 			mode="out-in"
 		>
-			<div v-show="loaded" class="c-latest-sub-follow__inner">
+			<div class="c-latest-sub-follow__inner">
 				<flex
 					v-if="showLatestSub"
 					:ref="'lastSub'"
