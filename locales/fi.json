@@ -1,0 +1,181 @@
+{
+	"components": {
+		"admin": {
+			"discord": {
+				"channelSelect": {
+					"error": "Ilmeni virhe. Varmista, että botilla on tarpeeksi oikeuksia nähdä kanavat ja liittyä niihin.",
+					"filter": "Näytä ainoastaan ei-tyhjät kanavat", 
+					"leave" : "Poistu kanavasta",
+					"selectAChan": "Valitse kanava"
+				},
+				"chatTitle": {
+					"name": "Puhelun nimi"
+				}
+			},
+			"overlay": {
+				"overlayList": {
+					"endAnnotation": "Huom: voit pakottaa tietyn teeman OBS linkkiin lisäämällä <code>?force=%key%</code> linkin perrään, esim. <code>{url}/overlay?force={selected}</code>",
+					"infiniteSoon": "Halo Infinite (pian!)",
+					"menuNeutral": "Menu/Neutraali"
+				}
+			},
+			"socialNetworks": {
+				"add": "Add",
+				"choose": "Valitse",
+				"remove": "Poista",
+				"update": "Päivitä",
+				"value": "Arvo"
+			},
+			"twitch": {
+				"alertDetails": {
+					"alertGifs": {
+						"error": "Tiedosto on liian suuri",
+						"upload": "Lataa gif (max. 20Mt)"
+					},
+					"alertMessages": {
+						"add": "Lisää viesti"
+					},
+					"alertSounds": {
+						"error": "Tiedosto on liian suuri",
+						"upload": "Lataa mp3 (max. 20Mt)"
+					},
+					"gifs": "Gifit",
+					"messages": "Viestit",
+					"sounds": "Äänet (mp3)"
+				},
+				"confirmDisableTwitch": {
+					"description": "Haluatko varmasti poistaa käytöstä kaikki Twitchiin liittyvät ominaisuudet, esim. ilmoitukset sekä myös \"viimeisin seuraaja\" ja \"viimeisin tilaaja\"?",
+					"disable": "Poista käytöstä",
+					"error": "Ilmeni virhe :( Koita uudestaan myöhemmin, tai ota meihin yhteyttä.",
+					"title": "Poista Twitch ominaisuudet käytöstä"
+				},
+				"confirmEnableTwitch": {
+					"confirm": "Varmista",
+					"description": "Hyötyäksesi Twitch ominaisuuksista, sinun on annettava sovellukselle oikeus tarkistella tiettyjä ominaisuuksia Twitch tililtäsi (tilaajat, seuraajat).",
+					"error": "Ilmeni virhe :( Koita uudestaan myöhemmin, tai ota meihin yhteyttä.",
+					"notice": "<strong>Tärkeää: </strong> Varmista, että määrität tämän sovelluksen käyttämään samaa sähköpostitiliä, kuin Twitch tilisi.",
+					"title": "Ota Twitch ominaisuudet käyttöön"
+				}
+			},
+			"userDisplayConfig": {
+				"latestFollow": "Viimeisin seuraaja",
+				"latestSub": "Viimeisin tilaaja",
+				"twitchAlerts": "Twitch ilmoitukset",
+				"voiceChat": "Puhelu"
+			},
+			"waitingScreensMessage": {
+				"add": "Lisää",
+				"message": "Viesti",
+				"remove": "Poista",
+				"update": "Päivitä"
+			},
+			"waitingScreensTabs": {
+				"copyUrl": "Kopioi {category}n URL OBS:ää varten"
+			}
+		},
+		"display": {
+			"latestSubFollow": {
+				"latestFollower": "Viimeisin seuraaja",
+				"latestSub": "Viimeisin tilaaja"
+			}
+		},
+		"layout": {
+			"adminTopBar": {
+				"copyOverlayUrl": "Kopioi overlayn URL OBS:ää varten"
+			},
+			"footer": {
+				"madeBy": "Tehty ❤️:lla, Halo Création"
+			}
+		},
+		"twitch": {
+			"twitchLoginBtn": {
+				"authorize": "Valtuuta Twitchiin pääsy",
+				"missingConfig": "Projektista uupuu joitain asetuksia (Twitch Client ID ja/tai Client Secret), joten se ei saa yhteyttä Twitchiin."
+			},
+			"twitchTokenVerifier": {
+				"back": "Takaisin kotisivulle",
+				"error": "Ilmeni virhe",
+				"loading": "Lataa"
+			}
+		},
+		"user": {
+			"login": {
+				"emailAddress": "Sähköpostiosoite",
+				"login": "Kirjaudu sisään",
+				"loginRequired": "Kirjautuminen vaaditaan",
+				"password": "Password"
+			},
+			"userInfo": {
+				"goToChannel": "Siirry kanavalle",
+				"logout": "Kirjaudu ulos",
+				"plzHelp": "Plz auta"
+			}
+		}
+	},
+	"defaults": {
+		"alerts": {
+			"bits": "Kiitos {{bits}}bitistä, {{username}}!",
+			"follow": "Kiitos seuraamisesta, {{username}}!",
+			"host": "{{username}} jakaa meitä, WOW!",
+			"raid": "{{username}} raidaa meidät! Tervetuloa raidaajat!",
+			"resub": "Kiitos jatkotilauksesta, {{username}}!",
+			"sub": "Kiitos tilauksesta, {{username}}!",
+			"subgift": "{{sender}} lahjoitti tilauksen käyttäjälle {{recipient}}!"
+		},
+		"intro": "Striimi alkaa pian!",
+		"interlude": "Tulen pian takaisin!",
+		"outro": "Kiitos katsomisesta!"
+	},
+	"layouts": {
+		"admin": {
+			"error": "Jotain on pielessä: näyttää siltä, että sinun on oikeutettava sovellus tarkastelemaan tiettyjä Twitchin ominaisuuksia, mutta silti jokin asetus (Twitch Client ID ja/tai Client Secret) uupuu.",
+			"reauthenticateTwitch": "Hups, meidän täytyy (uudelleen)valtuuttaa sovellus Twitchissä"
+		}
+	},
+	"pages": {
+		"admin": {
+			"alerts": {
+				"back": "Takaisin",
+				"description": "Voit asettaa kullekkin ilmoitustyypille useampia mukautettuja viestejä, gifejä ja ääniä, jotka esitetään satunnaisesti:",
+				"title": "Ilmoitusten määrittäminen"
+			}
+		},
+		"index": {
+			"discordCurrent": "Tällä hetkellä kanavassa: ",
+			"discordDescription": "Valitse puhelu Discord botille:",
+			"discordDisabled": "Sinun täytyy kytkeä päälle \"puhelu\" asetus ottaaksesi tämän ominaisuuden käyttöön.",
+			"discordTitle": "Discord",
+			"overlayThemeDescription": "Valitse widgettien tyyli overlayllesi:",
+			"overlayThemeTitle": "Overlayn teema",
+			"socialLinksDescription": "Voit määtitellä jopa 4 sosiaalista linkkiä, jotka esitetään mukavasti overlayssa.",
+			"socialLinksTitle": "Sosiaaliset linkit",
+			"twitchConfigure": "Määritä ilmoitukset",
+			"twitchDescription": "Voit valita, mitä ilmoituksia haluat saada ja määrittää ne!",
+			"twitchDisable": "Poista käytöstä",
+			"twitchEnableButton": "Ota käyttöön Twitch ominaisuudet",
+			"twitchEnableText": "Näytä viimeisin seuraajasi sekä tilaajasi ja saa Halo-teemaisia ilmoituksia striimiisi!",
+			"twitchMissingConfig": "Projektsista puuttuu joitain asetuksia salliakseen tämän.",
+			"twitchTitle": "Twitch",
+			"waitingScreensDescription": "Huomioi, että toisin kuin muut ominaisuudet, jokaisella \"odotusruudulla\" on oma lähde URL.",
+			"waitingScreensTitle": "Odotusruudut"
+		},
+		"oauth2Return": {
+			"error": "Todentaminen Twitchiin ei onnistunut",
+			"login": "Kirjaudu sisään",
+			"password": "Salasana"
+		}
+	},
+	"store": {
+		"twitch": {
+			"keyLabels": {
+				"bitsAlerts": "Bitti lahjoitus",
+				"followAlerts": "Uusi seuraaja",
+				"hostAlerts": "Jakaminen",
+				"raidAlerts": "Raidi",
+				"resubAlerts": "Tilauksen uusiminen",
+				"subAlerts": "Uusi tilaaja",
+				"subgiftAlerts": "Lahjoitettu tilaus"
+			}
+		}
+	}
+}

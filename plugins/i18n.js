@@ -13,6 +13,7 @@ export default ({ app }) => {
 		fallbackLocale: 'en',
 		messages: {
 			en: require('~/locales/en.json'),
+			fi: require('~/locales/fi.json'),
 			fr: require('~/locales/fr.json')
 		}
 	})
