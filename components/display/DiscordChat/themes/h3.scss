@@ -1,7 +1,7 @@
 .c-discord-chat--h3 {
-	top        : calc(50% - 32.5rem);
-	left       : 8.2rem;
-	transform  : skew(0, 5deg) scale(1.15);
+	top        : calc(50% - 30.5rem);
+	left       : 14.2rem;
+	transform  : skew(0, 4.75deg) scale(1.15);
 
 	.c-discord-chat {
 		&__avatar-placeholder {
@@ -27,7 +27,7 @@
 			margin-right    : .5rem;
 			padding-top     : .3rem;
 			padding-bottom  : .3rem;
-			opacity         : .8;
+			opacity         : 1;
 			background-color: rgba(0, 0, 0, .25) !important;
 			clip-path       : polygon(.6rem 0, 100% 0, 100% calc(100% - .6rem), calc(100% - .6rem) 100%, 0 100%, 0 .6rem);
 			box-shadow      : 0 0 .2rem .2rem rgba(255, 255, 255, .15) inset,
@@ -73,6 +73,12 @@
 		&__member {
 			position: relative;
 			width   : calc(100% - 5.8rem);
+			box-shadow: 0 0 .2rem .2rem rgba(255, 255, 255, .15) inset;
+
+			&::before,
+			&::after {
+				border-color: transparent;
+			}
 
 			&-name {
 				background-color: transparent !important;
@@ -82,13 +88,12 @@
 
 			&--active {
 				opacity   : 1;
-				box-shadow: 0 0 0 .1rem rgba(255, 255, 255, 1) inset;
+				box-shadow: 0 0 .2rem .2rem rgba(255, 255, 255, .15) inset,
+							0 0 0 .1rem rgba(165, 213, 255, 1) inset;
 
 				&::before,
 				&::after {
-					border-color: #fff;
-				}
-				&::after {
+					border-color: #a5d5ff;
 					opacity: 1;
 				}
 

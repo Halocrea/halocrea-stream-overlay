@@ -68,7 +68,9 @@ export default {
 			// and also a fallback for latest subscriber
 			this.followerItvl = setInterval(async () => {
 				try {
-					const { data } = await this.$axios.get('/api/public-twitch/latest-follow-sub')
+					const { data } = await this.$axios.get('/api/public-twitch/latest-follow-sub', {
+						progress: false
+					})
 					if (data.follower && data.follower.display_name !== this.latestFollower.display_name) {
 						this.$store.commit('twitch/setLatestFollower', data.follower)
 						this.$root.$emit('twitchNewFollower', { follower: data.follower })

@@ -1,7 +1,7 @@
 .c-discord-chat--odst {
-	top      : 3.6rem;
-	left     : 4.2rem;
-	transform: skew(0, 5deg) scale(1.15);
+	top      : 28.6rem;
+	left     : 24.2rem;
+	transform: skew(0, 6.5deg) scale(1.15);
 
 	.c-discord-chat {
 		&__avatar-placeholder {
@@ -40,7 +40,7 @@
 				position: absolute;
 				width   : .8rem;
 				height  : 0;
-				border-top: .2rem solid #d8c794;
+				border-top: .2rem solid #ceb266;
 				transform : rotate(-45deg);
 			}
 
@@ -57,9 +57,17 @@
 			}
 		}
 
+		&__member {
+			box-shadow: 0 0 .2rem .2rem rgba(255, 255, 255, .15) inset;
+			&::before,
+			&::after {
+				border-color: transparent;
+			}
+		}
+
 		&__count,
 		&__title {
-			color         : #d8c794;
+			color         : #dac079;
 			text-transform: uppercase;
 			opacity       : 1;
 		}
@@ -76,19 +84,18 @@
 
 			&-name {
 				background-color: transparent !important;
-				color           : #d8c794 !important;
+				color           : #ceb266 !important;
 				font-size       : 1.4rem;
 			}
 
 			&--active {
 				opacity   : 1;
-				box-shadow: 0 0 0 .1rem rgba(255, 255, 255, 1) inset;
+				box-shadow: 0 0 .2rem .2rem rgba(255, 255, 255, .15) inset,
+							0 0 0 .1rem rgba(216, 199, 148, 1) inset;
 
 				&::before,
 				&::after {
-					border-color: #fff;
-				}
-				&::after {
+					border-color: rgba(216, 199, 148, 1);
 					opacity: 1;
 				}
 
