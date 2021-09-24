@@ -14,11 +14,6 @@
 				{{ v.name }}
 			</div>
 		</btn>
-		<btn disabled="disabled">
-			<div class="u-px-md u-py-sm">
-				<i>{{ $t('components.admin.overlay.overlayList.infiniteSoon') }}</i>
-			</div>
-		</btn>
 		<!-- eslint-disable -->
 		<p
 			class="c-overlay-list__end-annotation u-my-md"
@@ -47,7 +42,8 @@ export default {
 				{ key : 'h3', name: 'Halo 3' },
 				{ key : 'odst', name: 'Halo 3: ODST' },
 				{ key : 'reach', name: 'Halo: Reach' },
-				{ key : 'h5', name: 'Halo 5 Guardians' }
+				{ key : 'h5', name: 'Halo 5 Guardians' },
+				{ key : 'infinite', name: 'Halo Infinite (NEW!)' }
 			]
 		}
 	},

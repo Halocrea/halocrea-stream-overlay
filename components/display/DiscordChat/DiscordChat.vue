@@ -63,7 +63,7 @@
 				class="c-discord-chat__member-name u-flex__item-fluid"
 				:style="`background-color: #${backgroundColor(m.color)}; color: ${textColor(m.color)}`"
 			>
-				{{ m.displayName }}
+				<span>{{ m.displayName }}</span>
 			</div>
 		</flex>
 	</div>
@@ -80,3 +80,4 @@
 <style lang="scss" src="./themes/odst.scss"></style>
 <style lang="scss" src="./themes/reach.scss"></style>
 <style lang="scss" src="./themes/h5.scss"></style>
+<style lang="scss" src="./themes/infinite.scss"></style>

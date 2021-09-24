@@ -16,11 +16,14 @@
 				:style="`background-color: ${getColorByKey(link.key)}`"
 			>
 				<svg-icon
+					v-if="!['infinite'].includes(theme)"
 					:name="link.key"
 					class="o-icon"
 				/>
+				<img v-else :src="`/social-networks/${link.key}.png`" />
 			</flex>
-			{{ link.value }}
+			<span>{{ ['infinite'].includes(theme) ? `${link.key}.com` : '' }}{{ link.value }}</span
+			>
 		</flex>
 	</flex>
 </template>
@@ -31,7 +34,7 @@ import { mapGetters } from 'vuex'
 export default {
 	props: {
 		theme: {
-			type    : String,
+			type: String,
 			required: true
 		}
 	},
@@ -63,14 +66,20 @@ export default {
 
 	mounted () {
 		setInterval(() => {
-			if (!this.$refs.networks || !this.$refs.networks.$el)
-				return
+			if (!this.$refs.networks || !this.$refs.networks.$el) return
 
 			this.lastBounceIdx =
-				this.lastBounceIdx + 1 >= this.socialNetworks.length ? 0 : ++this.lastBounceIdx
-			const el = this.$refs.networks.$el.querySelectorAll('.c-social-links__link')[this.lastBounceIdx]
+				this.lastBounceIdx + 1 >= this.socialNetworks.length
+					? 0
+					: ++this.lastBounceIdx
+			const el = this.$refs.networks.$el.querySelectorAll(
+				'.c-social-links__link'
+			)[this.lastBounceIdx]
 			el.classList.add('c-social-links__link--bouncing')
-			setTimeout(() => el.classList.remove('c-social-links__link--bouncing'), 3000)
+			setTimeout(
+				() => el.classList.remove('c-social-links__link--bouncing'),
+				3000
+			)
 		}, 60000)
 	},
 

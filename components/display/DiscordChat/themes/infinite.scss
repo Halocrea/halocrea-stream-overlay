@@ -1,0 +1,217 @@
+.c-discord-chat--infinite {
+  top        : 0;
+  left       : 0;
+	padding    : 2.4rem 2.4rem 0 2.4rem;
+	font-family: 'Ropa Sans', sans-serif;
+	color      : #b8dafb;
+	transform  : skew(0, 1.5deg);
+
+  &::before {
+    content      : "";
+    position     : absolute;
+    top          : 7rem;
+    left         : 2.1rem;
+    width        : .7rem;
+    height       : .7rem;
+    border-radius: .4rem;
+    border       : .1rem solid #b8dafb;
+    box-shadow   : 0 0 8rem 1.2rem #405471, .1rem .1rem .1rem 0 rgba(255, 0, 0, .33);
+  }
+
+  &::after {
+    content   : "";
+    position  : absolute;
+    top       : 7.7rem;
+    left      : 2.4rem;
+    width     : .1rem;
+    height    : 90%;
+    background: linear-gradient(to bottom, #b8dafb 20%, transparent 100%);
+    box-shadow: 0 0 8rem 1.2rem #405471, .1rem .1rem .1rem 0 rgba(255, 0, 0, .15);
+    opacity   : .8;
+  }
+
+  .c-discord-chat {
+    &__avatar-placeholder {
+      z-index: 2;
+    }
+
+    &__header {
+      position: relative;
+      margin-bottom: .2rem;
+      font-size: 2.4rem;
+      text-transform: uppercase;
+      letter-spacing: .1rem;
+      text-shadow: -.3rem -.3rem .1rem rgba(184, 218, 251, .25), .1rem .1rem .1rem rgba(255, 0, 0, .33);
+
+      &::before {
+        content         : "";
+        position        : absolute;
+        bottom          : 1rem;
+        left            : .4rem;
+        width           : calc(100% + 2.4rem);
+        height          : .1rem;
+        background-color: #b8dafb;
+        box-shadow      : 0 0 8rem 1.2rem #405471, .1rem .1rem .1rem 0 rgba(255, 0, 0, .33);
+      }
+
+      &::after {
+        content         : "";
+        position        : absolute;
+        bottom          : .75rem;
+        right           : -3.1rem;
+        width           : .5rem;
+        height          : .5rem;
+        background-color: #b8dafb;
+        border-radius   : .25rem;
+        box-shadow      : 0 0 8rem 1.2rem #405471, .1rem .1rem .1rem 0 rgba(255, 0, 0, .33);
+      }
+
+      .c-discord-chat__count > svg {
+        display: none;
+      }
+    }
+
+    &__member {
+      position        : relative;
+      margin          : 0 0 .6rem 1.2rem;
+      padding         : .6rem;
+      color           : #b8dafb !important;
+      background-color: rgba(36, 44, 55, .75) !important;
+      box-shadow      : 0 .4rem .4rem 0 rgba(255, 255, 255, .15) inset,
+                        0 -.4rem .4rem 0 rgba(255, 255, 255, .15) inset,
+                        0 0 8rem 1.2rem rgba(64, 84, 113, .33),
+                        .1rem .1rem .1rem 0 rgba(255, 0, 0, .15);
+
+      &::before,
+      &::after {
+        content     : "";
+        position    : absolute;
+        left        : 0;
+        width       : 100%;
+        height      : .3rem;
+        border-left : .1rem solid rgba(184, 218, 251, .5);
+        border-right: .1rem solid rgba(184, 218, 251, .5);
+        transition  : border .15s linear;
+      }
+
+      &::before {
+        top: 0;
+        border-top: .1rem solid rgba(184, 218, 251, .5);
+      }
+
+      &--active {
+        &::before { border-top-color: #fff; }
+        &::after { border-bottom-color: #fff !important; }
+
+        .c-discord-chat__member {
+          &-name {
+            color: #fff !important;
+
+            &::before {
+              border-left-color: #fff;
+              border-right-color: #fff;
+            }
+
+            &::after {
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      &::after,
+      &--active::after {
+        top          : calc(100% - .3rem);
+        border-bottom: .1rem solid rgba(184, 218, 251, .5);
+        opacity      : 1;
+      }
+
+      &-before {
+        position     : absolute;
+        top          : -.3rem;
+        left         : -.3rem;
+        display      : block;
+        width        : 100%;
+        height       : 100%;
+        border-top   : 1px solid rgba(255, 255, 255, .15) !important;
+        border-left  : 1px solid rgba(255, 255, 255, .15) !important;
+        border-right : unset !important;
+        border-bottom: unset !important;
+        box-shadow   : unset !important;
+        z-index      : 0;
+      }
+
+      &-name {
+        padding-left    : 1.2rem;
+        padding-right   : 1.2rem;
+        overflow        : visible;
+        background-color: transparent !important;
+        color           : #b8dafb !important;
+        transition      : color .15s linear;
+        text-shadow     : -.1rem -.1rem .1rem rgba(184, 218, 251, .25),
+                          .1rem .1rem .1rem rgba(255, 0, 0, .33);
+
+        &::before {
+          content     : "";
+          position    : absolute;
+          top         : .1rem;
+          left        : -3.8rem;
+          width       : calc(100% + 4.4rem);
+          height      : calc(100% - .2rem);
+          border-left : .1rem solid rgba(184, 218, 251, .15);
+          border-right: .1rem solid rgba(184, 218, 251, .15);
+        }
+
+        &::after {
+          content   : "";
+          position  : absolute;
+          top       : -.9rem;
+          left      : -3.8rem;
+          z-index   : 0;
+          width     : calc(100% + 4.4rem);
+          height    : calc(100% + 1.8rem);
+          background: linear-gradient(to top, rgba(184, 218, 251, .5) 0%, transparent 100%);
+          opacity   : 0;
+          transition: opacity .15s linear;
+        }
+
+        & >  span {
+          position: relative;
+          z-index : 1;
+        }
+      }
+    }
+
+    &__title {
+      position: relative;
+      display : inline-block;
+      margin  : 1.2rem 2.4rem;
+
+      &::before {
+        content         : "";
+        position        : absolute;
+        bottom          : -.3rem;
+        left            : 0;
+        width           : 100%;
+        height          : .3rem;
+        background-color: #b8dafb;
+        box-shadow      : 0 0 8rem 1.2rem #405471, .1rem .1rem .1rem 0 rgba(255, 0, 0, .33);
+      }
+
+      &::after {
+        content         : "";
+        position        : absolute;
+        bottom          : -.15rem;
+        right           : calc(100% + 2.7rem);
+        width           : 100%;
+        height          : .1rem;
+        background-color: #b8dafb;
+        box-shadow      : 0 0 8rem 1.2rem #405471, .1rem .1rem .1rem 0 rgba(255, 0, 0, .33);
+      }
+    }
+  }
+}
+
+.c-discord-chat.infinite #members-list {
+	transform: translateY(-1rem);
+}
