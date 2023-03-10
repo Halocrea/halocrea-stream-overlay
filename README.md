@@ -149,7 +149,7 @@ Start by opening a terminal (command prompt) and follow these steps:
 ```bash
 # If you use Git, start by cloning the project
 # If you downloaded the source code directly, simply open a terminal at the root of the project and skip the next 2 lines
-git clone TBD
+git clone git@github.com:Halocrea/halocrea-stream-overlay.git
 cd halocrea-twitch-discord-overlay
 ``` 
 
